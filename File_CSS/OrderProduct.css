@@ -1,0 +1,16 @@
+.addToBag{
+	width: 100%;
+	float: left;
+}
+.leftBag{
+	width: 70%;
+	float: left;
+	height: 500px;
+}
+.rightBag{
+	width: 30%;
+	float: left;
+}
+#review{
+	float: left;
+}
