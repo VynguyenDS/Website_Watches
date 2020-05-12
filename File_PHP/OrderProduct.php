@@ -21,16 +21,15 @@
     <style>
 * {box-sizing: border-box}
 
-.container {
+.bar {
   width: 100%;
   background-color: #ddd;
-  height: 60px;
+ 
 }
 
 .skills {
   text-align: right;
-  padding-top: 5px;
-  padding-bottom: 5px;
+
   color: white;
 }
 
@@ -93,34 +92,40 @@
                           <span class="fa fa-star"></span>
                     </span>
                     <span>21 người Reviews</span><br>
-                    <button style="background-color: rgb(11,123,193);">Ghi Reviews</button>
+                    <button style="background-color: rgb(11,123,193);color: white;">Viết Reviews</button>
 
             </div>
             <div class="col-md-4" style="text-align: center;">
-                <h2  ><span style="background-color: rgb(10,137,0);padding: 5px 30px;"> 81%</span></h2>
+                <h2  ><span style="background-color: rgb(10,137,0);padding: 5px 30px;color: white;"> 81%</span></h2>
                 <p>trong số những người được hỏi muốn giới thiệu điều này cho bạn bè</p>
             </div>
             <div class="col-md-4">
-    
-<span>HTML</span>
-<div class="container">
-  <div class="skills html">90%</div>
-</div>
+                    <span>5 Sao</span>
+                    <div class="bar">
+                      <div class="skills html">90%</div>
 
-<span>CSS</span>
-<div class="container">
-  <div class="skills css">80%</div>
-</div>
+                    </div>
 
-<span>JavaScrispant</span>
-<div class="container">
-  <div class="skills js">65%</div>
-</div>
 
-<span>spanHspan</span>
-<div class="container">
-  <div class="skills spanhp">60%</div>
-</div>
+                    <span>4 Sao</span>
+                    <div class="bar">
+                      <div class="skills css">80%</div>
+                    </div>
+
+                    <span>3 Sao</span>
+                    <div class="bar">
+                      <div class="skills js">65%</div>
+                    </div>
+
+
+                    <span>2 Sao</span>
+                    <div class="bar">
+                      <div class="skills spanhp">60%</div>
+                    </div>
+                    <span>1 Sao</span>
+                    <div class="bar">
+                      <div class="skills spanhp">60%</div>
+                    </div>
             </div>
         </div>
         <hr>
