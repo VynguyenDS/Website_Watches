@@ -13,7 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../File_CSS/Advertisement1.css">
     <link rel="stylesheet" type="text/css" href="../File_CSS/Advertisement2.css">
     <link rel="stylesheet" type="text/css" href="../File_CSS/women.css">
-    
+    <link rel="stylesheet" type="text/css" href="../File_CSS/menu_bar.css">
+    <link rel="stylesheet" type="text/css" href="../File_CSS/Login.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css">
     <title>Đồng hồ nữ</title>
   </head>
@@ -24,7 +25,7 @@
     <?php include 'PartOfWeb/menu_bar.php'?>
     
 
-    <div class="container-fluid" style="background-color: rgb(240,240,240);float: left;">
+    <div class="container-fluid segment3" style="background-color: rgb(240,240,240);float: left;">
     	<div class="container">
         <div class="row">
             <div class="col-md-12" style="text-align: center;">

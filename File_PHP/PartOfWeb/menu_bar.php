@@ -1,3 +1,4 @@
+     <link rel="stylesheet" type="text/css" href="../File_CSS/menubar.css">
     <div class="menu_bar container-fluid">
         <div class="Logo"><a class="section" href="#home"><h5><b>HƯNG BA</b></h5></a></div>
             <div class="right_menubar">
@@ -228,7 +229,7 @@
               </div>
             </div>
               <div class="subnav">
-              <button class="subnavbtn">GIẢM GIÁ</button>
+              <button class="subnavbtn d-none d-lg-block">GIẢM GIÁ</button>
               <div class="subnav-content">
                 <div class="left_content">  
                   <div id ="watches">

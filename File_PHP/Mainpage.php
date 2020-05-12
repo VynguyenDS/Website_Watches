@@ -121,40 +121,40 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="women.php">
                           <span><b>NỮ</b></span><span class="sr-only">(current)</span>
                     </a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="men.php">
                           <span><b>NAM</b></span>
                     </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="Mainpage.php">
                     <span><b>ĐỒNG HỒ</b></span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="Smart_watches.php">
                     <span ><b>ĐỒNG HỒ THÔNG MINH</b></span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="Glasses.php">
                     <span>
                       <b>KÍNH MẮT</b>
                     </span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="discount.php">
                     <span ><b>GIẢM GIÁ</b></span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="phukien.php">
                     <span ><b>PHỤ KIỆN</b></span>
                   </a>
                 </li>

@@ -4,7 +4,7 @@
    
   </head>
   <body>
-        <div class="header_bar container-fluid">
+    <div class="header_bar container-fluid">
       <div class="header_bar_left">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="padding-left: 20px;">
           <div class="carousel-inner">
@@ -47,10 +47,45 @@
                   </div>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#"><p>Tình trạng đặt hàng</p></a>
+              <a class="nav-link" href="rr.com"><p>Tình trạng đặt hàng</p></a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#"><p>Đăng nhập</p></a>
+              <a class="nav-link" href="#" onclick="document.getElementById('signin').style.display='block'"><p >Đăng nhập</p></a>
+              <div id="signin" class="modal">
+  
+                <form class="modal-content animate" action="/action_page.php" method="post">
+                      <div class="imgcontainer">
+                        <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
+                      </div>
+
+                      <div class="container">
+                        <label for="uname"><b>Tài khoản</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+
+                        <label for="psw"><b>Mật khẩu</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                          
+                        <button id="login" type="submit">Đăng nhập</button>
+                        <label>
+                          <input type="checkbox" checked="checked" name="remember"> Lưu tài khoản
+                            <span>
+                              <a  href="signup.php"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+                                Tạo tài khoản
+                              </a>
+                          </span>
+
+                        </label>
+                      </div>
+
+                      <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Kết thúc</button>
+                      
+                        <span class="psw">Quên <a href="#">Mật Khẩu?</a></span>
+                      </div>
+                    </form>
+            </div>
+
           </li>
           <li class="nav-item">
               <a class="nav-link disabled" href="#">
@@ -59,6 +94,7 @@
       </ul>
       </div>
     </div>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
