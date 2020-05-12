@@ -1,0 +1,372 @@
+
+
+body{
+  width: 100%;
+  height: auto;
+}
+.Covid_19{
+  background-color: rgb(244,244,244);
+  text-align: center;
+  padding: 50px;
+  font-size: 20px;
+}
+.Model_wearing_glasses{
+  background-image: url(../Image/Model/back_ground.jpg); 
+
+}
+
+
+@media screen and (min-width: 500px) {
+
+
+  .Signal_for_logo .row1-eyebrow{
+    width: 20%;
+    position: absolute;
+    bottom: -600px;
+    left: 100px;
+  }
+  .Signal_for_logo .btn-dark{
+    background-color: black;
+    border-radius: 30px;
+    font-size: 12px;
+    position: absolute;
+    bottom: -650px;
+    left:100px;
+  }
+  
+
+  .glasses_model{
+    width: 100%;
+  }
+  .glasses_model_left{
+    width: 50%;
+    padding-left: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left; 
+  }
+  .glasses_model_left img{
+    width :300px; 
+    height: 400px;
+  }
+  .glasses_model_right{
+    width: 50%;
+    float: left;
+
+  }
+  .glasses_model_right #Shop{
+    padding-left: 100px;
+    padding-top: 200px;
+  }
+  .glasses_model_right .shop_now{
+    font-size:15px;
+    border-radius: 30px;
+
+  }
+
+  .watches_ad{
+    width: 100%;
+    float: left;
+
+  }
+  .watches_ad .left_watches_ad{
+    width: 100%;
+    height: auto;
+    float: left;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding: 40px;
+  }
+  .watches_ad .left_watches_ad .carousel-item{
+    width: 28rem;
+
+  }
+
+}
+
+
+@media screen and (min-width: 750px) {
+  
+
+  .Signal_for_logo .row1-eyebrow{
+    width: 20%;
+    position: absolute;
+    bottom: -250px;
+    left: 120px;
+  }
+  .Signal_for_logo .btn-dark{
+    background-color: black;
+    border-radius: 30px;
+    font-size: 20px;
+    position: absolute;
+    bottom: -300px;
+    left:120px;
+  }
+  
+
+  .glasses_model{
+    width: 100%;
+  }
+  .glasses_model_left{
+    width: 50%;
+    padding-left: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left; 
+  }
+  .glasses_model_left img{
+    width :400px; 
+    height: 400px;
+  }
+  .glasses_model_right{
+    width: 50%;
+    float: left;
+
+  }
+  .glasses_model_right #Shop{
+    padding-left: 100px;
+    padding-top: 200px;
+  }
+  .glasses_model_right .shop_now{
+    font-size:15px;
+    border-radius: 30px;
+
+  }
+
+  .watches_ad{
+    width: 100%;
+    float: left;
+
+  }
+  .watches_ad .left_watches_ad{
+    width: 100%;
+    height: auto;
+    float: left;
+    text-align: center;
+  }
+  .watches_ad .left_watches_ad .carousel-item{
+    width: 45rem;
+
+  }
+
+
+}
+
+
+@media screen and (min-width: 1000px) {
+  
+
+  .Signal_for_logo .row1-eyebrow{
+    width: 20%;
+    position: absolute;
+    bottom: -300px;
+    left: 120px;
+  }
+  .Signal_for_logo .btn-dark{
+    background-color: black;
+    border-radius: 30px;
+    font-size: 20px;
+    position: absolute;
+    bottom: -370px;
+    left:140px;
+  }
+
+
+  .glasses_model{
+    width: 100%;
+  }
+  .glasses_model_left{
+    width: 50%;
+    padding-left: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left; 
+  }
+  .glasses_model_left img{
+    width :600px; 
+    height: 500px;
+  }
+
+  .glasses_model_right{
+    width: 50%;
+    float: left;
+
+  }
+  .glasses_model_right #Shop{
+    padding-left: 200px;
+    padding-top: 200px;
+  }
+  .glasses_model_right .shop_now{
+    font-size:20px;
+    border-radius: 30px;
+
+  }
+
+  .watches_ad{
+    width: 100%;
+    float: left;
+
+  }
+  .watches_ad .left_watches_ad{
+    width: 40%;
+    height: auto;
+    float: left;
+    text-align: center;
+  }
+  .watches_ad .left_watches_ad .carousel-item{
+    width: 23rem;
+
+  }
+  .right_watches_ad{
+    float: left;
+    width: 60%;
+    padding-left: 100px;
+  }
+  .right_watches_ad img{
+    width: 100%;
+    height: 600px;
+  }
+
+
+
+  
+
+}
+
+
+
+@media screen and (min-width: 1050px){
+  
+
+  .Signal_for_logo .row1-eyebrow{
+    width: 20%;
+    position: absolute;
+    bottom: -300px;
+    left: 120px;
+  }
+  .Signal_for_logo .btn-dark{
+    background-color: black;
+    border-radius: 30px;
+    font-size: 20px;
+    position: absolute;
+    bottom: -370px;
+    left:200px;
+  }
+
+
+  .glasses_model{
+    width: 100%;
+  }
+  .glasses_model_left{
+    width: 50%;
+    padding-left: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left; 
+  }
+  .glasses_model_left img{
+    width :600px; 
+    height: 500px;
+  }
+
+  .glasses_model_right{
+    width: 50%;
+    float: left;
+
+  }
+  .glasses_model_right #Shop{
+    padding-left: 200px;
+    padding-top: 200px;
+  }
+  .glasses_model_right .shop_now{
+    font-size:30px;
+    border-radius: 30px;
+
+  }
+
+    .watches_ad{
+    width: 100%;
+    float: left;
+
+  }
+  .watches_ad .left_watches_ad{
+    width: 40%;
+    height: auto;
+    float: left;
+    text-align: center;
+  }
+  .watches_ad .left_watches_ad .carousel-item{
+    width:25rem;
+
+  }
+  .right_watches_ad{
+    float: left;
+    width: 60%;
+
+  }
+  .right_watches_ad img{
+    width: 100%;
+    height: 600px;
+  }
+
+
+  
+
+
+
+}
+
+
+@media screen and (min-width: 1300px) {
+  .Signal_for_logo .row1-eyebrow{
+    width: 30%;
+    position: absolute;
+    bottom: -450px;
+    left: 120px;
+  }
+  .Signal_for_logo .btn-dark{
+    background-color: black;
+    border-radius: 30px;
+    font-size: 30px;
+    position: absolute;
+    bottom: -520px;
+    left:200px;
+  }
+
+  .glasses_model{
+    width: 100%;
+  }
+  .glasses_model_left{
+    width: 50%;
+    padding-left: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left; 
+  }
+  .glasses_model_left img{
+    width :750px; 
+    height: 500px;
+  }
+
+  .glasses_model_right{
+    width: 50%;
+    float: left;
+
+  }
+  .glasses_model_right #Shop{
+    padding-left: 200px;
+    padding-top: 200px;
+  }
+  .glasses_model_right .shop_now{
+    font-size:25px;
+    border-radius: 30px;
+
+  }
+  
+
+
+
+}
+
+
+
