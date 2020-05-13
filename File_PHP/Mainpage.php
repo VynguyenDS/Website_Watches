@@ -1,4 +1,8 @@
 <!doctype html>
+<?php
+require('../DataBase/database.php');
+session_start();
+mysqli_set_charset($conn,'utf8');?>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -66,10 +70,12 @@
               <a class="nav-link" href="rr.com"><p>Tình trạng đặt hàng</p></a>
           </li>
           <li class="nav-item">
+            <!-- phần login -->
+            
               <a class="nav-link" href="#" onclick="document.getElementById('signin').style.display='block'"><p >Đăng nhập</p></a>
               <div id="signin" class="modal">
-  
-                <form class="modal-content animate" action="/action_page.php" method="post">
+                <?php if(!isset($_SESSION["username"])){?>
+                <form class="modal-content animate" action="action_page.php" method="post">
                       <div class="imgcontainer">
                         <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
                         <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
@@ -82,7 +88,7 @@
                         <label for="psw"><b>Mật khẩu</b></label>
                         <input type="password" placeholder="Enter Password" name="psw" required>
                           
-                        <button id="login" type="submit">Đăng nhập</button>
+                        <button id="login" type="submit" name="login"  required>Đăng nhập</button>
                         <label>
                           <input type="checkbox" checked="checked" name="remember"> Lưu tài khoản
                             <span>
@@ -100,6 +106,14 @@
                         <span class="psw">Quên <a href="#">Mật Khẩu?</a></span>
                       </div>
                     </form>
+                  <?php }else{?> 
+                    <!-- sau khi login -->
+                    <div>
+                      <a class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><?=$_SESSION["username"]?></a>
+                    <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
+                      </div>
+                    <?php }?>
+                    <!--  -->
             </div>
 
           </li>
