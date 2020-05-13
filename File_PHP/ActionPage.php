@@ -15,9 +15,7 @@ if (isset($_POST['login']))
       {
          $_SESSION['username'] = $username;
             // Redirect user to index.php
-         // header("");
-         echo "<div class='form'>
-         <font color='#8e1b0e' size='+2'>login hợp lệ YEAHHHH.</font></div>";
+         header("Location: Mainpage.php ");
         }else
       {
          echo "<div class='form'>
