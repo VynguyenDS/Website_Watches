@@ -48,13 +48,13 @@ button {
 
 
 <div id="id01" class="modal">
-  <form class="modal-content" action="/action_page.php">
+  <form class="modal-content" action="action_page.php" method="POST">
     <div class="container">
       <h1>Đăng ký tài khoản</h1>
       <p>Xin vui lòng điền vào mẫu thông tin dưới đây</p>
       <hr>
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" name="username" required>
 
       <label for="psw"><b>Mật khẩu</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
@@ -70,8 +70,8 @@ button {
 
       <div class="clearfix">
         
-        <button type="submit" class="signupbtn btn-lg btn-block" style="width: 100%;" >Đăng ký</button>
-      </div>
+        <button type="submit" name="create"  class="signupbtn btn-lg btn-block" style="width: 100%;"  required>Đăng ký</button>
+      </div>equired
     </div>
   </form>
 </div>
