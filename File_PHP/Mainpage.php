@@ -69,7 +69,7 @@
               <a class="nav-link" href="#" onclick="document.getElementById('signin').style.display='block'"><p >Đăng nhập</p></a>
               <div id="signin" class="modal">
   
-                <form class="modal-content animate" action="/action_page.php" method="post">
+                <form class="modal-content animate" action="ActionPage.php" method="post">
                       <div class="imgcontainer">
                         <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
                         <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
@@ -82,7 +82,7 @@
                         <label for="psw"><b>Mật khẩu</b></label>
                         <input type="password" placeholder="Enter Password" name="psw" required>
                           
-                        <button id="login" type="submit">Đăng nhập</button>
+                        <button id="login" type="submit" name="login" required>Đăng nhập</button>
                         <label>
                           <input type="checkbox" checked="checked" name="remember"> Lưu tài khoản
                             <span>
@@ -104,8 +104,9 @@
 
           </li>
           <li class="nav-item">
-              <a class="nav-link disabled" href="#">
-                <i style="color:orange;" class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
+              <a class="nav-link " href="addToBag.php">
+                <i style="color:orange;" class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+              </a>
           </li>
       </ul>
       </div>
@@ -121,13 +122,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="women.php">
+                    <a class="nav-link" href="Women.php">
                           <span><b>NỮ</b></span><span class="sr-only">(current)</span>
                     </a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="men.php">
+                    <a class="nav-link" href="Men.php">
                           <span><b>NAM</b></span>
                     </a>
                 </li>
@@ -137,7 +138,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Smart_watches.php">
+                  <a class="nav-link" href="SmartWatches.php">
                     <span ><b>ĐỒNG HỒ THÔNG MINH</b></span>
                   </a>
                 </li>
@@ -149,12 +150,12 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="discount.php">
+                  <a class="nav-link" href="Discount.php">
                     <span ><b>GIẢM GIÁ</b></span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="phukien.php">
+                  <a class="nav-link" href="Phukien.php">
                     <span ><b>PHỤ KIỆN</b></span>
                   </a>
                 </li>
@@ -320,11 +321,14 @@
                     </div>          
               </div>
                             <div class="col-md-4">  
+                               
                     <div class="card shadow">
+                      <a href="OrderProduct.php">
                       <div class="inner">
-                        <img class="card-img-top rounded " src="../Image/Product/images.jpg" alt="Card image cap">
+                        <img  class="card-img-top rounded " src="../Image/Product/images.jpg" alt="Card image cap">
                       </div>
-                                           <div class="card-body text-left">
+                    </a>
+                          <div class="card-body text-left">
                         <p class="card-text" style="text-align: left;">
                           The Minimalist Three-Hand Brown Leather Watch
                         </p>
@@ -338,7 +342,8 @@
                         <div>1.000.000VND</div>
 
                       </div>
-                    </div>          
+                    </div>  
+                         
                        </div>
                             <div class="col-md-4">  
                     <div class="card shadow">

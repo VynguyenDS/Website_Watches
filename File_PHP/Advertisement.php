@@ -16,9 +16,9 @@
     <title>ĐỒNG HỒ HƯNG BA</title>
   </head>
   <body>    
-    <?php include 'PartOfWeb/header_bar.php';?>
+    <?php include 'PartOfWeb/HeaderBar.php';?>
     
-    <?php include 'PartOfWeb/menu_bar.php'?>
+    <?php include 'PartOfWeb/MenuBar.php'?>
 
     <div class="container-fluid Covid_19">
         <h6>Tất cả chúng ta đều ở đây cùng nhau. Đối với các cập nhật liên quan đến COVID-19 đọc thêm 

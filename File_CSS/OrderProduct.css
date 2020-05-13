@@ -3,14 +3,44 @@
 	float: left;
 }
 .leftBag{
-	width: 70%;
+	width: 60%;
 	float: left;
-	height: 500px;
+
 }
 .rightBag{
-	width: 30%;
+	width: 40%;
 	float: left;
 }
-#review{
+.review{
 	float: left;
+	margin-top: 50px;
+
+}
+
+.addToBag .rightBag #addBag{
+	background-color: rgb(36,36,36);
+	color: white;
+	padding: 10px;
+}
+.addToBag .rightBag #addBag:hover{
+	background-color: rgb(58,58,58);
+
+}
+.addToBag #strap img {
+	height: 100px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.addToBag #strap img:hover {
+	border: 2px solid black;
+}
+.addToBag #color img{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.addToBag #color img:hover {
+	border: 2px solid black;
+}
+.addToBag .productDetail{
+	color: rgb(114,114,114);
 }

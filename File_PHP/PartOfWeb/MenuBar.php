@@ -1,6 +1,6 @@
      <link rel="stylesheet" type="text/css" href="../File_CSS/menubar.css">
     <div class="menu_bar container-fluid">
-        <div class="Logo"><a class="section" href="#home"><h5><b>HƯNG BA</b></h5></a></div>
+        <div class="Logo"><a class="section" href="./Mainpage.php"><h5><b>HƯNG BA</b></h5></a></div>
             <div class="right_menubar">
               <div class="subnav">
                 <button class="subnavbtn">NAM</button>

@@ -24,11 +24,11 @@
   <body>
 
 
-        <?php include 'PartOfWeb/header_bar.php';?>
+        <?php include 'PartOfWeb/HeaderBar.php';?>
   
 
 
-        <?php include 'PartOfWeb/menu_bar.php'?>
+        <?php include 'PartOfWeb/MenuBar.php'?>
 
         
 

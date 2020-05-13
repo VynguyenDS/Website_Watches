@@ -1,0 +1,22 @@
+#titleShopping{
+	padding-left: 50px;
+}
+.payment{
+	width: 100%;
+	float: left;
+}
+.payment .leftPayment{
+	float: left;
+	width: 70%;
+}
+.payment .rightPayment{
+	float: left;
+	width: 25%;
+	margin-left: 5px;
+
+}
+.rightPayment .btn-block{
+	background-color: rgb(36,36,36);
+	color: white;
+	padding: 10px;
+}

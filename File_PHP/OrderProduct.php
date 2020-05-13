@@ -40,22 +40,23 @@
 </style>
   </head>
   <body>    
-    <?php include 'PartOfWeb/header_bar.php';?>
+    <?php include 'PartOfWeb/HeaderBar.php';?>
     
 
-    <?php include 'PartOfWeb/menu_bar.php'?>
+    <?php include 'PartOfWeb/MenuBar.php'?>
 
 
     <div class="addToBag container-fluid">
         <div class="leftBag">
-            123123123
+             <img class="w-70" src="../Image/men_watches/men.webp">
 
         </div>
-        <div class="righttBag">
+        <div class="rightBag">
             <p>
-                <b>FB-01 Three-Hand Date Stainless Steel Watch</b>
+                <b>Đồng hồ thép không gỉ ba ngày FB-01</b>
             </p>
             <div>
+
                         <span id="rating">
                           <span class="fa fa-star checked" style="color: orange;"></span>
                           <span class="fa fa-star checked" style="color: orange;"></span>
@@ -66,23 +67,62 @@
 
             </div>
             <div><span style="text-decoration: line-through;">1.200.000 </span><span style="color: red;"><b>1.000.000VND</b></span></div>
-            <div id="color"></div>
-            <div id="addtoBag">Thêm vào giỏ</div>
+            <div id="color">
+                <h4>Màu</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="../Image/Straps/Strap1.jpg">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="../Image/men_watches/men.webp">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="../Image/men_watches/men.webp">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="../Image/men_watches/men.webp">
+                    </div>
+                </div>
+            </div>
+            <div id="strap">
+                <h4>Dây đeo</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="../Image/Straps/Strap1.jpg">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="../Image/Straps/Strap2.jpg">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="../Image/Straps/strap3.jpg">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="../Image/Straps/strap4.jpg">
+                    </div>
+                </div>
+            </div>
+            <button id="addBag"  class="btn-block"><a  href="addToBag.php" style="color: white;">Thêm vào giỏ hàng</a></button>
             <hr>
             <div>
-                <p>Sản phẩm chi tiết</p>
-                <p>Sản phẩm chi tiết</p>
-                <p>Sản phẩm chi tiết</p>
-                <p>Sản phẩm chi tiết</p>
-                <p>Sản phẩm chi tiết</p>
-                <p>Sản phẩm chi tiết</p>
+                <h4>Sản phẩm chi tiết </h4>
+                <p>Tên :<span class="productDetail">F43120</span></p>
+                <p>Hiệu :<span class="productDetail">Seiko</span></p>
+                <p>Màu :<span class="productDetail">Đen</span></p>
+                <p>Chất liệu :<span class="productDetail">Kim loại</span></p>
+                <p>Thể loại :<span class="productDetail">Người lớn</span></p>
+
             </div>
+
+
         </div>
     </div>
-    <div class="container-fluid" id ='review'>
+
+
+    <div class="container-fluid" class ='review'>
         <p>Review Snapshot by <b>PowerReviews</b></p>
+        <hr>
         <div class="row">
-            <div class="col-md-4" style="text-align: center;">
+            <div class="col-md-4 herical" style="text-align: center;padding-top: 80px;border-right: 1px solid rgb(208,208,208);">
                     <h3>3.3</h3>
                     <span id="rating">
                           <span class="fa fa-star checked" style="color: orange;"></span>
@@ -95,8 +135,8 @@
                     <button style="background-color: rgb(11,123,193);color: white;">Viết Reviews</button>
 
             </div>
-            <div class="col-md-4" style="text-align: center;">
-                <h2  ><span style="background-color: rgb(10,137,0);padding: 5px 30px;color: white;"> 81%</span></h2>
+            <div class="col-md-4 herical" style="text-align: center;padding-top: 100px;border-right: 1px solid rgb(208,208,208);">
+                <h2  ><span style="background-color: rgb(10,137,0);padding: 10px 30px;color: white;"> 81%</span></h2>
                 <p>trong số những người được hỏi muốn giới thiệu điều này cho bạn bè</p>
             </div>
             <div class="col-md-4">
@@ -128,12 +168,12 @@
                     </div>
             </div>
         </div>
-        <hr>
+
     </div> 
 
   
-    <?php include 'PartOfWeb/Information_container.php'?>
-    <?php include 'PartOfWeb/footer.php'?>
+    <?php include 'PartOfWeb/InformationContainer.php'?>
+    <?php include 'PartOfWeb/Footer.php'?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

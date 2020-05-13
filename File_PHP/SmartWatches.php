@@ -23,11 +23,11 @@
   <body>
 
 
-        <?php include 'PartOfWeb/header_bar.php';?>
+        <?php include 'PartOfWeb/HeaderBar.php';?>
   
 
 
-        <?php include 'PartOfWeb/menu_bar.php'?>
+        <?php include 'PartOfWeb/MenuBar.php'?>
 
 
         <div class="container-fluid kind_of_watches">
@@ -175,10 +175,10 @@
         </div>
 
 
-         <?php include 'PartOfWeb/information_container.php';?>
+         <?php include 'PartOfWeb/InformationContainer.php';?>
 
 
-         <?php include 'PartOfWeb/footer.php';?>
+         <?php include 'PartOfWeb/Footer.php';?>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

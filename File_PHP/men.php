@@ -18,10 +18,10 @@
     <title>Đồng hồ nữ</title>
   </head>
   <body>    
-    <?php include 'PartOfWeb/header_bar.php';?>
+    <?php include 'PartOfWeb/HeaderBar.php';?>
     
 
-    <?php include 'PartOfWeb/menu_bar.php'?>
+    <?php include 'PartOfWeb/MenuBar.php'?>
     
 
     <div class="container-fluid" style="background-color: rgb(240,240,240);float: left;">
@@ -63,9 +63,9 @@
     </div>
 
 
-     <?php include 'PartOfWeb/option_bar.php'?>
+     <?php include 'PartOfWeb/OptionBar.php'?>
 
-    <?php include 'PartOfWeb/menu_buy.php'?>
+    <?php include 'PartOfWeb/MenuBuy.php'?>
 
 
    
@@ -73,8 +73,8 @@
     <div style="margin-left: 760px;padding-top:10px;position: relative;top: 10px;float: left;">
        <button type="button" class="btn btn-light" style="font-size: 20px;border:1px solid black;" >Xem Thêm</button>
      </div>
-     <?php include 'PartOfWeb/Information_container.php'?>
-     <?php include 'PartOfWeb/footer.php'?>
+     <?php include 'PartOfWeb/InformationContainer.php'?>
+     <?php include 'PartOfWeb/Footer.php'?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
