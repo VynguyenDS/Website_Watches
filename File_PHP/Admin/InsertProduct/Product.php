@@ -60,7 +60,6 @@
     <!--Header bar have features login and dilivery -->
     <div class="website_mainpage">
 
-    
 
     <div class="navbar_menu container-fluid" style="float: left;">
       <nav class="navbar navbar-expand-lg navbar-light ">
@@ -117,6 +116,11 @@
       </div>
       </nav>
     </div>
+
+
+
+
+
     <div class="infCustomer container-fluid">
               <table class="table table-striped table-bordered" >
           <thead>
@@ -129,15 +133,18 @@
               <th scope="col">Thể loại</th>
               <th scope="col">Đáng giá</th>
               <th scope="col">Giá tiền</th>
+              <th scope="col">Ảnh</th>
               <th scope="col">Update</th>
               <th scope="col">Delete</th>
               
             </tr>
           </thead>
           <tbody id="user_data">
-
+             
+              
           </tbody>
             </table>
+
     </div>
 
 
@@ -218,14 +225,18 @@
           <label for="giatien">Giá Tiền</label>
           <input type="text" id="giatien" name="giatien">
             <div class="custom-file">
-            <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-            <label class="custom-file-label" for="validatedCustomFile">Hình Ảnh Sản Phẩm</label>
-           
+              <label for="img">Select image:</label>
+              <input onclick="Hello()"  type="file" id="img" name="img" accept="image/*"><br>
+
+              <span id = 'myIgmPath'></span>
           </div>
 
           <button style="text-align: center;" type="button" class="btn-block btn-primary" 
           name="insert" id ="insert">Insert</button>
+          <input type="hidden" name="row_id" id="hidden_row_id" />
           </form>
+         
+
       </div>
 
 
@@ -238,6 +249,13 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
+      function Hello(){
+      var filename = $('input[type=file]').val();
+      var filename = filename.replace(/C:\\fakepath\\/, '');
+      
+    }
+    </script>
+    <script type="text/javascript">
     $(document).ready(function(){ 
      var count = 0 ;
      $('#insert').click(function(){
@@ -247,7 +265,11 @@
       var chatlieu = $('#chatlieu').val();
       var theLoai = $('#theLoai').val();
       var danhgia = $('#danhgia').val();
-      var giatien = $('#giatien').val();
+      var giatien = $('#giatien').val();  
+      var filename = $('#img').val();
+      var filename = filename.replace(/C:\\fakepath\\/,'');
+      var filename = '../../../Image/Product/'+filename;
+      alert(filename);
       if($('#nameProduct').val() == ''){
 
         error_nameProduct = 'Vui Lòng Nhập các trường ';
@@ -264,10 +286,11 @@
       if(nameProduct == '')
       {
          alert('hello23131'); 
+
       }
+
       else{
         if($('#insert').text() == 'Insert'){
-          alert('zo');
           count = count + 1;
           output = '<tr id="row_'+count+'">';
           output += '<td>'+count+'</td>';
@@ -278,14 +301,29 @@
           output += '<td>'+theLoai+'</td>';
           output += '<td>'+danhgia+'</td>';
           output += '<td>'+giatien+'</td>';
-          output += '<td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="'+count+'">View</button></td>';  
+          output += '<td>'+'<img src ='+filename+' width = 150px height = 150px >'+'</td>';
+          output += '<td><button type="button" name="Update" class="btn btn-warning btn-xs Update" id="'+count+'">Update</button></td>';  
           output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+count+'">Remove</button></td>';
           output += '</tr>';
+          alert(output)
           $('#user_data').append(output);
         }
 
       } 
      });
+
+
+      $(document).on('click', '.remove_details', function(){
+          var row_id = $(this).attr("id");
+            if(confirm("Are you sure you want to remove this row data?"))
+              {
+               $('#row_'+row_id+'').remove();
+              }
+              else
+              {
+               return false;
+              }
+             });
    });
   </script>
 
