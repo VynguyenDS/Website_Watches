@@ -3,7 +3,7 @@
   <?php
   require("../DataBase/database.php");
   session_start();
-  mysqli_set_charset($conn,'utf8');?>
+  mysqli_set_charset($database,'utf8');?>
 
 
   <head>
@@ -109,15 +109,17 @@
                         <span class="psw">Quên <a href="#">Mật Khẩu?</a></span>
                       </div>
                     </form>
-                    <!-- đăng nhập thành công -->
+                    
+            </div>
+
+
+          </li>
+          <!-- đăng nhập thành công -->
                   <?php }else{?>
                       <a class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><?=$_SESSION["username"]?></a>
                       <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
                   <?php }?>
                   <!-- -->
-            </div>
-
-          </li>
           <li class="nav-item">
               <a class="nav-link " href="addToBag.php">
                 <i style="color:orange;" class="fa fa-cart-arrow-down" aria-hidden="true"></i>

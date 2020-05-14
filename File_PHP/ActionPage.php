@@ -5,11 +5,11 @@ if (isset($_POST['login']))
 {//login
 
    $username = stripslashes($_POST['uname']);
-   $username = mysqli_real_escape_string($conn,$username);
+   $username = mysqli_real_escape_string($database,$username);
    $password = stripslashes($_POST['psw']);
-   $password = mysqli_real_escape_string($conn,$password);
+   $password = mysqli_real_escape_string($database,$password);
     $query = "SELECT * FROM login WHERE userName = '$username' and password = '$password'";
-   $result = mysqli_query($conn,$query) or die(mysql_error());
+   $result = mysqli_query($database,$query) or die(mysql_error());
    $rows = mysqli_num_rows($result);
         if($rows==1)
       {
@@ -23,12 +23,12 @@ if (isset($_POST['login']))
       }
 }elseif (isset($_POST['create'])) {//signup
   $username = stripslashes($_POST['username']);
-   $username = mysqli_real_escape_string($conn,$username);
+   $username = mysqli_real_escape_string($database,$username);
    $password = stripslashes($_POST['psw']);
-   $password = mysqli_real_escape_string($conn,$password);
+   $password = mysqli_real_escape_string($database,$password);
 
     $query = "SELECT * FROM login WHERE userName = '$username'";
-   $result = mysqli_query($conn,$query) or die(mysql_error());
+   $result = mysqli_query($database,$query) or die(mysql_error());
    $rows = mysqli_num_rows($result);
         if($rows==1)
       {
@@ -44,7 +44,7 @@ if (isset($_POST['login']))
         else{
         $ins_query="insert into login values('','$username','$password','user')";
   
-  if ($conn->query($ins_query) === TRUE) 
+  if ($database->query($ins_query) === TRUE) 
   {
     echo "<center>Bạn đã đăng ký thành công.</br>
     </br>
@@ -53,7 +53,7 @@ if (isset($_POST['login']))
   } 
   else 
   {
-    echo "Error: " . $ins_query . "<br>" . $conn->error;
+    echo "Error: " . $ins_query . "<br>" . $database->error;
   }
       }
 
