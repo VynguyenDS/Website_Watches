@@ -1,4 +1,11 @@
 <!doctype html>
+<?php 
+$products ="";
+if(isset($_COOKIE['Customer'])){
+$products = $_COOKIE['Customer'];
+$k = explode(",", $products);
+}
+?>
 <html lang="en">
   <head>
        <meta charset="utf-8">
@@ -101,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <button id="addBag"  class="btn-block"><a  href="addToBag.php" style="color: white;">Thêm vào giỏ hàng</a></button>
+            <button id="addBag"  class="btn-block" onclick="Cookie()"><a  href="addToBag.php" style="color: white;">Thêm vào giỏ hàng</a></button>
             <hr>
             <div>
                 <h4>Sản phẩm chi tiết </h4>
@@ -176,6 +183,22 @@
     <?php include 'PartOfWeb/Footer.php'?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script type="text/javascript">
+         function setCookie(cname,cvalue,exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; expires=" + d.toGMTString();
+            }
+        function Cookie() {
+            var order = [<?= $products?>];
+            order.push("2")
+
+            setCookie("Customer",order, 1);
+     }
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

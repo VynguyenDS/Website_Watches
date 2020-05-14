@@ -1,5 +1,14 @@
 <!doctype html>
+<?php
+$orderlists= array();
+if (isset($_COOKIE['Customer'])) {
+
+$products = $_COOKIE['Customer'];
+$orderlists = explode(",", $products);
+}
+?>
 <html lang="en">
+      
   <head>
        <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,25 +44,42 @@
     <div class="payment container-fluid">
         <div class="leftPayment">
             <hr>
+            <!-- TDH = tổng đơn hàng
+            GG = giảm giá
+            TST là tổng số tiền -->
+            <?php
+            $TDH = 0 ;
+            $GG = 0;
+            $TST = 0;
+            $i = 0;
+            while ($i < count($orderlists)) {
+            
+        
+        $selquery="Select * from product WHERE productid = '$orderlists[$i]' ;";
+        $result = mysqli_query($database,$selquery);
+        while($row = mysqli_fetch_assoc($result)) { 
+            $TDH = $TDH + $row['price'] ;
+            $TST = $TDH ;
+             ?>
             <div class="row">
                 <div class="col-md-2">
-                    <img src="../Image/men_watches/men.webp">
+                    <img src="<?= $row['img']?>">
                 </div>
                 <div class="col-md-3">
                     <h4>Sản phẩm chi tiết </h4>
-                    <p>Tên :<span class="productDetail">F43120</span></p>
-                    <p>Hiệu :<span class="productDetail">Seiko</span></p>
-                    <p>Màu :<span class="productDetail">Đen</span></p>
-                    <p>Chất liệu :<span class="productDetail">Kim loại</span></p>
+                    <p>Tên :<span class="productDetail"><?=$row['nameProduct']?></span></p>
+                    <p>Hiệu :<span class="productDetail"><?=$row['brandName']?></span></p>
+                    <p>Màu :<span class="productDetail"><?=$row['color']?></span></p>
+                    <p>Chất liệu :<span class="productDetail"><?=$row['material']?></span></p>
                     <p>Thể loại :<span class="productDetail">Người lớn</span></p>
                 </div>
                 <div class="col-md-2">
                     <h6>Giá sản phẩm</h6>
-                    <p>1.200.000 </p>
+                    <p><?=$row['price']?></p>
                 </div>
                 <div class="col-md-2">
                     <h6>Số lượng</h6>
-                    <select>
+                    <select id="select<?= $i?>" onchange="NumberOfProduct('select<?= $i?>',<?=$row['price']?>,'TG<?= $i?>')">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -62,51 +88,21 @@
                 </div>
                 <div class="col-md-3">
                     <h6>Tổng số tiền</h6>
-                    <p>2.000.000</p>
+                    <p ><span id="TG<?= $i?>"><?=$row['price']?></span>VND</p>
                     <span class="close" title="Close Modal">&times;</span>
                 </div>
             </div>
-                        <hr>
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="../Image/men_watches/men.webp">
-                </div>
-                <div class="col-md-3">
-                    <h4>Sản phẩm chi tiết </h4>
-                    <p>Tên :<span class="productDetail">F43120</span></p>
-                    <p>Hiệu :<span class="productDetail">Seiko</span></p>
-                    <p>Màu :<span class="productDetail">Đen</span></p>
-                    <p>Chất liệu :<span class="productDetail">Kim loại</span></p>
-                    <p>Thể loại :<span class="productDetail">Người lớn</span></p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Giá sản phẩm</h6>
-                    <p>1.200.000 </p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Số lượng</h6>
-                    <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <h6>Tổng số tiền</h6>
-                    <p>2.000.000</p>
-                    <span class="close" title="Close Modal">&times;</span>
-                </div>
-            </div>
+        <?php } $i++; }?>
+                    
         </div>
         <div class="rightPayment">
             <hr style="background-color: rgb(255,255,255);">
             <div  style="background-color: rgb(250,248,246);" >
             <h6>Tổng Số Lượng Đặt Mua</h6>
             <hr>
-            <p>Tổng đơn hàng : <span>5.900.000 VND</span></p>
-            <p>Giảm giá : <span>900.000 VND</span></p>
-            <p>Số tiền phải trả : <span>5.000.000 VND</span></p>
+            <p>Tổng đơn hàng : <span id ="TDH"><?= $TDH?> </span>VND</p>
+            <p>Giảm giá : <span id="GG"><?= $GG?> </span>VND</p>
+            <p>Số tiền phải trả : <span id="STPT"><?= $TST?> </span>VND</p>
             <p>Giao hàng : <span>Miễn phí</span></p>
             <hr>
             <button class="btn-block" >
@@ -133,5 +129,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
+  <script type="text/javascript">
+      function NumberOfProduct(SoLuong,Gia,TongGia)
+      {
+        var x = document.getElementById(SoLuong).value;
+        document.getElementById(TongGia).innerHTML = Gia*x
+      }
+  </script>
 </html>
 
