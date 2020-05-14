@@ -1,5 +1,11 @@
 <!doctype html>
 <html lang="en">
+  <?php
+  require("../DataBase/database.php");
+  session_start();
+  mysqli_set_charset($conn,'utf8');?>
+
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -65,10 +71,12 @@
           <li class="nav-item">
               <a class="nav-link" href="rr.com"><p>Tình trạng đặt hàng</p></a>
           </li>
+          <!-- lúc chưa đăng nhập -->
+          <?php if(!isset($_SESSION["username"])){?>
           <li class="nav-item">
               <a class="nav-link" href="#" onclick="document.getElementById('signin').style.display='block'"><p >Đăng nhập</p></a>
               <div id="signin" class="modal">
-  
+                
                 <form class="modal-content animate" action="ActionPage.php" method="post">
                       <div class="imgcontainer">
                         <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -101,6 +109,12 @@
                         <span class="psw">Quên <a href="#">Mật Khẩu?</a></span>
                       </div>
                     </form>
+                    <!-- đăng nhập thành công -->
+                  <?php }else{?>
+                      <a class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><?=$_SESSION["username"]?></a>
+                      <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
+                  <?php }?>
+                  <!-- -->
             </div>
 
           </li>
