@@ -69,7 +69,7 @@
               <a class="nav-link" href="#" onclick="document.getElementById('signin').style.display='block'"><p >Đăng nhập</p></a>
               <div id="signin" class="modal">
   
-                <form class="modal-content animate" action="ActionPage.php" method="post">
+                <form class="modal-content animate" action="/action_page.php" method="post">
                       <div class="imgcontainer">
                         <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
                         <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
@@ -80,10 +80,9 @@
                         <input type="text" placeholder="Enter Username" name="uname" required>
 
                         <label for="psw"><b>Mật khẩu</b></label>
-                        <input type="password" id="showpassword" placeholder="Enter Password" name="psw" required>
-                         
-                        <button id="login" type="submit" name="login" required>Đăng nhập</button>
-                        <input type="checkbox" onclick="Password()">Hiển thị mật khẩu 
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                          
+                        <button id="login" type="submit">Đăng nhập</button>
                         <label>
                           <input type="checkbox" checked="checked" name="remember"> Lưu tài khoản
                             <span>
@@ -105,9 +104,8 @@
 
           </li>
           <li class="nav-item">
-              <a class="nav-link " href="addToBag.php">
-                <i style="color:orange;" class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-              </a>
+              <a class="nav-link disabled" href="#">
+                <i style="color:orange;" class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
           </li>
       </ul>
       </div>
@@ -123,40 +121,40 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="Women.php">
+                    <a class="nav-link" href="#">
                           <span><b>NỮ</b></span><span class="sr-only">(current)</span>
                     </a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Men.php">
+                    <a class="nav-link" href="#">
                           <span><b>NAM</b></span>
                     </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Mainpage.php">
+                  <a class="nav-link" href="#">
                     <span><b>ĐỒNG HỒ</b></span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="SmartWatches.php">
+                  <a class="nav-link" href="#">
                     <span ><b>ĐỒNG HỒ THÔNG MINH</b></span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Glasses.php">
+                  <a class="nav-link" href="#">
                     <span>
                       <b>KÍNH MẮT</b>
                     </span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Discount.php">
+                  <a class="nav-link" href="#">
                     <span ><b>GIẢM GIÁ</b></span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Phukien.php">
+                  <a class="nav-link" href="#">
                     <span ><b>PHỤ KIỆN</b></span>
                   </a>
                 </li>
@@ -322,14 +320,11 @@
                     </div>          
               </div>
                             <div class="col-md-4">  
-                               
                     <div class="card shadow">
-                      <a href="OrderProduct.php">
                       <div class="inner">
-                        <img  class="card-img-top rounded " src="../Image/Product/images.jpg" alt="Card image cap">
+                        <img class="card-img-top rounded " src="../Image/Product/images.jpg" alt="Card image cap">
                       </div>
-                    </a>
-                          <div class="card-body text-left">
+                                           <div class="card-body text-left">
                         <p class="card-text" style="text-align: left;">
                           The Minimalist Three-Hand Brown Leather Watch
                         </p>
@@ -343,8 +338,7 @@
                         <div>1.000.000VND</div>
 
                       </div>
-                    </div>  
-                         
+                    </div>          
                        </div>
                             <div class="col-md-4">  
                     <div class="card shadow">
@@ -560,15 +554,6 @@ window.onclick = function(event) {
     }
 }
 </script>
-<script type="text/javascript">
-  function Password(){
-    var x  = document.getElementById("showpassword");
-    if (x.type == "password"){
-      x.type = "text";
-    } 
-  }
-</script>
   </body>
 </html>
-<!--Hello -->
 <!--https://www.fossil.com/en-us/watches/mens-watches/-->

@@ -1,0 +1,378 @@
+.website_mainpage{
+	width: 100%
+	height : auto;
+}
+.header_bar{
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.header_bar_right .dropdown_show .dropdown-menu{
+	margin-top: 10px;
+}
+
+@media screen and (min-width: 500px) {
+.header_bar_left{
+	width: 70%;
+	float: left;
+}
+.header_bar_left .saleoff{
+	font-size: 8px;
+}
+.header_bar_right{
+	width: 30%;
+	float: left;
+}
+}
+
+@media screen and (min-width: 768px) {
+.header_bar_left{
+	width: 40%;
+	float: left;
+	position: relative;
+	bottom: 10px;
+}
+.header_bar_left .saleoff{
+	font-size: 8px;
+
+}
+.header_bar_left .carousel{
+	position: relative;
+	top: 15px;
+}
+.header_bar_right .dropdown_show i{
+	position: relative;
+	top: 5px;
+	font-size: 15px;
+}
+.header_bar_right  .fa-cart-arrow-down{
+	position: relative;
+	top: -2px;
+	font-size: 25px;
+}
+.header_bar_right{
+	width: 60%;
+	float: left;
+}
+.header_bar_right .nav-item p{
+	font-size: 12px;
+	color: black;
+
+}
+.Best_Seller{
+	height: auto;
+	float: left;
+	position: relative;
+	bottom: 40px;
+}
+.Best_Seller .option_customer{
+	float: right;
+}
+.content{
+	width: 100%;
+	height: auto;
+	float: left;
+	margin-left: 40px;
+
+}
+.content .left_content{
+	float: left;
+	width: 20%;
+	
+
+}
+.content .right_content{
+	float: left;
+	width: 80%;
+}
+
+.right_content .card{
+	width: 12rem;
+	margin-bottom: 10px;
+
+
+}
+
+.right_content p{
+	font-size: 10px;
+}
+.right_content .card-img-top{
+	height: 10rem;
+	width: 12rem;
+	padding-left: 10px;
+}
+.footer .left_footer p{
+	font-size: 12px;
+	text-align: left;
+}
+}
+@media screen and (min-width: 1000px) {
+.header_bar_left{
+	width: 40%;
+	float: left;
+	position: relative;
+	bottom: 4px;
+}
+.header_bar_left .saleoff{
+	font-size: 10px;
+
+}
+.header_bar_left .carousel{
+	position: relative;
+	top: 15px;
+}
+.header_bar_right .dropdown_show i{
+	position: relative;
+	top: 12px;
+	font-size: 10px;
+}
+.header_bar_right  .fa-cart-arrow-down{
+	position: relative;
+	top: 5px;
+	font-size: 25px;
+}
+.header_bar_right{
+	width: 60%;
+	float: left;
+}
+.header_bar_right .nav-item p{
+	font-size: 20px;
+	color: black;
+
+}
+
+
+.navbar_menu .form-inline{
+	position: relative;
+	bottom: 4px;
+}
+.navbar_menu .form-control{
+	font-size: 10px;
+}
+.navbar_menu button{
+	font-size: 10px;
+
+
+}
+.navbar_menu ul li a:hover{
+	border-bottom: 1px solid black;
+}
+.navbar_menu ul li a span{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 8px;
+	color: rgb(36,36,36);
+}
+.navbar_menu .navbar-brand img{
+	width: 40%;
+
+}
+.Best_Seller{
+	height: auto;
+	float: left;
+	position: relative;
+	bottom: 40px;
+}
+.Best_Seller .option_customer{
+	float: right;
+}
+
+.footer .left_footer p{
+	font-size: 10px;
+	text-align: left;
+}
+}
+
+
+@media screen and (min-width: 1050px){
+.navbar_menu ul li a span{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 10px;
+	color: rgb(36,36,36);
+}
+.navbar_menu .navbar-brand img{
+	width: 40%;
+
+}
+.Best_Seller{
+	height: auto;
+	float: left;
+	position: relative;
+	bottom: 30px;
+}
+.Best_Seller .option_customer{
+	float: right;
+	margin-right: 18px;
+}
+
+
+.content{
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.content .left_content{
+	float: left;
+	width: 20%;
+	padding-left: 10px;
+}
+.content .right_content{
+	float: left;
+	width: 80%;
+}
+
+.right_content .card{
+	width: 15rem;
+	margin-bottom: 10px;
+}
+
+.right_content .card-img-top{
+	height: 10rem;
+	width: 15rem;
+}
+.footer .left_footer p{
+	font-size: 12px;
+	text-align: left;
+}
+
+}
+
+
+@media screen and (min-width: 1300px) {
+.header_bar_left{
+	width: 40%;
+	float: left;
+	position: relative;
+	bottom: 4px;
+}
+.header_bar_left h6{
+	font-size: 15px;
+
+}
+.header_bar_left .carousel{
+	position: relative;
+	top: 15px;
+}
+.header_bar_right .dropdown_show{
+	position: relative;
+	top: 5px;
+}
+.header_bar_right .dropdown_show i{
+	position: relative;
+	top: 10px;
+	font-size: 20px;
+}
+
+.navbar_menu{
+	float: left;
+}
+.navbar_menu ul li{
+	padding-left: 5px;
+}
+.navbar_menu .form-inline{
+	position: relative;
+	bottom: 4px;
+}
+.navbar_menu .form-control{
+	font-size: 12px;
+}
+.navbar_menu ul li a:hover{
+	border-bottom: 1px solid black;
+}
+.navbar_menu ul li a span{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 15px;
+	color: rgb(36,36,36);
+}
+.navbar_menu .subnav{
+  float: left;
+  overflow: hidden;
+}
+.navbar_menu .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.Best_Seller{
+	height: auto;
+	float: left;
+	position: relative;
+	bottom: 40px;
+}
+.Best_Seller .option_customer{
+	float: right;
+	margin-right: 15px;
+}
+.content{
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.content .left_content{
+	float: left;
+	width: 20%;
+	padding-left: 10px;
+}
+.content .right_content{
+	float: left;
+	width: 80%;
+}
+.right_content .card{
+	width: 18rem;
+	margin-bottom: 10px;
+
+}
+.right_content .card-img-top{
+	height: 15rem;
+}
+
+}
+.right_content .inner{
+	overflow: hidden;
+}
+.inner img{
+    transition: all 0.5s ease;
+      }
+.inner:hover img{
+    transform: scale(1.5);
+}
+.Information_container{
+	width: 100%;
+	float: left;
+}
+.footer{
+	float: left;
+}
+.footer .left_footer{
+	width: 25%;
+	float: left;	
+}
+.footer .left_footer input[type =text]{
+	width: 80%;  	
+  	box-sizing: border-box;
+  	border: none;
+  	border-bottom: 2px solid black;
+}
+.footer .left_footer i{
+	padding: 3px;
+}
+.footer .right_footer{
+	width: 75%;
+	float: left;
+}
+.footer .right_footer .row{
+	margin-top: 5px;
+}
+.footer .right_footer .row a{
+	color: black;
+
+}
+
+
+
+

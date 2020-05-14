@@ -1,4 +1,3 @@
-
  <div class="content container-fluid">
         <hr style="background-color: rgb(255,255,255);">
         <div class="left_content d-none d-lg-block">

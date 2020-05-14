@@ -1,0 +1,112 @@
+.menu_bar {
+  overflow: hidden;
+  background-color: rgb(255,255,255); 
+}
+.menu_bar .logo{
+  width: 30%;
+  float: left;
+}
+.menu_bar .right_menubar{
+  width: 70%;
+  float: right;
+}
+.menu_bar .left_content{
+  width: 70%;
+  float: left;
+}
+.menu_bar .right_content{
+  width: 30%;
+  float: left;
+}
+.menu_bar .section {
+  float: left;
+  font-size: 14px;
+  color: #242424;
+  text-align: center;
+  padding: 14px 16px;
+  font-family: "Soleil",sans-serif;
+  text-decoration: none;
+}
+
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn{
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navbar .section:hover, .subnav:hover .subnavbtn {
+  border-bottom: 1px solid black;
+
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content .section {
+  float: left;
+  color: black;
+  text-decoration: none;
+  float: right;
+  font-family: "Soleil",sans-serif;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.subnav-content .section:hover {
+  background-color: #eee;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+.right_menubar .vl {
+  border-left: 6px solid green;
+  height: 500px;
+  position: absolute;
+  top: 500px;
+}
+.menu_bar .left_content ul {
+  text-decoration: none;
+   list-style-type: none;
+}
+.menu_bar .watches a{
+  color: black;
+}
+.menu_bar #watches,#glasses{
+  float: left;
+  padding-left: 50px;
+}
+.menu_bar .left_content a{
+  color: black;
+}
+
+.ad_saleoff .col-md-4{
+  text-align: center;
+  padding: 50px;
+}
+.ad_saleoff p{
+  font-size: 15px;
+  color: black;
+}
+.ad_saleoff h4{
+  
+  color: rgb(224,88,42);
+}

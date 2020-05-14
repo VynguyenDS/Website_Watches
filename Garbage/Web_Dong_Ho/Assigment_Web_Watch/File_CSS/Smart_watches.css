@@ -1,0 +1,67 @@
+body{
+	width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+
+}
+
+
+@media screen and (min-width: 750px) {
+
+}
+
+
+@media screen and (min-width: 1000px) {
+
+}
+
+
+
+@media screen and (min-width: 1050px){
+
+}
+
+
+@media screen and (min-width: 1300px) {
+	.kind_of_watches{
+		width: 100%;
+		text-align:center;
+		background-color: rgb(245,245,245);
+		height: auto;
+	}
+	.kind_of_watches ul {
+		 list-style-type : none;
+		 display: inline;
+		 text-align: center;
+
+
+
+	}
+	.kind_of_watches ul li {
+		display: inline;
+		padding: 10px;
+
+
+	}
+	.kind_of_watches ul li a {
+		text-decoration: none;
+		color: black;
+		font-size: 15px;
+	}
+	.ad_smart_watches{
+		width: 100%;
+		height: auto;
+	}
+	.ad_smart_watches div{
+		padding: 20px;
+	}
+	.ad_smart_watches p{
+		font-size: 14px;
+		font-family: sans-serif;
+		color: black;
+	}
+}
+
+
+

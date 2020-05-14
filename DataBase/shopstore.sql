@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 12, 2020 lúc 09:53 AM
+-- Thời gian đã tạo: Th5 14, 2020 lúc 10:16 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
--- Phiên bản PHP: 7.4.3
+-- Phiên bản PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,6 +31,13 @@ CREATE TABLE `categories` (
   `categoryID` int(11) NOT NULL,
   `categoryName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `categories`
+--
+
+INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
+(1, 'DongHoKimLoai');
 
 -- --------------------------------------------------------
 
@@ -60,6 +66,13 @@ CREATE TABLE `login` (
   `password` text NOT NULL,
   `position` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `login`
+--
+
+INSERT INTO `login` (`idUserName`, `userName`, `password`, `position`) VALUES
+(1, 'vynguyen', '12345678', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -100,9 +113,21 @@ CREATE TABLE `product` (
   `productid` int(11) NOT NULL,
   `nameProduct` text NOT NULL,
   `brandName` text NOT NULL,
+  `color` text NOT NULL,
+  `material` text NOT NULL,
   `categoryID` int(11) NOT NULL,
-  `price` int(11) NOT NULL
+  `price` int(11) NOT NULL,
+  `rate` text NOT NULL,
+  `img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`productid`, `nameProduct`, `brandName`, `color`, `material`, `categoryID`, `price`, `rate`, `img`) VALUES
+(2, 'F1234', 'Sekio', 'Black', 'KimLoai', 1, 12000, '3', '../Image/men_watches/men.webp'),
+(3, 'f123', 'Saphire', 'Red', 'dongho', 1, 12333, '3', '../Image/men_watches/men.webp');
 
 -- --------------------------------------------------------
 
@@ -176,7 +201,7 @@ ALTER TABLE `stores`
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `customer`
@@ -188,7 +213,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT cho bảng `login`
 --
 ALTER TABLE `login`
-  MODIFY `idUserName` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUserName` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `order`
@@ -206,7 +231,7 @@ ALTER TABLE `orderitem`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
