@@ -1,5 +1,5 @@
    <?php
-   include('../../../DataBase/database.php');
+   include('../../DataBase/database.php');
   
    if(isset($_POST['id']) !=''){
    $sql = "DELETE FROM product WHERE productid = '".$_POST["id"]."'";
