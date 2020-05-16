@@ -286,7 +286,7 @@
             <!-- php row product -->
             <?php
               $count=1;
-              $sel_query="Select * from product,categories WHERE product.categoryID = categories.categoryID;";
+              $sel_query="Select * from product;";
               $result = mysqli_query($database,$sel_query);
               while($row = mysqli_fetch_assoc($result) and $count<=6) { ?>
               <div class="col-md-4">  
