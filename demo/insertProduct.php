@@ -61,8 +61,64 @@
     <div class="website_mainpage">
 
 
-    <div class="infCustomer container-fluid">
+    <div class="navbar_menu container-fluid" style="float: left;">
+      <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="#"><img src="../Image/Brand/logo.png" class="rounded"></a>
+            <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="../Admin/Women.php">
+                          <span><b>NỮ</b></span><span class="sr-only">(current)</span>
+                    </a>
 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Admin/Men.php">
+                          <span><b>NAM</b></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Admin/SmartWatches.php">
+                    <span ><b>ĐỒNG HỒ THÔNG MINH</b></span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Admin/Glasses.php">
+                    <span>
+                      <b>KÍNH MẮT</b>
+                    </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Admin/Customer.php">
+                    <span ><b>KHÁCH HÀNG</b></span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Admin/Ordered.php">
+                    <span ><b>ĐẶT HÀNG</b></span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Admin/Phukien.php">
+                    <span ><b>PHỤ KIỆN</b></span>
+                  </a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0" >
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+      </div>
+      </nav>
+    </div>
+
+
+    <div class="infCustomer container-fluid">
         <table class="table table-striped table-bordered" >
           <thead>
             <tr>
@@ -75,14 +131,14 @@
               <th scope="col">Đáng giá</th>
               <th scope="col">Giá tiền</th>
               <th scope="col">Ảnh</th>
-              <th scope="col">Thư Mục Ảnh</th>
               <th scope="col">Update</th>
               <th scope="col">Delete</th>
               
             </tr>
           </thead>
           <tbody id="user_data">
-
+             
+              
           </tbody>
         </table>
     </div>
@@ -90,7 +146,7 @@
 
 
     <div class="container">
-          <form method="post">
+          <form method="get">
             <div class="form-row">
             <div class="form-group col-md-12">
                  <label for="nameProduct">Tên Sản Phẩm</label>
@@ -161,26 +217,27 @@
 
           <label for="giatien">Giá Tiền</label>
           <input type="text" id="giatien" name="giatien">
-
-          <div class="Folder_Image">
-          <label for="thuMuc">Chọn Thư Mục Để Bỏ Ảnh </label>
-            <select id="thuMuc" name="thuMuc">
+          <label for="ThuMuc">Chọn Thư Mục Để Bỏ Ảnh </label>
+            <select id="Folder" name="ThuMuc">
                 <option value="men_watches">Đồng Hồ Nam </option>
                 <option value="women_watches">Đồng Hồ Nữ</option>
                 <option value="Smart_Watches">Đồng Hồ Thông Minh</option>
                 <option value="Glasses">Mắt Kính</option>
                 <option value="Accessories">Phụ Kiện</option>
-          </select>
+              </select><br> 
+            <div class="custom-file">
+             
+
+              <label for="img">Chọn Ảnh:</label>
+              <input onclick="Hello()"  type="file" id="img" name="img" accept="image/*"><br>
+
+              <span id = 'myIgmPath'></span>
           </div>
 
-          <div class="Folder_Image">
-          <label for="hinhAnh">Chọn Ảnh: </label>
-          <input type="file" id="hinhAnh" name="hinhAnh">
-
-          </div>
-       
           <button style="text-align: center;" type="button" class="btn-block btn-primary" 
-          name="insert" id ="insert">Nhập Thông Tin</button>
+          name="insert" id ="insert">Insert</button>
+          <button style="text-align: center;" type="submit" class="btn-block btn-primary" 
+          name="save" id ="Save">Lưu</button>
           <input type="hidden" name="row_id" id="hidden_row_id" />
           </form>
          
@@ -197,76 +254,130 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-
      
     <script type="text/javascript">
-    $(document).ready(function(){
-      $('#insert').click(function(){
-        var  nameProduct = $('#nameProduct').val();
-        var  nhanhieu = $('#nhanhieu').val();
-        var  color = $('#color').val();
-        var  chatlieu = $('#chatlieu').val();
-        var  theLoai = $('#theLoai').val();
-        var  danhgia = $('#danhgia').val();  
-        var giatien = $('#giatien').val();
-        var thuMuc = $('#thuMuc').val();
-        var hinhAnh = $('#hinhAnh').val();
-        var filename = hinhAnh.replace(/C:\\fakepath\\/,'');
-        var hinhAnh = '../../../Image/'+thuMuc+'/'+filename;
+    $(document).ready(function(){ 
+     var count = 0 ;
+     $('#insert').click(function(){
+      var  nameProduct = '';
+      var brandProduct = $('#nhanhieu').val();
+      var color = $('#color').val();
+      var chatlieu = $('#chatlieu').val();
+      var theLoai = $('#theLoai').val();
+      var danhgia = $('#danhgia').val();
+      var thuMuc = $('#Folder').val();  
+      var giatien = $('#giatien').val();
+      var filename = $('#img').val();
+      var filename = filename.replace(/C:\\fakepath\\/,'');
+      var filename = '../../../Image/'+thuMuc+'/'+filename;
+      if($('#nameProduct').val() == ''){
+
+        error_nameProduct = 'Vui Lòng Nhập các trường ';
+        $('#enterNameProduct').text(error_nameProduct);
+        nameProduct = ''
+      }
+      else{
+        error_nameProduct = '';
+        $('#enterNameProduct').text(error_nameProduct);
+        nameProduct =  $('#nameProduct').val();
         
-    
-        if(nameProduct!="" && giatien!="" && hinhAnh!=""){
-          $.ajax({
-            url: "insert.php",
-            type: "POST",
-            data: {
-             nameProduct : nameProduct,
-             nhanhieu : nhanhieu,
-             color : color,
-             chatlieu : chatlieu,
-             theLoai : theLoai,
-             danhgia : danhgia,
-             giatien : giatien,
-             thuMuc : thuMuc ,
-             hinhAnh : hinhAnh ,
+      }
+      
+      if(nameProduct == '')
+      {
+         return false ; 
 
-            },
-            success: function(data){
-           
+      }
+      else{
+        if($('#insert').text() == 'Insert'){
+          count = count + 1;
+          output = '<tr id="row_'+count+'">';
+          output += '<td>'+count+'</td>';
+          output += '<td>'+nameProduct+'</td>';
+          output += '<td>'+brandProduct+'</td>';
+          output += '<td>'+color+'</td>';
+          output += '<td>'+chatlieu+'</td>';
+          output += '<td>'+theLoai+'</td>';
+          output += '<td>'+danhgia+'</td>';
+          output += '<td>'+giatien+'VND'+'</td>';
+          output += '<td>'+'<img src ='+filename+' width = 150px height = 150px >'+'</td>';
+          output += '<td><button type="button" name="Update" class="btn btn-warning btn-xs Update" id="'+count+'">Update</button></td>';  
+          output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+count+'">Remove</button></td>';
+          output += '</tr>';
+          $('#user_data').append(output);
+        }
+
+      }
+      $.ajax({
+       
+            method:"get",
+            data:{
+              nameProduct : nameProduct ,
+              brandProduct : brandProduct,
+              color : color,
+              chatlieu : chatlieu,
+              theLoai : theLoai,
+              danhgia : danhgia,
+              giatien : giatien,
+              filename : filename,
+            },  
+            success: function (data) {
               alert(data);
-              load_data();
-
             }
-
           });
-        }
-        else{
-          alert('Vui lòng Nhập đầy đủ thông tin');
-        }
+
+     });
+
+
+      $(document).on('click', '.remove_details', function(){
+          var row_id = $(this).attr("id");
+            if(confirm("Are you sure you want to remove this row data?"))
+              {
+               $('#row_'+row_id+'').remove();
+              }
+              else
+              {
+               return false;
+              }
       });
 
-
-
-
-    load_data();
-    function load_data(){
-      $.ajax({
-          url:"showProduct.php",
-          method:"POST",
-          success:function(data){
-            $('#user_data').html(data);
-            
-          }
-        })
-      };
-    
-    });
-
-
-</script>   
      
+      $('#save').click(function(){
+            var  nameProduct = '123123';
+            var brandProduct = $('#nhanhieu').val();
+            
+            var color = $('#color').val();
+            var chatlieu = $('#chatlieu').val();
+            var theLoai = $('#theLoai').val();
+            var danhgia = $('#danhgia').val();
+            var thuMuc = $('#Folder').val();  
+            var giatien = $('#giatien').val();
+            var filename = $('#img').val();
+            var filename = filename.replace(/C:\\fakepath\\/,'');
+            var filename = '../../../Image/'+thuMuc+'/'+filename;
+          
+          $.ajax({
+            url:"insert.php",
+            method:"get",
+            data:{
+              nameProduct : nameProduct ,
+              brandProduct : brandProduct,
+              color : color,
+              chatlieu : chatlieu,
+              theLoai : theLoai,
+              danhgia : danhgia,
+              giatien : giatien,
+              filename : filename,
+            },  
+            success: function (data) {
+            
+              $('#user_data').append(data);
+            }
+          });
+        });
+  });
   </script>
-   
+
   </body>
 
 </html>
