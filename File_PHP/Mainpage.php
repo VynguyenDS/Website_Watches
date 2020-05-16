@@ -177,10 +177,10 @@
                   </a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" >
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <div class="form-inline my-2 my-lg-0" >
+              <input class="form-control mr-sm-2" id="search_input" type="search" placeholder="Search" aria-label="Search"  oninput ="LoadProduct()">
+              <button class="btn btn-outline-success my-2 my-sm-0"  onclick="LoadProductSearch()">Search</button>
+            </div>
       </div>
       </nav>
     </div>
@@ -188,11 +188,12 @@
 
 
     <div class="Best_Seller container-fluid">
-        <select class="option_customer"  name="cars">
-                <option value="volvo">Bán Chạy Nhất</option>
-                <option value="saab">Khách Hàng Yêu Thích</option>
-                <option value="fiat">Giá Từ Cao Đến Thấp</option>
-                <option value="audi">Giá Từ Thấp Đến Cao</option>
+        <select class="option_customer"  name="cars" id="orderproduct" onclick="LoadProduct()">
+                <option value="all">Tất Cả</option>
+                <option value="BCN">Bán Chạy Nhất</option>
+                <option value="KHYT">Khách Hàng Yêu Thích</option>
+                <option value="GTCDT">Giá Từ Cao Đến Thấp</option>
+                <option value="GTTDC">Giá Từ Thấp Đến Cao</option>
         </select>
     </div>
 
@@ -205,250 +206,123 @@
           <div class="Gender">
             <h4>Giới Tính</h4>
             <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
-                        Nam
-                  </label>
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                  <label class="form-check-label" for="defaultCheck1">Nam</label>
                   <br>
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
-                        Nữ
-                  </label>
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                  <label class="form-check-label" for="defaultCheck1">Nữ</label>
             </div>
           </div>
           <hr style="background-color: rgb(255,255,255);">
           <div class="KindOfWatches">
               <h4>Nhãn Hiệu</h4>
               <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Sekio
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]"onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Sekio</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Sapphire
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Sapphire</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Casio
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]"onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Casio</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          SmartWaches
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]"onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">SmartWaches</label>
               </div>
           </div>
           <hr style="background-color: rgb(255,255,255);">
           <div class="Color">
               <h4>Màu</h4>
               <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Đen
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đen</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Xám
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Xám</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Xanh
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Xanh</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Đỏ
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đỏ</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Xanh
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Nâu</label>
               </div>
             </div>
             <hr style="background-color: rgb(255,255,255);">
             <div class="Material">
                 <h4>Chất Liệu</h4>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Dây Da
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Dây Da</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Kim Loại
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Kim Loại</label>
               </div>
             </div>
             <hr style="background-color: rgb(255,255,255);">
             <div class="Category">
                 <h4>Thể Loại</h4>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Đồng Hồ Kim Loại
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đồng Hồ Kim Loại</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Đồng Hồ Thông Minh
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đồng Hồ Thông Minh</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Đồng Hồ Trẻ Em
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đồng Hồ Trẻ Em</label>
                     <br>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                          Đồng Hồ Dây Da
-                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đồng Hồ Dây Da</label>
                     
                     
                 </div>
             </div>
         </div>
         <div class="right_content">
-          <div class="row">
+          <div class="row" id="product">
+            <!-- php row product -->
+            <?php
+              $count=1;
+              $sel_query="Select * from product,categories WHERE product.categoryID = categories.categoryID;";
+              $result = mysqli_query($database,$sel_query);
+              while($row = mysqli_fetch_assoc($result) and $count<=6) { ?>
               <div class="col-md-4">  
                     <div class="card shadow" >
                       <div class="inner">
-                        <img class="card-img-top rounded " src="../Image/Product/images.jpg" alt="Card image cap">
+                        <img class="card-img-top rounded " src="<?=$row["img"]?>" alt="Card image cap">
                       </div>
                       <div class="card-body text-left">
                         <p class="card-text" style="text-align: left;">
-                          The Minimalist Three-Hand Brown Leather Watch
+                          <?=$row["nameProduct"]?>
                         </p>
                         <span id="rating">
+                          <!-- rate -->
+                          <?php $rate = 1;
+                          while($rate <=5) {
+                            if($rate<=$row["rate"]){?>
+
                           <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
+                        <?php }else{?>
+                          
                           <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
+                          <?php }$rate++;}?>
+                          <!-- -->
                         </span>
-                        <div>1.000.000VND</div>
+                        <div><span><?=$row["price"]?></span>VND</div>
 
                       </div>
                     </div>          
               </div>
-                            <div class="col-md-4">  
-                               
-                    <div class="card shadow">
-                      <a href="OrderProduct.php">
-                      <div class="inner">
-                        <img  class="card-img-top rounded " src="../Image/Product/images.jpg" alt="Card image cap">
-                      </div>
-                    </a>
-                          <div class="card-body text-left">
-                        <p class="card-text" style="text-align: left;">
-                          The Minimalist Three-Hand Brown Leather Watch
-                        </p>
-                        <span id="rating">
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                        </span>
-                        <div>1.000.000VND</div>
-
-                      </div>
-                    </div>  
-                         
-                       </div>
-                            <div class="col-md-4">  
-                    <div class="card shadow">
-                      <div class="inner">
-                        <img class="card-img-top rounded " src="../Image/Product/images_4.jpg" alt="Card image cap">
-                      </div>
-                                            <div class="card-body text-left">
-                        <p class="card-text" style="text-align: left;">
-                          The Minimalist Three-Hand Brown Leather Watch
-                        </p>
-                        <span id="rating">
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                        </span>
-                        <div>1.000.000VND</div>
-
-                      </div>
-                    </div>          
-              </div>
+              <?php $count++; } ?>
+              <!--  -->
+                            
+                            
             </div>
-            <div class="row">
-              <div class="col-md-4">  
-                    <div class="card shadow" >
-                      <div class="inner"> 
-                        <img class="card-img-top img-fluid" src="../Image/Product/images.jpg" alt="Card image cap">
-                      </div>
-                                           <div class="card-body text-left">
-                        <p class="card-text" style="text-align: left;">
-                          The Minimalist Three-Hand Brown Leather Watch
-                        </p>
-                        <span id="rating">
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                        </span>
-                        <div>1.000.000VND</div>
 
-                      </div>
-                    </div>          
-              </div>
-                    <div class="col-md-4">  
-                    <div class="card shadow" >
-                      <div class="inner"> 
-                        <img class="card-img-top" src="../Image/Product/images.jpg" alt="Card image cap">
-                      </div>
-                                            <div class="card-body text-left">
-                        <p class="card-text" style="text-align: left;">
-                          The Minimalist Three-Hand Brown Leather Watch
-                        </p>
-                        <span id="rating">
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                        </span>
-                        <div>1.000.000VND</div>
-
-                      </div>
-                    </div>          
-              </div>
-                            <div class="col-md-4">  
-                    <div class="card shadow" >
-                      <div class="inner"> 
-                        <img class="card-img-top" src="../Image/Product/images_4.jpg" alt="Card image cap">
-                      </div>
-                                           <div class="card-body text-left">
-                        <p class="card-text" style="text-align: left;">
-                          The Minimalist Three-Hand Brown Leather Watch
-                        </p>
-                        <span id="rating">
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                        </span>
-                        <div>1.000.000VND</div>
-
-                      </div>
-                    </div>          
-              </div>
-          </div>
+            
           </div> 
     </div>
 
@@ -560,6 +434,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
       $('.carousel').carousel({
         interval: 2000
@@ -582,6 +457,80 @@ window.onclick = function(event) {
     if (x.type == "password"){
       x.type = "text";
     } 
+  }
+</script>
+
+<script type="text/javascript">
+
+  // function LoadProductSearch()
+  // {
+  //       var arraycheck = new Array();
+  //   var check =document.getElementsByClassName('form-check-input');
+  //   var order_chose = document.getElementById('orderproduct').value;
+  //   var search_input = document.getElementById('search_input').value;
+  //   for (var i = 0; i < check.length; i++) {
+
+  //     if(check[i].checked == true)
+  //     {
+        
+  //       arraycheck.push(document.getElementsByClassName('form-check-label')[i].textContent)
+  //     }else
+  //     {
+  //       arraycheck.push("")
+  //     }
+
+  //   }
+
+
+  //   $.post("ProductData.php",
+  //   {
+  //     chosecheck: arraycheck,
+  //     orderchose : order_chose,
+  //     search: search_input,
+  //   },
+  //   function(data,status){
+  //     if(status =="success")
+  //     {
+  //       document.getElementById('product').innerHTML ="";
+  //       document.getElementById('product').innerHTML = data;
+  //     }
+      
+  //   });
+  // }
+  function LoadProduct() {
+    
+    var arraycheck = new Array();
+    var check =document.getElementsByClassName('form-check-input');
+    var search_input = document.getElementById('search_input').value;
+    var order_chose = document.getElementById('orderproduct').value;
+    for (var i = 0; i < check.length; i++) {
+
+      if(check[i].checked == true)
+      {
+        
+        arraycheck.push(document.getElementsByClassName('form-check-label')[i].textContent)
+      }else
+      {
+        arraycheck.push("")
+      }
+
+    }
+
+
+    $.post("ProductData.php",
+    {
+      chosecheck: arraycheck,
+      orderchose : order_chose,
+      search: search_input,
+    },
+    function(data,status){
+      if(status =="success")
+      {
+        document.getElementById('product').innerHTML ="";
+        document.getElementById('product').innerHTML = data;
+      }
+      
+    });
   }
 </script>
   </body>

@@ -54,8 +54,8 @@ $orderlists = explode(",", $products);
             $i = 0;
             while ($i < count($orderlists)) {
             
-        
-        $selquery="Select * from product WHERE productid = '$orderlists[$i]' ;";
+            
+        $selquery="Select * from product,categories WHERE product.categoryID = categories.categoryID and productid = '$orderlists[$i]';";
         $result = mysqli_query($database,$selquery);
         while($row = mysqli_fetch_assoc($result)) { 
             $TDH = $TDH + $row['price'] ;
@@ -71,7 +71,7 @@ $orderlists = explode(",", $products);
                     <p>Hiệu :<span class="productDetail"><?=$row['brandName']?></span></p>
                     <p>Màu :<span class="productDetail"><?=$row['color']?></span></p>
                     <p>Chất liệu :<span class="productDetail"><?=$row['material']?></span></p>
-                    <p>Thể loại :<span class="productDetail">Người lớn</span></p>
+                    <p>Thể loại :<span class="productDetail"><?=$row['categoryName']?></span></p>
                 </div>
                 <div class="col-md-2">
                     <h6>Giá sản phẩm</h6>
