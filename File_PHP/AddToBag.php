@@ -102,7 +102,7 @@ $orderlists = explode(",", $products);
             <hr>
             <p>Tổng đơn hàng : <span id ="TDH"><?= $TDH?> </span>VND</p>
             <p>Giảm giá : <span id="GG"><?= $GG?> </span>VND</p>
-            <p>Số tiền phải trả : <span id="STPT"><?= $TST?> </span>VND</p>
+            <p>Số tiền phải trả : <span id="STPT"><?= $TST?></span>VND</p>
             <p>Giao hàng : <span>Miễn phí</span></p>
             <hr>
             <button class="btn-block" >
@@ -130,10 +130,15 @@ $orderlists = explode(",", $products);
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
   <script type="text/javascript">
+    
       function NumberOfProduct(SoLuong,Gia,TongGia)
       {
+        var Sum = document.getElementById('STPT').textContent;
         var x = document.getElementById(SoLuong).value;
-        document.getElementById(TongGia).innerHTML = Gia*x
+        var TG = document.getElementById(TongGia).textContent;
+        document.getElementById(TongGia).innerHTML = Gia*x;
+        document.getElementById('TDH').innerHTML = Sum*1-TG*1+Gia*x;
+        document.getElementById('STPT').innerHTML = Sum*1-TG*1+Gia*x;
       }
   </script>
 </html>
