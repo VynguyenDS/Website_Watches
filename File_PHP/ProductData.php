@@ -100,9 +100,11 @@ $search = mysqli_real_escape_string($database,$search);
  	while($row = mysqli_fetch_assoc($result) and $count<=$limit) { ?>
         <div class="col-md-4">  
           <div class="card shadow" >
+          	<a href="OrderProduct.php?id_product=<?=$row["productid"]?>">
              <div class="inner">
                 <img class="card-img-top rounded " src="<?=$row["img"]?>" alt="Card image cap">
              </div>
+             </a>
 
              <div class="card-body text-left">
                 <p class="card-text" style="text-align: left;">

@@ -57,6 +57,10 @@ if (isset($_POST['login']))
   }
       }
 
-}else{echo "<div class='form'>
+}elseif (isset($_POST['MuaHang'])) {
+  echo "Mua Hàng";
+}
+else{echo "<div class='form'>
          <font color='#8e1b0e' size='+2'>Fail YEAHHHH.</font></div>";}
+
 ?>

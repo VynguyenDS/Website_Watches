@@ -1,5 +1,20 @@
 <!doctype html>
 <html lang="en">
+<?php
+$orderlists= array();
+if (isset($_COOKIE['ProductBuy'])) {
+
+$products = $_COOKIE['ProductBuy'];
+$number_ofbuy = $_COOKIE['NumberBuy'];
+$orderlists = explode(",", $products);
+$numberbuylists = explode(",",$number_ofbuy);
+$total =  $_COOKIE['TotalPrice'];
+}
+else
+{
+  header("Location: AddToBag.php ");
+}
+?>   
   <head>
        <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,7 +56,7 @@
                 <div class="row">
                   <div class="col-75">
                     <div class="container">
-                      <form action="/action_page.php">
+                      <form action="ActionPage.php" method="POST">
                       
                         <div class="row">
                           <div class="col-50">
@@ -98,19 +113,25 @@
                         <label>
                           <input type="checkbox" checked="checked" name="sameadr"> Địa chỉ giao hàng giống như thanh toán
                         </label>
-                        <input type="submit" value="Xác Nhận Mua Hàng" style="background-color: rgb(36,36,36);" class="btn">
+                        <input type="submit" value="Xác Nhận Mua Hàng" style="background-color: rgb(36,36,36);" class="btn" name= 'MuaHang'>
                       </form>
                     </div>
                   </div>
                   <div class="col-25">
                     <div class="container">
+
                       <h4>Số Lượng <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-                      <p><a href="#">Sản Phẩm 1</a> <span class="price">$15</span></p>
-                      <p><a href="#">Sản Phẩm 2</a> <span class="price">$5</span></p>
-                      <p><a href="#">Sản Phẩm 3</a> <span class="price">$8</span></p>
-                      <p><a href="#">Sản Phẩm 4</a> <span class="price">$2</span></p>
+                      <?php $i = 0;
+                        while ($i < count($orderlists)) {
+            
+            
+                        $selquery="Select * from product WHERE productid = '$orderlists[$i]';";
+                        $result = mysqli_query($database,$selquery);
+                        while($row = mysqli_fetch_assoc($result)) { ?>
+                        <p><a href="#"><?= $numberbuylists[$i]?> <?=$row['nameProduct']?></a> <span class="price"><?=$row['price']*20/100?> VND</span></p>
+                      <?php }$i++; }?>
                       <hr>
-                      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                      <p>Total <span class="price" style="color:black"><b><?= $total?> VND</b></span></p>
                     </div>
                   </div>
                 </div>
