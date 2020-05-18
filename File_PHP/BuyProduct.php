@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 $orderlists= array();
-if (isset($_COOKIE['ProductBuy'])) {
+if (isset($_COOKIE['ProductBuy']) && isset($_COOKIE['NumberBuy']) && isset($_COOKIE['TotalPrice'])) {
 
 $products = $_COOKIE['ProductBuy'];
 $number_ofbuy = $_COOKIE['NumberBuy'];
@@ -63,12 +63,12 @@ else
                             <h3>Thanh Toán</h3>
                             <label for="fname"><i class="fa fa-user"></i> Họ Và Tên</label>
                             <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email" name="email" placeholder="john@example.com">
+                            <label for="phone"><i class="fa fa-envelope"></i> Số điện thoại</label>
+                            <input type="text" id="email" name="phone" placeholder="john@example.com">
                             <label for="adr"><i class="fa fa-address-card-o"></i> Địa Chỉ</label>
                             <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-                            <label for="city"><i class="fa fa-institution"></i> Thành Phố</label>
-                            <input type="text" id="city" name="city" placeholder="New York">
+                            <label for="city"><i class="fa fa-institution"></i> số chứng minh</label>
+                            <input type="text" id="city" name="indenitycard" placeholder="New York">
 
                             <div class="row">
                               <div class="col-50">
@@ -125,8 +125,8 @@ else
                         while ($i < count($orderlists)) {
             
             
-                        $selquery="Select * from product WHERE productid = '$orderlists[$i]';";
-                        $result = mysqli_query($database,$selquery);
+                        $select="Select * from product WHERE productid = '$orderlists[$i]';";
+                        $result = mysqli_query($database,$select);
                         while($row = mysqli_fetch_assoc($result)) { ?>
                         <p><a href="#"><?= $numberbuylists[$i]?> <?=$row['nameProduct']?></a> <span class="price"><?=$row['price']*20/100?> VND</span></p>
                       <?php }$i++; }?>

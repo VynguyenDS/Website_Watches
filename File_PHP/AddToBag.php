@@ -55,8 +55,8 @@ $orderlists = explode(",", $products);
             while ($i < count($orderlists)) {
             
             
-        $selquery="Select * from product WHERE productid = '$orderlists[$i]';";
-        $result = mysqli_query($database,$selquery);
+        $select="Select * from product WHERE productid = '$orderlists[$i]';";
+        $result = mysqli_query($database,$select);
         while($row = mysqli_fetch_assoc($result)) { 
             $TDH = $TDH + $row['price'] ;
             $GG = round($TDH*20/100,0);
