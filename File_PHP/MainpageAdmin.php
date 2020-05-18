@@ -60,7 +60,51 @@
   <body>
     
     <?php include 'PartOfWeb/HeaderBar.php';?>
-    <?php include 'PartOfWeb/MenuBar.php'?>
+        <div class="navbar_menu container-fluid" style="float: left;">
+      <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="#"><img src="../Image/Brand/logo.png" class="rounded"></a>
+            <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="Women.php">
+                          <span><b>KHÁCH HÀNG</b></span><span class="sr-only">(current)</span>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Men.php">
+                          <span><b>THÔNG TIN ĐẶT HÀNG</b></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="SmartWatches.php">
+                    <span ><b>ĐỒNG HỒ</b></span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Glasses.php">
+                    <span>
+                      <b>KÍNH MẮT</b>
+                    </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Phukien.php">
+                    <span ><b>PHỤ KIỆN</b></span>
+                  </a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0" >
+              <input class="form-control mr-sm-2" id="search_input" type="search" placeholder="Search" aria-label="Search"  oninput ="LoadProduct()">
+              <button class="btn btn-outline-success my-2 my-sm-0"  onclick="LoadProductSearch()">Search</button>
+            </div>
+      </div>
+      </nav>
+    </div>
+
     <!--Header bar have features login and dilivery -->
     <div class="website_mainpage">
 
@@ -77,7 +121,7 @@
               <th scope="col">Chất Liệu</th>
               <th scope="col">Thể loại</th>
               <th scope="col">Đáng giá</th>
-              <th scope="col">Giá tiền</th>
+              <th scope="col">Giá tiền/VND</th>
               <th scope="col">Giới Tính</th>
               <th scope="col">Ảnh</th>
               <th scope="col">Thư Mục Ảnh</th>
@@ -213,7 +257,10 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 
+    <script type="text/javascript">
+      accounting.formatMoney( document.getElementById('#giatien').val());
      
+    </script>
     <script type="text/javascript">
     $(document).ready(function(){
       $('#insert').click(function(){
@@ -282,9 +329,9 @@
     });
 
 
-</script>   
+  </script>   
      
-  </script>
+  
    
   </body>
 

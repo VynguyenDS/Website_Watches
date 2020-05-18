@@ -16,7 +16,7 @@
         <td class="data"><?php echo  $row['material']?></td>
         <td class="data"><?php echo  $row['category']?></td>
         <td class="data"><?php echo  $row['rate']?></td>
-        <td class="data"><?php echo  $row['price']?></td>
+        <td class="data"><?php echo  number_format($row['price'])?></td>
         <td class="data"><?php echo  $row['Gender']?></td>    
         <td class="data"><span class="data_image" style="display:none"><?php echo  $row['img']?></span><img   height="150" width="150" src= <?php echo  $row['img']?> ></td>
         <td class="data"><?php echo  $row['thuMucBoAnh']?></td>
@@ -206,7 +206,7 @@
   
         
         if (id == idproduct){
-            document.getElementById("img_avt").src = img;
+
             $('#updateID').val(id);  
 
             $('#updateNameProduct').val(nameProduct);

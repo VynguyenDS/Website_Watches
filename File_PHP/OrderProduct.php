@@ -82,7 +82,7 @@ $product_id=$_REQUEST['id_product'];
                         </span>
 
             </div>
-            <div><span style="text-decoration: line-through;"><?=$row["price"]?> </span><span style="color: red;"><b><span><?=round($row["price"]*80/100,0)?></span>VND</b></span></div>
+            <div><span style="text-decoration: line-through;"><?=number_format($row["price"])?> </span><span style="color: red;"><b><span><?=number_format(round($row["price"]*80/100,0))?></span>VND</b></span></div>
             <div id="color">
                 <h4>Màu</h4>
                 <div class="row">

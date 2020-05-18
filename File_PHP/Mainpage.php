@@ -25,6 +25,7 @@
     
 
     <!--Header bar have features login and dilivery -->
+
     <div class="website_mainpage">
     <div class="header_bar container-fluid">
       <div class="header_bar_left">
@@ -128,7 +129,9 @@
       </ul>
       </div>
     </div>
-    
+    <div class="FeedBack" style="text-align: right;position: fixed;right: 20px;bottom: 100px;">
+        <button id="FeedBack" style="transform: rotate(90deg);padding-top: 10px;">FeedBack</button>
+    </div>
 
     <div class="navbar_menu container-fluid" style="float: left;">
       <nav class="navbar navbar-expand-lg navbar-light ">
@@ -313,7 +316,7 @@
                           <?php }$rate++;}?>
                           <!-- -->
                         </span>
-                        <div><span><?=$row["price"]?></span>VND</div>
+                        <div><span><?= number_format($row["price"])?></span>VND</div>
 
                       </div>
                     </div>          

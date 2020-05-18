@@ -10,6 +10,7 @@
       $theLoai = $_POST['theLoai'];
       $danhgia = $_POST['danhgia'];
       $giatien = $_POST['giatien'];
+      
       $Gender = $_POST['Gender']; 
       $thuMuc = $_POST['thuMuc'];
       $filename_Folder = $_POST['hinhAnh']; 

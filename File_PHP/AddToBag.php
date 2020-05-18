@@ -76,7 +76,7 @@ $orderlists = explode(",", $products);
                 </div>
                 <div class="col-md-2">
                     <h6>Giá sản phẩm</h6>
-                    <p><?=$row['price']?></p>
+                    <p><?=number_format($row['price'])?></p>
                 </div>
                 <div class="col-md-2">
                     <h6>Số lượng</h6>
@@ -89,7 +89,7 @@ $orderlists = explode(",", $products);
                 </div>
                 <div class="col-md-3">
                     <h6>Tổng số tiền</h6>
-                    <p ><span id="TG<?= $i?>"><?=$row['price']?></span>VND</p>
+                    <p ><span id="TG<?= $i?>"><?=number_format($row['price'])?></span>VND</p>
                     <span class="close" title="Close Modal">&times;</span>
                 </div>
             </div>
@@ -144,7 +144,7 @@ $orderlists = explode(",", $products);
         var SL = document.getElementById(SoLuong).value;
         var TG = document.getElementById(TongGia).textContent;
         soluonglist[where] = SL;
-        document.getElementById(TongGia).innerHTML = Gia*SL;
+        document.getElementById(TongGia).innerHTML = <Gia*SL;
         document.getElementById('TDH').innerHTML = Sum*1-TG*1+Gia*SL;
         var giam_gia = Math.round((document.getElementById('TDH').textContent)*20/100)
         document.getElementById('GG').innerHTML = giam_gia
