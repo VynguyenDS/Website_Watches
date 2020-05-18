@@ -42,7 +42,7 @@ if (isset($_POST['login']))
         
         }
         else{
-        $insert_user="insert into login values('','$username','$password','user')";
+        $insert_user="INSERT INTO `login` (`idUserName`, `userName`, `password`, `position`) VALUES('','$username','$password','user')";
   
           if ($database->query($insert_user) === TRUE) 
           {
@@ -63,8 +63,10 @@ if (isset($_POST['login']))
     $orderlists= array();
     $products = $_COOKIE['ProductBuy'];
     $number_ofbuy = $_COOKIE['NumberBuy'];
+    $price = $_COOKIE['PriceList'];
     $orderlists = explode(",", $products);
     $numberbuylists = explode(",",$number_ofbuy);
+    $pricelist = explode(",",$price);
     $total =  $_COOKIE['TotalPrice'];
 
     $name = stripslashes($_POST['firstname']);
@@ -92,10 +94,10 @@ if (isset($_POST['login']))
           if(isset($_SESSION["username"]))
           {
             $login = $_SESSION["username"];
-            $insert_customer="insert into customer values('','$name','$phone','$address','$indenitycard','$login')";
+            $insert_customer="INSERT INTO `customer` (`idCustomer`,`FullName`,`Telephone`, `address`, `indenityCard`,`userName`) values('','$name','$phone','$address','$indenitycard','$login')";
           }else
           {
-            $insert_customer="insert into customer values('','$name','$phone','$address','$indenitycard',null)";
+            $insert_customer="INSERT INTO `customer` (`idCustomer`,`FullName`,`Telephone`, `address`, `indenityCard`,`userName`) values('','$name','$phone','$address','$indenitycard',null)";
           }
 
          if ($database->query($insert_customer) === TRUE) 
@@ -109,8 +111,8 @@ if (isset($_POST['login']))
                 {
                   while($row2 = mysqli_fetch_assoc($result2)) {
                   $id_custom = $row2['idCustomer'];
-       }
-        }
+                  }
+                }
 
           } 
           else 
@@ -118,26 +120,43 @@ if (isset($_POST['login']))
             echo "Error: " . $ins_query . "<br>" . $database->error;
           }
       }
-      $curr_time = time();
-      $week_time = strtotime("+7 days");
-      $curr_date =  (date("y",$curr_time)+2000)."-".date("m",$curr_time)."-".date("d",$curr_time);
-      $week_date = (date("y",$$week_time)+2000)."-".date("m",$week_time)."-".date("d",$week_time);
-      $id_order =0;
-      $insert_order="insert into order  values('','$id_custom','$curr_date',0,'$week_date')";
-      if ($database->query($insert_order) === TRUE) 
+      $id_order = 0;
+      $orderday= date("Y-m-d");
+      $shipdate = date("Y-d-m",strtotime("+7 days"));
+      $insert = "INSERT INTO `order` (`orderID`, `idCustomer`, `OrderDate`, `Orderstatus`, `ShipDate`, `total`) 
+      VALUES (NULL, '$id_custom', '$orderday', '0', '$shipdate','$total');";
+      if ($database->query($insert) === TRUE) 
           {
-            $select_order = "SELECT orderID  FROM orderitem WHERE idCustomer = '$id_custom' and orderDate ='$curr_date'";
+            $select_order = "SELECT * FROM `order` WHERE `idCustomer` = '$id_custom';";
             $result3 = mysqli_query($database,$select_order);
             while($row = mysqli_fetch_assoc($result3)) {
               $id_order = $row['orderID'];
-            }
-            echo "string".$id_order;
+          }
 
           } 
           else 
           {
-            echo "Error: " . $ins_query . "<br>" . $database->error;
+            echo "Error: " . $insert . "<br>" . $database->error;
           }
+      $i = 0;
+      while($i<count($orderlists))
+      {
+        $insertitem = "INSERT INTO `orderitem` (`oderID`, `item_iD`, `product_id`, `NumberOfOrders`, `listprice`) VALUES ('$id_order', NULL, '$orderlists[$i]', '$numberbuylists[$i]', '$pricelist[$i]');";
+        if($database->query($insertitem) === TRUE) 
+          {
+            echo "insert complete";
+          } 
+          else 
+          {
+            echo "Error: " . $insert . "<br>" . $database->error;
+          }
+          $i++;
+      }
+
+
+
+
+
 
 
 
@@ -146,5 +165,5 @@ if (isset($_POST['login']))
 }
 else{echo "<div class='form'>
          <font color='#8e1b0e' size='+2'>Fail.</font></div>";}
-
+mysqli_close($database)
 ?>
