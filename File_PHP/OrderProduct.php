@@ -4,7 +4,9 @@ $products ="";
 if(isset($_COOKIE['Customer'])){
 $products = $_COOKIE['Customer'];
 $k = explode(",", $products);
+
 }
+$product_id=$_REQUEST['id_product'];
 ?>
 <html lang="en">
   <head>
@@ -52,28 +54,35 @@ $k = explode(",", $products);
 
     <?php include 'PartOfWeb/MenuBar.php'?>
 
-
+    <?php 
+    $sel_query="Select * from product WHERE productid = '$product_id';";
+              $result = mysqli_query($database,$sel_query);
+              while($row = mysqli_fetch_assoc($result)) { ?>
     <div class="addToBag container-fluid">
         <div class="leftBag">
-             <img class="w-70" src="../Image/men_watches/men.webp">
+             <img class="w-70" src="<?=$row["img"]?>">
 
         </div>
         <div class="rightBag">
             <p>
-                <b>Đồng hồ thép không gỉ ba ngày FB-01</b>
+                <b>Đồng hồ <?=$row["material"]?> <?=$row["nameProduct"]?></b>
             </p>
             <div>
 
                         <span id="rating">
+                          <?php $rate = 1;
+                          while($rate <=5) {
+                            if($rate<=$row["rate"]){?>
+
                           <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
+                        <?php }else{?>
+                          
                           <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
+                          <?php }$rate++;}?>
                         </span>
 
             </div>
-            <div><span style="text-decoration: line-through;">1.200.000 </span><span style="color: red;"><b>1.000.000VND</b></span></div>
+            <div><span style="text-decoration: line-through;"><?=$row["price"]?> </span><span style="color: red;"><b><span><?=round($row["price"]*80/100,0)?></span>VND</b></span></div>
             <div id="color">
                 <h4>Màu</h4>
                 <div class="row">
@@ -108,22 +117,22 @@ $k = explode(",", $products);
                     </div>
                 </div>
             </div>
-            <button id="addBag"  class="btn-block" onclick="Cookie()"><a  href="addToBag.php" style="color: white;">Thêm vào giỏ hàng</a></button>
+            <button id="addBag"  class="btn-block" ><a  onclick="Cookie()" href="addToBag.php" style="color: white;">Thêm vào giỏ hàng</a></button>
             <hr>
             <div>
                 <h4>Sản phẩm chi tiết </h4>
-                <p>Tên :<span class="productDetail">F43120</span></p>
-                <p>Hiệu :<span class="productDetail">Seiko</span></p>
-                <p>Màu :<span class="productDetail">Đen</span></p>
-                <p>Chất liệu :<span class="productDetail">Kim loại</span></p>
-                <p>Thể loại :<span class="productDetail">Người lớn</span></p>
+                <p>Tên :<span class="productDetail"><?=$row["nameProduct"]?></span></p>
+                <p>Hiệu :<span class="productDetail"><?=$row["brandName"]?></span></p>
+                <p>Màu :<span class="productDetail"><?=$row["color"]?></span></p>
+                <p>Chất liệu :<span class="productDetail"><?=$row["material"]?></span></p>
+                <p>Thể loại :<span class="productDetail"><?=$row["category"]?></span></p>
 
             </div>
 
 
         </div>
     </div>
-
+<?php }?>
 
     <div class="container-fluid" class ='review'>
         <p>Review Snapshot by <b>PowerReviews</b></p>
@@ -193,9 +202,10 @@ $k = explode(",", $products);
             }
         function Cookie() {
             var order = [<?= $products?>];
-            order.push("2")
+            order.push("<?= $product_id?>")
 
             setCookie("Customer",order, 1);
+            alert("Sản phẩm đã thêm vào giỏ")
      }
     </script>
 

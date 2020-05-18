@@ -1,4 +1,6 @@
 <!doctype html>
+
+<html lang="en">
 <?php
 $orderlists= array();
 if (isset($_COOKIE['Customer'])) {
@@ -6,9 +8,7 @@ if (isset($_COOKIE['Customer'])) {
 $products = $_COOKIE['Customer'];
 $orderlists = explode(",", $products);
 }
-?>
-<html lang="en">
-      
+?>    
   <head>
        <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,10 +55,11 @@ $orderlists = explode(",", $products);
             while ($i < count($orderlists)) {
             
             
-        $selquery="Select * from product,categories WHERE product.categoryID = categories.categoryID and productid = '$orderlists[$i]';";
-        $result = mysqli_query($database,$selquery);
+        $select="Select * from product WHERE productid = '$orderlists[$i]';";
+        $result = mysqli_query($database,$select);
         while($row = mysqli_fetch_assoc($result)) { 
             $TDH = $TDH + $row['price'] ;
+            $GG = round($TDH*20/100,0);
             $TST = $TDH ;
              ?>
             <div class="row">
@@ -71,7 +72,7 @@ $orderlists = explode(",", $products);
                     <p>Hiệu :<span class="productDetail"><?=$row['brandName']?></span></p>
                     <p>Màu :<span class="productDetail"><?=$row['color']?></span></p>
                     <p>Chất liệu :<span class="productDetail"><?=$row['material']?></span></p>
-                    <p>Thể loại :<span class="productDetail"><?=$row['categoryName']?></span></p>
+                    <p>Thể loại :<span class="productDetail"><?=$row['category']?></span></p>
                 </div>
                 <div class="col-md-2">
                     <h6>Giá sản phẩm</h6>
@@ -79,7 +80,7 @@ $orderlists = explode(",", $products);
                 </div>
                 <div class="col-md-2">
                     <h6>Số lượng</h6>
-                    <select id="select<?= $i?>" onchange="NumberOfProduct('select<?= $i?>',<?=$row['price']?>,'TG<?= $i?>')">
+                    <select id="select<?= $i?>" onchange="NumberOfProduct('select<?= $i?>',<?=$row['price']?>,'TG<?= $i?>',<?= $i?>)">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -106,7 +107,7 @@ $orderlists = explode(",", $products);
             <p>Giao hàng : <span>Miễn phí</span></p>
             <hr>
             <button class="btn-block" >
-                <a href= "BuyProduct.php" style="color: white;">Mua ngay</a>
+                <a onclick="Cookie()" href= "BuyProduct.php" style="color: white;">Mua ngay</a>
             </button>
             </div>
             <div id="note" style="background-color: rgb(250,248,246);margin-top: 30px;">
@@ -130,16 +131,37 @@ $orderlists = explode(",", $products);
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
   <script type="text/javascript">
-    
-      function NumberOfProduct(SoLuong,Gia,TongGia)
+        var array_product = new Array();
+        var soluonglist = new Array();
+        <?php for ($i = 0; $i < count($orderlists); $i++) {?>
+            array_product.push(<?= $orderlists[$i]?>);
+            soluonglist.push(1);
+        <?php }  ?>
+      function NumberOfProduct(SoLuong,Gia,TongGia,where)
       {
+        
         var Sum = document.getElementById('STPT').textContent;
-        var x = document.getElementById(SoLuong).value;
+        var SL = document.getElementById(SoLuong).value;
         var TG = document.getElementById(TongGia).textContent;
-        document.getElementById(TongGia).innerHTML = Gia*x;
-        document.getElementById('TDH').innerHTML = Sum*1-TG*1+Gia*x;
-        document.getElementById('STPT').innerHTML = Sum*1-TG*1+Gia*x;
+        soluonglist[where] = SL;
+        document.getElementById(TongGia).innerHTML = Gia*SL;
+        document.getElementById('TDH').innerHTML = Sum*1-TG*1+Gia*SL;
+        var giam_gia = Math.round((document.getElementById('TDH').textContent)*20/100)
+        document.getElementById('GG').innerHTML = giam_gia
+        document.getElementById('STPT').innerHTML = (Sum*1-TG*1+Gia*SL)-(giam_gia*1);
       }
+      function setCookie(cname,cvalue,exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; expires=" + d.toGMTString();
+            }
+        function Cookie() {
+
+            setCookie("ProductBuy",array_product, 1);
+            setCookie("NumberBuy",soluonglist,1);
+            setCookie("TotalPrice",document.getElementById('STPT').textContent,1)
+        }
   </script>
 </html>
 

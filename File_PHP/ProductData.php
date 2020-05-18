@@ -32,7 +32,7 @@ $search = mysqli_real_escape_string($database,$search);
     # just chose order
     elseif($emty >=count($check) and $order =='BCN')
     {
-    	$sel_query="Select * from product WHERE nameProduct LIKE '%$search%' ORDER BY NumberSale DESC;";
+    	$sel_query="Select * from product,stores WHERE product.productid = stores.id_Product AND nameProduct LIKE '%$search%' ORDER BY NumberSale DESC;";
     }
     elseif($emty >=count($check) and $order =='KHYT')
     {
@@ -50,7 +50,7 @@ $search = mysqli_real_escape_string($database,$search);
 
     elseif($emty <count($check) and $order =='BCN')
     {
-    	$sel_query="Select * from product WHERE (Gender ='$check[0]' OR Gender='$check[1]'
+    	$sel_query="Select * from product,stores WHERE product.productid = stores.id_Product AND (Gender ='$check[0]' OR Gender='$check[1]'
               		OR brandName ='$check[2]' OR brandName ='$check[3]' OR brandName ='$check[4]' OR brandName ='$check[5]' OR color ='$check[6]'  
               		OR color ='$check[7]' OR color ='$check[8]' OR color ='$check[9]'  OR color ='$check[10]' OR material ='$check[11]' 
               		OR material ='$check[12]' OR category ='$check[13]' OR category ='$check[14]' OR category ='$check[15]'
@@ -90,13 +90,21 @@ $search = mysqli_real_escape_string($database,$search);
 
 
  $count =1;
+
+ if (isset($_POST['count'])) {
+ 	$limit = $_POST['count'];
+ }
+
+
  $result = mysqli_query($database,$sel_query);
- 	while($row = mysqli_fetch_assoc($result) and $count<=6) { ?>
+ 	while($row = mysqli_fetch_assoc($result) and $count<=$limit) { ?>
         <div class="col-md-4">  
           <div class="card shadow" >
+          	<a href="OrderProduct.php?id_product=<?=$row["productid"]?>">
              <div class="inner">
                 <img class="card-img-top rounded " src="<?=$row["img"]?>" alt="Card image cap">
              </div>
+             </a>
 
              <div class="card-body text-left">
                 <p class="card-text" style="text-align: left;">

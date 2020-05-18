@@ -1,5 +1,20 @@
 <!doctype html>
 <html lang="en">
+<?php
+$orderlists= array();
+if (isset($_COOKIE['ProductBuy']) && isset($_COOKIE['NumberBuy']) && isset($_COOKIE['TotalPrice'])) {
+
+$products = $_COOKIE['ProductBuy'];
+$number_ofbuy = $_COOKIE['NumberBuy'];
+$orderlists = explode(",", $products);
+$numberbuylists = explode(",",$number_ofbuy);
+$total =  $_COOKIE['TotalPrice'];
+}
+else
+{
+  header("Location: AddToBag.php ");
+}
+?>   
   <head>
        <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,19 +56,19 @@
                 <div class="row">
                   <div class="col-75">
                     <div class="container">
-                      <form action="/action_page.php">
+                      <form action="ActionPage.php" method="POST">
                       
                         <div class="row">
                           <div class="col-50">
                             <h3>Thanh Toán</h3>
                             <label for="fname"><i class="fa fa-user"></i> Họ Và Tên</label>
                             <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email" name="email" placeholder="john@example.com">
+                            <label for="phone"><i class="fa fa-envelope"></i> Số điện thoại</label>
+                            <input type="text" id="email" name="phone" placeholder="john@example.com">
                             <label for="adr"><i class="fa fa-address-card-o"></i> Địa Chỉ</label>
                             <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-                            <label for="city"><i class="fa fa-institution"></i> Thành Phố</label>
-                            <input type="text" id="city" name="city" placeholder="New York">
+                            <label for="city"><i class="fa fa-institution"></i> số chứng minh</label>
+                            <input type="text" id="city" name="indenitycard" placeholder="New York">
 
                             <div class="row">
                               <div class="col-50">
@@ -98,19 +113,25 @@
                         <label>
                           <input type="checkbox" checked="checked" name="sameadr"> Địa chỉ giao hàng giống như thanh toán
                         </label>
-                        <input type="submit" value="Xác Nhận Mua Hàng" style="background-color: rgb(36,36,36);" class="btn">
+                        <input type="submit" value="Xác Nhận Mua Hàng" style="background-color: rgb(36,36,36);" class="btn" name= 'MuaHang'>
                       </form>
                     </div>
                   </div>
                   <div class="col-25">
                     <div class="container">
+
                       <h4>Số Lượng <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-                      <p><a href="#">Sản Phẩm 1</a> <span class="price">$15</span></p>
-                      <p><a href="#">Sản Phẩm 2</a> <span class="price">$5</span></p>
-                      <p><a href="#">Sản Phẩm 3</a> <span class="price">$8</span></p>
-                      <p><a href="#">Sản Phẩm 4</a> <span class="price">$2</span></p>
+                      <?php $i = 0;
+                        while ($i < count($orderlists)) {
+            
+            
+                        $select="Select * from product WHERE productid = '$orderlists[$i]';";
+                        $result = mysqli_query($database,$select);
+                        while($row = mysqli_fetch_assoc($result)) { ?>
+                        <p><a href="#"><?= $numberbuylists[$i]?> <?=$row['nameProduct']?></a> <span class="price"><?=$row['price']*20/100?> VND</span></p>
+                      <?php }$i++; }?>
                       <hr>
-                      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                      <p>Total <span class="price" style="color:black"><b><?= $total?> VND</b></span></p>
                     </div>
                   </div>
                 </div>

@@ -291,9 +291,11 @@
               while($row = mysqli_fetch_assoc($result) and $count<=6) { ?>
               <div class="col-md-4">  
                     <div class="card shadow" >
+                      <a href="OrderProduct.php?id_product=<?=$row["productid"]?>">
                       <div class="inner">
                         <img class="card-img-top rounded " src="<?=$row["img"]?>" alt="Card image cap">
                       </div>
+                      </a>
                       <div class="card-body text-left">
                         <p class="card-text" style="text-align: left;">
                           <?=$row["nameProduct"]?>
@@ -328,7 +330,7 @@
 
 
     <div style="margin-left: 760px;padding-top:10px;position: relative;top: 10px;float: left;">
-       <button type="button" class="btn btn-light" style="font-size: 20px;border:1px solid black;" >Xem Thêm</button>
+       <button type="button" class="btn btn-light" style="font-size: 20px;border:1px solid black;"  onclick="AddView()">Xem Thêm</button>
      </div>
 
 
@@ -461,42 +463,12 @@ window.onclick = function(event) {
 </script>
 
 <script type="text/javascript">
-
-  // function LoadProductSearch()
-  // {
-  //       var arraycheck = new Array();
-  //   var check =document.getElementsByClassName('form-check-input');
-  //   var order_chose = document.getElementById('orderproduct').value;
-  //   var search_input = document.getElementById('search_input').value;
-  //   for (var i = 0; i < check.length; i++) {
-
-  //     if(check[i].checked == true)
-  //     {
-        
-  //       arraycheck.push(document.getElementsByClassName('form-check-label')[i].textContent)
-  //     }else
-  //     {
-  //       arraycheck.push("")
-  //     }
-
-  //   }
-
-
-  //   $.post("ProductData.php",
-  //   {
-  //     chosecheck: arraycheck,
-  //     orderchose : order_chose,
-  //     search: search_input,
-  //   },
-  //   function(data,status){
-  //     if(status =="success")
-  //     {
-  //       document.getElementById('product').innerHTML ="";
-  //       document.getElementById('product').innerHTML = data;
-  //     }
-      
-  //   });
-  // }
+  var number_of_show = 6;
+  function AddView()
+  {
+    number_of_show = number_of_show +6;
+    LoadProduct();
+  }
   function LoadProduct() {
     
     var arraycheck = new Array();
@@ -522,6 +494,7 @@ window.onclick = function(event) {
       chosecheck: arraycheck,
       orderchose : order_chose,
       search: search_input,
+      count : number_of_show,
     },
     function(data,status){
       if(status =="success")
