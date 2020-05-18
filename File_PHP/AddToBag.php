@@ -133,9 +133,11 @@ $orderlists = explode(",", $products);
   <script type="text/javascript">
         var array_product = new Array();
         var soluonglist = new Array();
+        var togialist = new Array()
         <?php for ($i = 0; $i < count($orderlists); $i++) {?>
             array_product.push(<?= $orderlists[$i]?>);
             soluonglist.push(1);
+            togialist.push(document.getElementById('TG<?= $i?>').textContent)
         <?php }  ?>
       function NumberOfProduct(SoLuong,Gia,TongGia,where)
       {
@@ -145,6 +147,7 @@ $orderlists = explode(",", $products);
         var TG = document.getElementById(TongGia).textContent;
         soluonglist[where] = SL;
         document.getElementById(TongGia).innerHTML = Gia*SL;
+        togialist[where] = Gia*SL;
         document.getElementById('TDH').innerHTML = Sum*1-TG*1+Gia*SL;
         var giam_gia = Math.round((document.getElementById('TDH').textContent)*20/100)
         document.getElementById('GG').innerHTML = giam_gia
@@ -161,6 +164,7 @@ $orderlists = explode(",", $products);
             setCookie("ProductBuy",array_product, 1);
             setCookie("NumberBuy",soluonglist,1);
             setCookie("TotalPrice",document.getElementById('STPT').textContent,1)
+            setCookie("PriceList",togialist,1);
         }
   </script>
 </html>
