@@ -10,8 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../File_CSS/Mainpage.css">
+    
     <link rel="stylesheet" type="text/css" href="../File_CSS/Login.css">
+    <link rel="stylesheet" type="text/css" href="../File_CSS/Mainpage.css">
+    <link rel="stylesheet" type="text/css" href="../File_CSS/Advertisement1.css">
+    <link rel="stylesheet" type="text/css" href="../File_CSS/Advertisement2.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     
@@ -56,7 +59,8 @@
   </style>
   <body>
     
-
+    <?php include 'PartOfWeb/HeaderBar.php';?>
+    <?php include 'PartOfWeb/MenuBar.php'?>
     <!--Header bar have features login and dilivery -->
     <div class="website_mainpage">
 
@@ -74,6 +78,7 @@
               <th scope="col">Thể loại</th>
               <th scope="col">Đáng giá</th>
               <th scope="col">Giá tiền</th>
+              <th scope="col">Giới Tính</th>
               <th scope="col">Ảnh</th>
               <th scope="col">Thư Mục Ảnh</th>
               <th scope="col">Update</th>
@@ -148,19 +153,29 @@
                   
               <label for="danhgia">Đánh Giá Sao</label>
               <select id="danhgia" name="danhgia">
-                <option value="Một">1 </option>
-                <option value="Hai">2</option>
-                <option value="Ba">3</option>
-                <option value="Bốn">4</option>
-                <option value="Năm">5</option>
+                <option value="1">1 </option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
 
             </div>
           </div>
 
-
-          <label for="giatien">Giá Tiền</label>
-          <input type="text" id="giatien" name="giatien">
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="giatien">Giá Tiền</label>
+                  <input type="text" id="giatien" name="giatien">
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="Gender">Giới Tính :</label>
+                  <select id="Gender" name="Gender">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                  </select>
+               </div>   
+         </div>
 
           <div class="Folder_Image">
           <label for="thuMuc">Chọn Thư Mục Để Bỏ Ảnh </label>
@@ -209,13 +224,14 @@
         var  theLoai = $('#theLoai').val();
         var  danhgia = $('#danhgia').val();  
         var giatien = $('#giatien').val();
+        var Gender = $('#Gender').val();
         var thuMuc = $('#thuMuc').val();
-        var hinhAnh = $('#hinhAnh').val();
-        var filename = hinhAnh.replace(/C:\\fakepath\\/,'');
+        var img = $('#hinhAnh').val();
+        var filename = img.replace(/C:\\fakepath\\/,'');
         var hinhAnh = '../Image/'+thuMuc+'/'+filename;
-        
+      
     
-        if(nameProduct!="" && giatien!="" && hinhAnh!=""){
+        if(nameProduct!="" && giatien!="" && img!=""){
           $.ajax({
             url: "Admin/insert.php",
             type: "POST",
@@ -227,6 +243,7 @@
              theLoai : theLoai,
              danhgia : danhgia,
              giatien : giatien,
+             Gender : Gender ,
              thuMuc : thuMuc ,
              hinhAnh : hinhAnh ,
 
@@ -250,7 +267,9 @@
 
     load_data();
     function load_data(){
+      
       $.ajax({
+
           url:"Admin/showProduct.php",
           method:"POST",
           success:function(data){

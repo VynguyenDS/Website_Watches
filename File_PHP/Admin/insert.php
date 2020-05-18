@@ -9,10 +9,11 @@
       $chatlieu = $_POST['chatlieu'];
       $theLoai = $_POST['theLoai'];
       $danhgia = $_POST['danhgia'];
-      $giatien = $_POST['giatien']; 
+      $giatien = $_POST['giatien'];
+      $Gender = $_POST['Gender']; 
       $thuMuc = $_POST['thuMuc'];
       $filename_Folder = $_POST['hinhAnh']; 
-   	$sql = "INSERT INTO `product`( `nameProduct`,`brandName`,`color`,`material`,`category`,`rate`,`price`,`thuMucBoAnh`,`img`) VALUES ('$nameProduct','$nhanhieu','$color','$chatlieu','$theLoai','$danhgia','$giatien','$thuMuc','$filename_Folder')";
+   	$sql = "INSERT INTO `product`( `nameProduct`,`brandName`,`color`,`material`,`category`,`rate`,`price`,`Gender`,`thuMucBoAnh`,`img`                  ) VALUES ('$nameProduct','$nhanhieu','$color','$chatlieu','$theLoai','$danhgia','$giatien','$Gender','$thuMuc','$filename_Folder')";
    	$check =mysqli_query($database,$sql);
 	   if ($check){ 
 
