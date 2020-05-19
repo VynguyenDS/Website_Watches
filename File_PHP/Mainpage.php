@@ -27,7 +27,46 @@
     <!--Header bar have features login and dilivery -->
 
     <div class="website_mainpage">
+
+
+      <div class="feedBackForm" style="float: left;position: fixed;right: -10px;top: 100px;">
+          
+          <a id="123213" type="button" class="btn btn-dark"
+          style="font-size: 10px;color: white;transform: rotate(90deg);" onclick="document.getElementById('FeedBack').style.display='block'">
+                Feed Back
+          </a>
+
+      </div>
+
+
+      <div id="FeedBack" class="modal">
+            <form class="modal-content animate" action="/action_page.php" method="post">
+              <h4 style="text-align:center;">Khảo Sát Về Chất Lượng Cửa Hàng</h4>
+              <div class="imgcontainer">
+                <span onclick="document.getElementById('FeedBack').style.display='none'" class="close" title="Close Modal">&times;</span>  
+              </div>
+
+              <div class="container">
+                <label for="uname"><b>Họ Và Tên :</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Email :</b></label>
+                <input type="text" placeholder="Enter Email" name="psw" required>
+
+                <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Tin Nhắn :</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                
+                <button type="submit"  class="btn btn-dark btn-block">Gửi</button>
+              </div>
+
+            </form>
+      </div>
+
     <div class="header_bar container-fluid">
+      
+
       <div class="header_bar_left">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="padding-left: 20px;">
           <div class="carousel-inner">
@@ -43,19 +82,22 @@
                   </a>
           </div>
           </div>
-
         </div>
       </div>
+
+
       <div class="header_bar_right d-none d-md-block" >
-      <ul class="nav justify-content-end">
+        
+
+        <ul class="nav justify-content-end">
+          
           <li class="nav-item">
               <a class="nav-link active" href="#">
                   <p>Vận chuyển</p>
               </a>
           </li>
-          <li class="nav-item" >
- 
 
+          <li class="nav-item" >
                   <div class="dropdown_show">  
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="flag-icon flag-icon-vn" aria-hidden="true"></i>
@@ -69,16 +111,18 @@
                       </div>
                   </div>
           </li>
+
           <li class="nav-item">
               <a class="nav-link" href="rr.com"><p>Tình trạng đặt hàng</p></a>
           </li>
+
           <!-- lúc chưa đăng nhập -->
           <?php if(!isset($_SESSION["username"])){?>
           <li class="nav-item">
               <a class="nav-link" href="#" onclick="document.getElementById('signin').style.display='block'"><p >Đăng nhập</p></a>
               <div id="signin" class="modal">
-                
-                <form class="modal-content animate" action="ActionPage.php" method="post">
+                  
+                  <form class="modal-content animate" action="ActionPage.php" method="post">
                       <div class="imgcontainer">
                         <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
                         <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
@@ -87,31 +131,28 @@
                       <div class="container">
                         <label for="uname"><b>Tài khoản</b></label>
                         <input type="text" placeholder="Enter Username" name="uname" required>
-
                         <label for="psw"><b>Mật khẩu</b></label>
-                        <input type="password" id="showpassword" placeholder="Enter Password" name="psw" required>
-                         
+                        <input type="password" id="showpassword" placeholder="Enter Password" name="psw" required>     
                         <button id="login" type="submit" name="login" required>Đăng nhập</button>
                         <input type="checkbox" onclick="Password()">Hiển thị mật khẩu 
                         <label>
-                          <input type="checkbox" checked="checked" name="remember"> Lưu tài khoản
-                            <span>
+                        <input type="checkbox" checked="checked" name="remember"> Lưu tài khoản
+                        <span>
                               <a  href="signup.php"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                Tạo tài khoản
+                                  Tạo tài khoản
                               </a>
-                          </span>
-
+                              </span>
                         </label>
                       </div>
 
                       <div class="container" style="background-color:#f1f1f1">
                         <button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Kết thúc</button>
-                      
                         <span class="psw">Quên <a href="#">Mật Khẩu?</a></span>
                       </div>
+
                     </form>
-                    
-            </div>
+        
+                </div>
 
 
           </li>
@@ -128,9 +169,6 @@
           </li>
       </ul>
       </div>
-    </div>
-    <div class="FeedBack" style="text-align: right;position: fixed;right: 20px;bottom: 100px;">
-        <button id="FeedBack" style="transform: rotate(90deg);padding-top: 10px;">FeedBack</button>
     </div>
 
     <div class="navbar_menu container-fluid" style="float: left;">
@@ -284,6 +322,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="right_content">
           <div class="row" id="product">
             <!-- php row product -->
@@ -339,7 +379,7 @@
 
     <div class="Information_container container-fluid">
       <hr style="background-color: rgb(255,255,255);">
-      <div>
+      <div style="margin-left: 40px;">
         <h5>It’s Time To Update Your Look With Our Men's Watches</h5>
         <p>
           The time has come to update your wardrobe and add some versatility for refreshed, updated looks. There’s no better way to accomplish this task than with our handsome men’s watches. From smartwatches to traditional, we’ve got what you want. Our watch collection for men was created to provide style staples that easily transition from the boardroom to the basketball court. They add an  extra layer of style to your look no matter where you are.
@@ -432,8 +472,9 @@
           </div>
         </div>
       </div>
+    
     </div>
-    </div>
+  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -507,6 +548,14 @@ window.onclick = function(event) {
       }
       
     });
+  }
+</script>
+<script>
+  var modal = document.getElementById('FeedBack');
+  window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
   }
 </script>
   </body>
