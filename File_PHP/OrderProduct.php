@@ -148,8 +148,7 @@ $product_id=$_REQUEST['id_product'];
                           <span class="fa fa-star"></span>
                     </span>
                     <span>21 người Reviews</span><br>
-                    <button style="background-color: rgb(11,123,193);color: white;">Viết Reviews</button>
-
+                    <?php include('FeedBackProduct.php') ?>
             </div>
             <div class="col-md-4 herical" style="text-align: center;padding-top: 100px;border-right: 1px solid rgb(208,208,208);">
                 <h2  ><span style="background-color: rgb(10,137,0);padding: 10px 30px;color: white;"> 81%</span></h2>
@@ -186,8 +185,11 @@ $product_id=$_REQUEST['id_product'];
         </div>
 
     </div> 
-
-  
+    <hr>
+    <div class="commentProduct container-fluid" style="background-color: rgb(245,245,245);">
+        <?php include("commentProduct.php") ?>
+        
+    </div>
     <?php include 'PartOfWeb/InformationContainer.php'?>
     <?php include 'PartOfWeb/Footer.php'?>
     <!-- Optional JavaScript -->

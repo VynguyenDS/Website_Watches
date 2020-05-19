@@ -72,7 +72,7 @@
 	width: 100%;
 	height: auto;
 	float: left;
-	margin-left: 40px;
+	padding-left: 100px;
 
 }
 .content .left_content{
@@ -84,6 +84,7 @@
 .content .right_content{
 	float: left;
 	width: 80%;
+
 }
 
 .right_content .card{
@@ -145,6 +146,7 @@
 .navbar_menu .form-inline{
 	position: relative;
 	bottom: 4px;
+	right: 20px;
 }
 .navbar_menu .form-control{
 	font-size: 10px;
@@ -306,7 +308,7 @@
 }
 .Best_Seller .option_customer{
 	float: right;
-	margin-right: 15px;
+	margin-right: 40px;
 }
 .content{
 	width: 100%;
@@ -323,7 +325,7 @@
 	width: 80%;
 }
 .right_content .card{
-	width: 18rem;
+	width: 17rem;
 	margin-bottom: 10px;
 
 }
