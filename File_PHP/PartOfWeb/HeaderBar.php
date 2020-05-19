@@ -80,17 +80,21 @@
                       <div class="container" style="background-color:#f1f1f1">
                         <button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Kết thúc</button>
                       
-                        <span class="psw">Quên <a href="#">Mật Khẩu?</a></span>
+                        <span class="psw">Quên <a href="ForgotPassword.php">Mật Khẩu?</a></span>
                       </div>
                     </form>
             </div>
 
           </li>
           <!-- đăng nhập thành công -->
-                  <?php }else{?>
-                      <a class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><?=$_SESSION["username"]?></a>
+                    <?php }else{
+                    if ($_SESSION["position"] =="Admin"){?>
+                      <a class="btn btn-primary" style="color: red;" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="admin"><?=$_SESSION["username"]?></a>
                       <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
-                  <?php }?>
+                  <?php }else{?>
+                    <a class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><?=$_SESSION["username"]?></a>
+                      <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
+                  <?php }}?>
           <!--                      -->
           <li class="nav-item">
               <a class="nav-link " href="../File_PHP/AddToBag.php">

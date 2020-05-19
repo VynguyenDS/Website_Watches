@@ -60,7 +60,7 @@ $orderlists = explode(",", $products);
         while($row = mysqli_fetch_assoc($result)) { 
             $TDH = $TDH + $row['price'] ;
             $GG = round($TDH*20/100,0);
-            $TST = $TDH ;
+            $TST = $TDH - $GG;
              ?>
             <div class="row">
                 <div class="col-md-2">
@@ -89,7 +89,7 @@ $orderlists = explode(",", $products);
                 </div>
                 <div class="col-md-3">
                     <h6>Tổng số tiền</h6>
-                    <p ><span id="TG<?= $i?>"><?=number_format($row['price'])?></span>VND</p>
+                    <p ><span id="TG<?= $i?>"><?=$row['price']?></span>VND</p>
                     <span class="close" title="Close Modal">&times;</span>
                 </div>
             </div>
@@ -133,9 +133,11 @@ $orderlists = explode(",", $products);
   <script type="text/javascript">
         var array_product = new Array();
         var soluonglist = new Array();
+        var pricelist = new Array();
         <?php for ($i = 0; $i < count($orderlists); $i++) {?>
             array_product.push(<?= $orderlists[$i]?>);
             soluonglist.push(1);
+            pricelist.push(document.getElementById("TG<?= $i?>").textContent)
         <?php }  ?>
       function NumberOfProduct(SoLuong,Gia,TongGia,where)
       {
@@ -144,7 +146,9 @@ $orderlists = explode(",", $products);
         var SL = document.getElementById(SoLuong).value;
         var TG = document.getElementById(TongGia).textContent;
         soluonglist[where] = SL;
-        document.getElementById(TongGia).innerHTML = <Gia*SL;
+        document.getElementById(TongGia).innerHTML = Gia*SL;
+        pricelist[where] = Gia*SL;
+
         document.getElementById('TDH').innerHTML = Sum*1-TG*1+Gia*SL;
         var giam_gia = Math.round((document.getElementById('TDH').textContent)*20/100)
         document.getElementById('GG').innerHTML = giam_gia
@@ -160,7 +164,8 @@ $orderlists = explode(",", $products);
 
             setCookie("ProductBuy",array_product, 1);
             setCookie("NumberBuy",soluonglist,1);
-            setCookie("TotalPrice",document.getElementById('STPT').textContent,1)
+            setCookie("TotalPrice",document.getElementById('STPT').textContent,1);
+            setCookie("PriceList",pricelist,1);
         }
   </script>
 </html>

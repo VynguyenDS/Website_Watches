@@ -48,30 +48,45 @@ button {
 
 
 <div id="id01" class="modal">
-  <form class="modal-content" action="action_page.php" method="POST">
+  <form class="modal-content" action="ActionPage.php" method="POST">
     <div class="container">
       <h1>Đăng ký tài khoản</h1>
       <p>Xin vui lòng điền vào mẫu thông tin dưới đây</p>
       <hr>
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="username" required>
+      <label for="email"><b>Tên tài khoản</b></label>
+      <input type="text" placeholder="Enter account" name="username" required>
+
+      <label for="email"><b>Họ và tên</b></label>
+      <input type="text" placeholder="Enter full name" name="fullname" required>
+
+      <label for="email"><b>Số điện thoại </b></label>
+      <input type="text" placeholder="Enter phone number" name="phone" required>
+
+      <label for="email"><b>Địa chỉ</b></label>
+      <input type="text" placeholder="Enter address" name="address" required>
+
+      <label for="email"><b>Số chứng minh</b></label>
+      <input type="text" placeholder="Enter indenity card number" name="indenitycard" required>
 
       <label for="psw"><b>Mật khẩu</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
       <label for="psw-repeat"><b>Nhập lại mật khẩu </b></label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+
       
       <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Lưu tài khoản
       </label>
+
 
       <p>Khi tạo ra tài khoản bạn phải chấp nhận <a href="#" style="color:dodgerblue">Điều khoản và quyền riêng tư</a>.</p>
 
       <div class="clearfix">
         
         <button type="submit" name="create"  class="signupbtn btn-lg btn-block" style="width: 100%;"  required>Đăng ký</button>
-      </div>equired
+      </div>
     </div>
   </form>
 </div>

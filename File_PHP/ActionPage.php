@@ -14,6 +14,8 @@ if (isset($_POST['login']))
         if($rows==1)
       {
          $_SESSION['username'] = $username;
+         while($row = mysqli_fetch_assoc($result)) {
+         $_SESSION['position'] =  $row['position'];}
             // Redirect user to index.php
          header("Location: Mainpage.php ");
         }else
@@ -23,9 +25,20 @@ if (isset($_POST['login']))
       }
 }elseif (isset($_POST['create'])) {//signup
   $username = stripslashes($_POST['username']);
-   $username = mysqli_real_escape_string($database,$username);
-   $password = stripslashes($_POST['psw']);
-   $password = mysqli_real_escape_string($database,$password);
+  $username = mysqli_real_escape_string($database,$username);
+  $password = stripslashes($_POST['psw']);
+  $password = mysqli_real_escape_string($database,$password);
+
+  $fullname = stripslashes($_POST['fullname']);
+  $fullname = mysqli_real_escape_string($database,$fullname);
+  $phone = stripslashes($_POST['phone']);
+  $phone = mysqli_real_escape_string($database,$phone);
+
+  $address = stripslashes($_POST['address']);
+  $address = mysqli_real_escape_string($database,$address);
+  $indenitycard = stripslashes($_POST['indenitycard']);
+  $indenitycard = mysqli_real_escape_string($database,$indenitycard);
+
 
     $select = "SELECT * FROM login WHERE userName = '$username'";
    $result = mysqli_query($database,$select) or die(mysql_error());
@@ -42,14 +55,23 @@ if (isset($_POST['login']))
         
         }
         else{
-        $insert_user="INSERT INTO `login` (`idUserName`, `userName`, `password`, `position`) VALUES('','$username','$password','user')";
+        $insert_user="INSERT INTO `login` (`idUserName`, `userName`, `password`, `position`) VALUES('','$username','$password','customer')";
   
           if ($database->query($insert_user) === TRUE) 
           {
+            $insert_userinf ="INSERT INTO `customer` (`idCustomer`,`FullName`,`Telephone`, `address`, `indenityCard`,`userName`) values('','$fullname','$phone','$address','$indenitycard','$username')";
+            if ($database->query($insert_userinf) === TRUE) 
+          {
             echo "<center>Bạn đã đăng ký thành công.</br>
             </br>
-            <a href='login.php'>Quay lại đăng nhập  </a>
+            <a href='Mainpage.php'>Quay lại trang chủ  </a>
             <center>";
+          }
+           
+          else 
+          {
+            echo "Error:  fail";
+          }
           } 
           else 
           {
@@ -57,7 +79,33 @@ if (isset($_POST['login']))
           }
       }
 
-}elseif (isset($_POST['MuaHang'])) {
+}elseif (isset($_POST['forget'])) {
+  $username = stripslashes($_POST['username']);
+  $username = mysqli_real_escape_string($database,$username);
+  $password = stripslashes($_POST['psw']);
+  $password = mysqli_real_escape_string($database,$password);
+
+  $phone = stripslashes($_POST['phone']);
+  $phone = mysqli_real_escape_string($database,$phone);
+  $indenitycard = stripslashes($_POST['indenitycard']);
+  $indenitycard = mysqli_real_escape_string($database,$indenitycard);
+
+  $select_acc = "SELECT * FROM customer WHERE  userName = '$username' and Telephone ='$phone' and indenityCard = '$indenitycard';";
+   $result = mysqli_query($database,$select_acc) or die(mysql_error());
+   $rows = mysqli_num_rows($result);
+        if($rows==1)
+        {
+          #####
+          $update="update login set password='$password' where userName='$username'";
+          $result_update=mysqli_query($database, $update);// or die(mysqli_error());
+          $status = "Bạn đã đổi mật khẩu thành công </br></br>
+          <a href='Mainpage.php'>Quay lại trang chủ</a>";
+          echo '<p style="color:#FF0000;">'.$status.'</p>';
+          #####
+        }
+
+}
+elseif (isset($_POST['MuaHang'])) {
   if (isset($_COOKIE['ProductBuy']) && isset($_COOKIE['NumberBuy']) && isset($_COOKIE['TotalPrice']) and isset($_POST['firstname'])) {
 
     $orderlists= array();
@@ -144,11 +192,20 @@ if (isset($_POST['login']))
         $insertitem = "INSERT INTO `orderitem` (`oderID`, `item_iD`, `product_id`, `NumberOfOrders`, `listprice`) VALUES ('$id_order', NULL, '$orderlists[$i]', '$numberbuylists[$i]', '$pricelist[$i]');";
         if($database->query($insertitem) === TRUE) 
           {
-            echo "insert complete";
+            setcookie("PriceList", "", time() - 3600);
+            setcookie("NumberBuy", "", time() - 3600);
+            setcookie("PriceList", "", time() - 3600);
+            setcookie("TotalPrice", "", time() - 3600);
+            setcookie("Customer", "", time() - 3600);
+            echo "<center>Mã hoá đơn của bạn là :".$id_order.".</br>
+            </br>
+            <a href='Mainpage.php'>Quay lại trang chủ  </a>
+            <center>";
+
           } 
           else 
           {
-            echo "Error: " . $insert . "<br>" . $database->error;
+            echo "<center>Lỗi Hệ thống  xin vui lòng thử lại sau</center>";
           }
           $i++;
       }
@@ -163,7 +220,6 @@ if (isset($_POST['login']))
 
 }
 }
-else{echo "<div class='form'>
-         <font color='#8e1b0e' size='+2'>Fail.</font></div>";}
+else{header("Location: Mainpage.php ");}
 mysqli_close($database)
 ?>
