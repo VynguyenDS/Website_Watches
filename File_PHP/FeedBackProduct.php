@@ -3,7 +3,7 @@ style="color: white;margin-top: 10px;background-color: rgb(11,123,193)" onclick=
                 Khảo Sát Sản Phẩm
 </button>
 <div id="FeedBack" class="modal">
-            <form class="modal-content animate" action="/action_page.php" method="post">
+            <form class="modal-content animate" action="/ActionPage.php" method="post">
               <h4 style="text-align:center;">Khảo Sát Về Chất Lượng Sản Phẩm</h4>
               <div class="imgcontainer">
                 <span onclick="document.getElementById('FeedBack').style.display='none'" class="close" title="Close Modal">&times;</span>  
@@ -13,15 +13,21 @@ style="color: white;margin-top: 10px;background-color: rgb(11,123,193)" onclick=
                 <label for="fullName"><b>Họ Và Tên :</b></label>
                 <input type="text" placeholder="Enter Username" name="fullName" required>
 
-                <label for="Email"><b>Email :</b></label>
-                <input type="text" placeholder="Enter Email" name="Email" required>
+                <label for="Email"><b>Đánh giá:</b></label>
+                  <select class="option_customer"  name="rate" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
 
                 <div class="form-group">
                         <label for="exampleFormControlTextarea1">Tin Nhắn :</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 
-                <button type="submit"  class="btn btn-dark btn-block">Gửi</button>
+                <button type="submit" name="feedback" class="btn btn-dark btn-block">Gửi</button>
               </div>
 
             </form>

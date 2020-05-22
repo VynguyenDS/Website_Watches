@@ -97,7 +97,25 @@ $search = mysqli_real_escape_string($database,$search);
 
 
  $result = mysqli_query($database,$sel_query);
- 	while($row = mysqli_fetch_assoc($result) and $count<=$limit) { ?>
+ 	while($row = mysqli_fetch_assoc($result) and $count<=$limit) { 
+                $count_rate = 0;
+                $id_product = $row['productid'];
+                $sel_rate = "Select rate  FROM feedback WHERE idProduct ='$id_product';";
+                
+                $rate_result = mysqli_query($database,$sel_rate);
+                $rows = mysqli_num_rows($result);
+                if($rows!=0){
+                  $i = 0;
+                while($row_rate = mysqli_fetch_assoc($rate_result)) {
+                $count_rate += $row_rate['rate'];
+                $i ++;
+                }
+                  
+                }
+                if ($i == 0) {
+                    $i = 1;
+                  }
+                $count_rate = round($count_rate/$i);  ?>
         <div class="col-md-4">  
           <div class="card shadow" >
           	<a href="OrderProduct.php?id_product=<?=$row["productid"]?>">
@@ -114,7 +132,7 @@ $search = mysqli_real_escape_string($database,$search);
                 <!-- rate -->
                     <?php $rate = 1;
                     while($rate <=5) {
-                      if($rate<=$row["rate"]){?>
+                      if($rate<=$count_rate){?>
 
                         <span class="fa fa-star checked" style="color: orange;"></span>
                         <?php }else{?>

@@ -1,5 +1,7 @@
 <!doctype html>
 <?php 
+require("../DataBase/database.php");
+mysqli_set_charset($database,'utf8');
 $products ="";
 if(isset($_COOKIE['Customer'])){
 $products = $_COOKIE['Customer'];
@@ -55,9 +57,18 @@ $product_id=$_REQUEST['id_product'];
     <?php include 'PartOfWeb/MenuBar.php'?>
 
     <?php 
+    $count_rate = 0;
+    $sel_rate = "Select rate  FROM feedback WHERE idProduct = '$product_id';";
+    $rate_result = mysqli_query($database,$sel_rate);
+    $i = 0;
+    while($row_rate = mysqli_fetch_assoc($rate_result)) {
+        $count_rate += $row_rate['rate'];
+        $i ++;
+    }
+    $count_rate = round($count_rate/$i);
     $sel_query="Select * from product WHERE productid = '$product_id';";
-              $result = mysqli_query($database,$sel_query);
-              while($row = mysqli_fetch_assoc($result)) { ?>
+    $result = mysqli_query($database,$sel_query);
+    while($row = mysqli_fetch_assoc($result)) { ?>
     <div class="addToBag container-fluid">
         <div class="leftBag">
              <img class="w-70" src="<?=$row["img"]?>">
@@ -72,7 +83,7 @@ $product_id=$_REQUEST['id_product'];
                         <span id="rating">
                           <?php $rate = 1;
                           while($rate <=5) {
-                            if($rate<=$row["rate"]){?>
+                            if($rate<=$count_rate){?>
 
                           <span class="fa fa-star checked" style="color: orange;"></span>
                         <?php }else{?>
@@ -139,16 +150,55 @@ $product_id=$_REQUEST['id_product'];
         <hr>
         <div class="row">
             <div class="col-md-4 herical" style="text-align: center;padding-top: 80px;border-right: 1px solid rgb(208,208,208);">
-                    <h3>3.3</h3>
+                    <h3><?= $count_rate?></h3>
                     <span id="rating">
+                        <?php $rate = 1;
+                          while($rate <=5) {
+                            if($rate<=$count_rate){?>
+
                           <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
-                          <span class="fa fa-star checked" style="color: orange;"></span>
+                        <?php }else{?>
+                          
                           <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
+                          <?php }$rate++;}?>
                     </span>
-                    <span>21 người Reviews</span><br>
-                    <?php include('FeedBackProduct.php') ?>
+                    <span><?= $i?> người Reviews</span><br>
+                    <!---->
+                    <button  type="button" class="btn btn-dark"
+style="color: white;margin-top: 10px;background-color: rgb(11,123,193)" onclick="document.getElementById('FeedBack').style.display='block'">
+                Khảo Sát Sản Phẩm
+</button>
+<div id="FeedBack" class="modal">
+            <form class="modal-content animate" action="ActionPage.php" method="post">
+              <h4 style="text-align:center;">Khảo Sát Về Chất Lượng Sản Phẩm</h4>
+              <div class="imgcontainer">
+                <span onclick="document.getElementById('FeedBack').style.display='none'" class="close" title="Close Modal">&times;</span>  
+              </div>
+
+              <div class="container" style="text-align: left;">
+                <label for="fullName"><b>Họ Và Tên :</b></label>
+                <input type="text" placeholder="Enter Username" name="fullName" required>
+
+                <label for="Email"><b>Đánh giá:</b></label>
+                  <select class="option_customer"  name="rate" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+
+                <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Tin Nhắn :</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3" required></textarea>
+                </div>
+                
+                <button type="submit" name="feedback" value="<?= $product_id?>" class="btn btn-dark btn-block">Gửi</button>
+              </div>
+
+            </form>
+</div>
+                    <!---->
             </div>
             <div class="col-md-4 herical" style="text-align: center;padding-top: 100px;border-right: 1px solid rgb(208,208,208);">
                 <h2  ><span style="background-color: rgb(10,137,0);padding: 10px 30px;color: white;"> 81%</span></h2>
@@ -187,14 +237,48 @@ $product_id=$_REQUEST['id_product'];
     </div> 
     <hr>
     <div class="commentProduct container-fluid" style="background-color: rgb(245,245,245);">
-        <?php include("commentProduct.php") ?>
-        
+        <form style="background-color: rgb(245,245,245);">
+  <fieldset>
+        <div class="container-fluid"> 
+            <img src="../Image/icon/messenger.webp" width="30" style="position: relative;bottom: 5px;"> &#8287; <span style="font-size: 30px;">Review</span>
+        </div>
+         <div id="comment" class="container-fluid" style="background-color: white;margin-bottom: 10px;">
+            <?php 
+              $sel_query="Select * FROM feedback WHERE idProduct = $product_id;";
+              $result = mysqli_query($database,$sel_query);
+              while($row = mysqli_fetch_assoc($result)) { ?>
+                    <div class="comment_customer" style="padding-left: 50px;">
+                    <span><b>Bởi: </b></span><span><?= $row['customerName']?></span><br>
+                    <span><?= $row['comment']?></span><br>
+                    <?php 
+                    $rate_coment = 0;
+                    while($rate_coment<5){
+                        if($rate_coment< $row['rate']){?>
+                    <span class="fa fa-star checked" style="color: orange;"></span>
+                    <?php }$rate_coment++;}?>
+                    <br>
+                    <span>Thời gian:<?= $row['Date']?></span><br>
+                    <span></span>
+                </div>
+                <hr>
+            <?php }?>
+        </div>
+          </fieldset>
+</form>
     </div>
     <?php include 'PartOfWeb/InformationContainer.php'?>
     <?php include 'PartOfWeb/Footer.php'?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
+<script>
+  var modal = document.getElementById('FeedBack');
+  window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+  }
+</script>
     <script type="text/javascript">
          function setCookie(cname,cvalue,exdays) {
             var d = new Date();
