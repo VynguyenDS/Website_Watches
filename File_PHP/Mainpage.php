@@ -117,9 +117,7 @@
           </li>
           <!-- đăng nhập thành công -->
                   <?php }else{
-                    if ($_SESSION["position"] =="Admin"){?>
-                      <a class="btn btn-primary" style="color: red;" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="admin"><?=$_SESSION["username"]?></a>
-                      <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
+                    if ($_SESSION["position"] =="Admin"){ header("Location: MainpageAdmin.php ");?>
                   <?php }else{?>
                     <a class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><?=$_SESSION["username"]?></a>
                       <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
