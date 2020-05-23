@@ -1,4 +1,4 @@
-
+<?php?>
  <div class="content container-fluid">
         <hr style="background-color: rgb(255,255,255);">
         <div class="left_content d-none d-lg-block">
@@ -103,10 +103,13 @@
             </div>
         </div>
         <div class="right_content">
-          <div class="row">
+          <div class="row" id="product">
               <?php
               $count=1;
-              $sel_query="Select * from product;";
+              $gender=1;
+              if($gender == 0){$gen = "Nam";}
+              else{$gen = "Nữ";}
+              $sel_query="Select * from product where Gender = '$gen';";
               $result = mysqli_query($database,$sel_query);
               while($row = mysqli_fetch_assoc($result) and $count<=6) { ?>
               <div class="col-md-4">  
@@ -143,7 +146,3 @@
             
           </div> 
     </div>
-<script type="text/javascript">
-  
-
-</script>

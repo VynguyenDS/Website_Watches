@@ -64,15 +64,158 @@
     </div>
 
 
-     <?php include 'PartOfWeb/OptionBar.php'?>
+     <div class="Best_Seller container-fluid">
+        <select class="option_customer"  name="cars" id="orderproduct" onclick="LoadProduct()">
+                <option value="all">Tất Cả</option>
+                <option value="BCN">Bán Chạy Nhất</option>
+                <option value="KHYT">Khách Hàng Yêu Thích</option>
+                <option value="GTCDT">Giá Từ Cao Đến Thấp</option>
+                <option value="GTTDC">Giá Từ Thấp Đến Cao</option>
+        </select>
+    </div>
 
-    <?php include 'PartOfWeb/MenuBuy.php'?>
 
 
-   
+    <div class="content container-fluid">
+        <hr style="background-color: rgb(255,255,255);">
+        <div class="left_content d-none d-lg-block">
+          <hr style="background-color: rgb(255,255,255);">
+          <div class="KindOfWatches">
+              <h4>Nhãn Hiệu</h4>
+              <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]"onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Sekio</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Sapphire</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]"onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Casio</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]"onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">SmartWaches</label>
+              </div>
+          </div>
+          <hr style="background-color: rgb(255,255,255);">
+          <div class="Color">
+              <h4>Màu</h4>
+              <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đen</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Xám</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Xanh</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đỏ</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Nâu</label>
+              </div>
+            </div>
+            <hr style="background-color: rgb(255,255,255);">
+            <div class="Material">
+                <h4>Chất Liệu</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Dây Da</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Kim Loại</label>
+              </div>
+            </div>
+            <hr style="background-color: rgb(255,255,255);">
+            <div class="Category">
+                <h4>Thể Loại</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đồng Hồ Kim Loại</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đồng Hồ Thông Minh</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đồng Hồ Trẻ Em</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1[]" onclick="LoadProduct()">
+                    <label class="form-check-label" for="defaultCheck1">Đồng Hồ Dây Da</label>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <div class="right_content">
+          <div class="row" id="product">
+            <!-- php row product -->
+            <?php
+              $count=1;
+              $sel_query="Select * from product where Gender='Nữ';";
+              $result = mysqli_query($database,$sel_query);
+              while($row = mysqli_fetch_assoc($result) and $count<=6) {
+               $count_rate = 0;
+                $id_product = $row['productid'];
+                $sel_rate = "Select rate  FROM feedback WHERE idProduct ='$id_product';";
+                
+                $rate_result = mysqli_query($database,$sel_rate);
+                $rows = mysqli_num_rows($result);
+                if($rows!=0){
+                  $i = 0;
+                while($row_rate = mysqli_fetch_assoc($rate_result)) {
+                $count_rate += $row_rate['rate'];
+                $i ++;
+                }
+                  
+                }
+                if ($i == 0) {
+                    $i = 1;
+                  }
+                $count_rate = round($count_rate/$i);?>
+              <div class="col-md-4">  
+                    <div class="card shadow" >
+                      <a href="OrderProduct.php?id_product=<?=$row["productid"]?>">
+                      <div class="inner">
+                        <img class="card-img-top rounded " src="<?=$row["img"]?>" alt="Card image cap">
+                      </div>
+                      </a>
+                      <div class="card-body text-left">
+                        <p class="card-text" style="text-align: left;">
+                          <?=$row["nameProduct"]?>
+                        </p>
+                        <span id="rating">
+                          <!-- rate -->
+                          <?php $rate = 1;
+                          while($rate <=5) {
+                            if($rate<=$count_rate){?>
+
+                          <span class="fa fa-star checked" style="color: orange;"></span>
+                        <?php }else{?>
+                          
+                          <span class="fa fa-star"></span>
+                          <?php }$rate++;}?>
+                          <!-- -->
+                        </span>
+                        <div><span><?= number_format($row["price"])?></span>VND</div>
+
+                      </div>
+                    </div>          
+              </div>
+              <?php $count++; } ?>
+              <!--  -->
+                            
+                            
+            </div>
+
+            
+          </div> 
+    </div>
+
+
 
     <div style="margin-left: 760px;padding-top:10px;position: relative;top: 10px;float: left;">
-       <button type="button" class="btn btn-light" style="font-size: 20px;border:1px solid black;" >Xem Thêm</button>
+       <button type="button" class="btn btn-light" style="font-size: 20px;border:1px solid black;"  onclick="AddView()">Xem Thêm</button>
      </div>
      <?php include 'PartOfWeb/InformationContainer.php'?>
      <?php include 'PartOfWeb/Footer.php'?>
@@ -81,6 +224,52 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  var number_of_show = 6;
+  function AddView()
+  {
+    number_of_show = number_of_show +6;
+    LoadProduct();
+  }
+  function LoadProduct() {
+    
+    var arraycheck = new Array("Nữ","");
+    var check =document.getElementsByClassName('form-check-input');
+    var search_input = ""
+    var order_chose = document.getElementById('orderproduct').value;
+    for (var i = 0; i < check.length; i++) {
+
+      if(check[i].checked == true)
+      {
+        
+        arraycheck.push(document.getElementsByClassName('form-check-label')[i].textContent)
+      }else
+      {
+        arraycheck.push("")
+      }
+
+    }
+
+
+    $.post("ProductDataGender.php",
+    {
+      chosecheck: arraycheck,
+      orderchose : order_chose,
+      search: search_input,
+      count : number_of_show,
+    },
+    function(data,status){
+      if(status =="success")
+      {
+        document.getElementById('product').innerHTML ="";
+        document.getElementById('product').innerHTML = data;
+      }
+      
+    });
+  }
+    </script>
   </body>
 </html>
 

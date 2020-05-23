@@ -295,7 +295,26 @@
               $count=1;
               $sel_query="Select * from product;";
               $result = mysqli_query($database,$sel_query);
-              while($row = mysqli_fetch_assoc($result) and $count<=6) { ?>
+              while($row = mysqli_fetch_assoc($result) and $count<=6) { 
+                $count_rate = 0;
+                $id_product = $row['productid'];
+                $sel_rate = "Select rate  FROM feedback WHERE idProduct ='$id_product';";
+                
+                $rate_result = mysqli_query($database,$sel_rate);
+                $rows = mysqli_num_rows($result);
+                if($rows!=0){
+                  $i = 0;
+                while($row_rate = mysqli_fetch_assoc($rate_result)) {
+                $count_rate += $row_rate['rate'];
+                $i ++;
+                }
+                  
+                }
+                if ($i == 0) {
+                    $i = 1;
+                  }
+                $count_rate = round($count_rate/$i);
+                ?>
               <div class="col-md-4">  
                     <div class="card shadow" >
                       <a href="OrderProduct.php?id_product=<?=$row["productid"]?>">
@@ -307,18 +326,16 @@
                         <p class="card-text" style="text-align: left;">
                           <?=$row["nameProduct"]?>
                         </p>
-                        <span id="rating">
-                          <!-- rate -->
+                       <span id="rating">
                           <?php $rate = 1;
                           while($rate <=5) {
-                            if($rate<=$row["rate"]){?>
+                            if($rate<=$count_rate){?>
 
                           <span class="fa fa-star checked" style="color: orange;"></span>
                         <?php }else{?>
                           
                           <span class="fa fa-star"></span>
                           <?php }$rate++;}?>
-                          <!-- -->
                         </span>
                         <div><span><?= number_format($row["price"])?></span>VND</div>
 

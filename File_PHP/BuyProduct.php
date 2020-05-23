@@ -128,7 +128,7 @@ else
                         $select="Select * from product WHERE productid = '$orderlists[$i]';";
                         $result = mysqli_query($database,$select);
                         while($row = mysqli_fetch_assoc($result)) { ?>
-                        <p><a href="#"><?= $numberbuylists[$i]?> <?=$row['nameProduct']?></a> <span class="price"><?=round($row['price']*20/100)?> VND</span></p>
+                        <p><a href="#"><?= $numberbuylists[$i]?> <?=$row['nameProduct']?></a> <span class="price"><?=round($row['price']*80/100)?> VND</span></p>
                       <?php }$i++; }?>
                       <hr>
                       <p>Total <span class="price" style="color:black"><b><?= round($total)?> VND</b></span></p>

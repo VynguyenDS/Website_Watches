@@ -1,5 +1,6 @@
 <?php
-require('../DataBase/database.php');
+require("../DataBase/database.php");
+
 session_start();
 if (isset($_POST['login']))
 {//login
@@ -23,7 +24,29 @@ if (isset($_POST['login']))
          echo "<div class='form'>
          <font color='#8e1b0e' size='+2'>login không hợp lệ.</font></div>";
       }
-}elseif (isset($_POST['create'])) {//signup
+}elseif (isset($_POST['feedback'])) {
+  # feedback
+  if(isset($_POST['fullName']) and $_POST['fullName']!="")
+{
+  $id = $_POST['feedback'];
+  $name = $_POST['fullName'];
+  $rate = $_POST['rate'];
+  $comment = $_POST['message'];
+  $date = date("d")."/".date("m")."/".(date("y")+2000);
+
+  $insert_feedback ="INSERT INTO `feedback` (`idProduct`, `fullName`, `rate`, `Date`, `comment`) VALUES ('$id', '$name', '$rate', '$date', '$comment');";
+    
+    if ($database->query($insert_feedback) === TRUE) 
+    {
+      header("Location: OrderProduct.php?id_product=$id");
+    }
+    else 
+    {
+        echo "Error:  fail";
+    }
+  }
+
+} elseif (isset($_POST['create'])) {//signup
   $username = stripslashes($_POST['username']);
   $username = mysqli_real_escape_string($database,$username);
   $password = stripslashes($_POST['psw']);
@@ -169,9 +192,10 @@ elseif (isset($_POST['MuaHang'])) {
           }
       }
       $id_order = 0;
-      $orderday= date("Y-m-d");
-      $shipdate = date("Y-d-m",strtotime("+7 days"));
-      $insert = "INSERT INTO `order` (`orderID`, `idCustomer`, `OrderDate`, `Orderstatus`, `ShipDate`, `total`) 
+      $orderday= date("d")."/".date("m")."/".(date("y")+2000) ;
+      $sevendate = strtotime("+7 days");
+      $shipdate = date("d",$sevendate)."/".date("m",$sevendate)."/".(date("y",$sevendate)+2000) ;
+      $insert = "INSERT INTO `order` (`orderID`, `idCustomer`, `OrderDate`, `OrderStatus`, `ShipDate`, `total`) 
       VALUES (NULL, '$id_custom', '$orderday', '0', '$shipdate','$total');";
       if ($database->query($insert) === TRUE) 
           {
@@ -192,6 +216,14 @@ elseif (isset($_POST['MuaHang'])) {
         $insertitem = "INSERT INTO `orderitem` (`oderID`, `item_iD`, `product_id`, `NumberOfOrders`, `listprice`) VALUES ('$id_order', NULL, '$orderlists[$i]', '$numberbuylists[$i]', '$pricelist[$i]');";
         if($database->query($insertitem) === TRUE) 
           {
+            $salenumber = $numberbuylists[$i];
+            $select_numbersale= "SELECT NumberSale FROM stores WHERE id_Product = '$orderlists[$i]' ;";
+            $result_sale = mysqli_query($database,$select_numbersale);
+            while ($row_sale = mysqli_fetch_assoc($result_sale)) {
+              $salenumber += $row_sale['NumberSale'];
+            }
+            $update="update stores set NumberSale='$salenumber' where id_Product='$orderlists[$i]'";
+            $result_update=mysqli_query($database, $update);
             setcookie("PriceList", "", time() - 3600);
             setcookie("NumberBuy", "", time() - 3600);
             setcookie("PriceList", "", time() - 3600);
