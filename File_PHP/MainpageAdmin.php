@@ -75,7 +75,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Men.php">
+                    <a class="nav-link" href="Admin/InformOrder.php">
                           <span><b>THÔNG TIN ĐẶT HÀNG</b></span>
                     </a>
                 </li>
