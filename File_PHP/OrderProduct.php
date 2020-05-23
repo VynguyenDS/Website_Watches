@@ -194,6 +194,8 @@ $product_id=$_REQUEST['id_product'];
         
     </div>
 
+
+
     <?php include 'PartOfWeb/InformationContainer.php'?>
     <?php include 'PartOfWeb/Footer.php'?>
  
