@@ -28,7 +28,9 @@ w <?php
     
 
     <?php include 'PartOfWeb/MenuBar.php'?>
-    
+    <!-- Take note-->
+
+
 
     <div class="container-fluid" style="background-color: rgb(240,240,240);float: left;">
     	<div class="container">
