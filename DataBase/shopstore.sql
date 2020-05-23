@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 14, 2020 lúc 10:16 AM
+-- Thời gian đã tạo: Th5 23, 2020 lúc 08:11 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.5
 
@@ -24,24 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `categories`
---
-
-CREATE TABLE `categories` (
-  `categoryID` int(11) NOT NULL,
-  `categoryName` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `categories`
---
-
-INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
-(1, 'DongHoKimLoai');
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `customer`
 --
 
@@ -52,6 +34,20 @@ CREATE TABLE `customer` (
   `address` text NOT NULL,
   `indenityCard` text NOT NULL,
   `userName` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `idProduct` int(11) NOT NULL,
+  `fullName` text NOT NULL,
+  `rate` int(11) NOT NULL,
+  `Date` text NOT NULL,
+  `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -83,10 +79,10 @@ INSERT INTO `login` (`idUserName`, `userName`, `password`, `position`) VALUES
 CREATE TABLE `order` (
   `oderID` int(11) NOT NULL,
   `idCustomer` int(11) NOT NULL,
-  `orderDate` date NOT NULL,
-  `orderStatus` tinyint(1) NOT NULL,
-  `requiredDate` date NOT NULL,
-  `shipDate` int(11) NOT NULL
+  `OrderDate` text NOT NULL,
+  `OrderStatus` tinyint(1) NOT NULL,
+  `ShipDate` text NOT NULL,
+  `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -99,8 +95,8 @@ CREATE TABLE `orderitem` (
   `oderID` int(11) NOT NULL,
   `item_iD` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `discount` int(11) NOT NULL,
-  `listprice` text NOT NULL
+  `NumberOfOrders` int(11) NOT NULL,
+  `listprice` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -114,20 +110,24 @@ CREATE TABLE `product` (
   `nameProduct` text NOT NULL,
   `brandName` text NOT NULL,
   `color` text NOT NULL,
+  `Gender` text NOT NULL,
   `material` text NOT NULL,
-  `categoryID` int(11) NOT NULL,
+  `category` text NOT NULL,
   `price` int(11) NOT NULL,
-  `rate` text NOT NULL,
-  `img` varchar(100) NOT NULL
+  `rate` int(11) NOT NULL,
+  `img` varchar(100) NOT NULL,
+  `thuMucBoAnh` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `product` (`productid`, `nameProduct`, `brandName`, `color`, `material`, `categoryID`, `price`, `rate`, `img`) VALUES
-(2, 'F1234', 'Sekio', 'Black', 'KimLoai', 1, 12000, '3', '../Image/men_watches/men.webp'),
-(3, 'f123', 'Saphire', 'Red', 'dongho', 1, 12333, '3', '../Image/men_watches/men.webp');
+INSERT INTO `product` (`productid`, `nameProduct`, `brandName`, `color`, `Gender`, `material`, `category`, `price`, `rate`, `img`, `thuMucBoAnh`) VALUES
+(193, 'F123', 'Sekio', 'Đen', 'Nam', 'Dây Da', 'Đồng Hồ Kim Loại', 2, 1, '../Image/men_watches/men.webp', 'men_watches'),
+(195, 'F1234', 'Sapphire', 'Màu Xám', 'Nam', 'Dây Da', 'Đồng Hồ Kim Loại', 2, 1, '../Image/Smart_Watches/apple3.jpg', 'Smart_Watches'),
+(199, 'F!123445', 'Sekio', 'Đen', 'Nam', 'Dây Da', 'Đồng Hồ Kim Loại', 2000000, 1, '../Image/men_watches/men.webp', 'men_watches'),
+(200, 'F', 'Sekio', 'Đen', 'Nam', 'Dây Da', 'Đồng Hồ Kim Loại', 120000, 1, '../Image/Smart_Watches/apple4.jpg', 'Smart_Watches');
 
 -- --------------------------------------------------------
 
@@ -137,18 +137,13 @@ INSERT INTO `product` (`productid`, `nameProduct`, `brandName`, `color`, `materi
 
 CREATE TABLE `stores` (
   `id_Product` int(11) NOT NULL,
-  `ammount` int(11) NOT NULL
+  `ammount` int(11) NOT NULL,
+  `NumberSale` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
-
---
--- Chỉ mục cho bảng `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`categoryID`);
 
 --
 -- Chỉ mục cho bảng `customer`
@@ -184,8 +179,7 @@ ALTER TABLE `orderitem`
 -- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`productid`),
-  ADD KEY `categoryID` (`categoryID`);
+  ADD PRIMARY KEY (`productid`);
 
 --
 -- Chỉ mục cho bảng `stores`
@@ -196,12 +190,6 @@ ALTER TABLE `stores`
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
-
---
--- AUTO_INCREMENT cho bảng `categories`
---
-ALTER TABLE `categories`
-  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `customer`
@@ -231,7 +219,7 @@ ALTER TABLE `orderitem`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -255,12 +243,6 @@ ALTER TABLE `order`
 ALTER TABLE `orderitem`
   ADD CONSTRAINT `orderitem_ibfk_1` FOREIGN KEY (`oderID`) REFERENCES `order` (`oderID`),
   ADD CONSTRAINT `orderitem_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`productid`);
-
---
--- Các ràng buộc cho bảng `product`
---
-ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `categories` (`categoryID`);
 
 --
 -- Các ràng buộc cho bảng `stores`

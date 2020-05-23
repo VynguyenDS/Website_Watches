@@ -10,8 +10,7 @@ $product_id=$_REQUEST['id_product'];
 ?>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+       <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -19,7 +18,7 @@ $product_id=$_REQUEST['id_product'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../File_CSS/Mainpage.css">
+    <link rel="stylesheet" type="text/css" href="../File_CSS/Mainpage.css">
     <link rel="stylesheet" type="text/css" href="../File_CSS/Advertisement1.css">
     <link rel="stylesheet" type="text/css" href="../File_CSS/Advertisement2.css">
     <link rel="stylesheet" type="text/css" href="../File_CSS/women.css">
@@ -27,8 +26,7 @@ $product_id=$_REQUEST['id_product'];
     <link rel="stylesheet" type="text/css" href="../File_CSS/Login.css">
     <link rel="stylesheet" type="text/css" href="../File_CSS/OrderProduct.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css">
-    <title>ĐỒNG HỒ HƯNG BA</title>
-  </head>
+    <title>Đồng hồ nữ</title>
     <style>
 * {box-sizing: border-box}
 
@@ -49,10 +47,9 @@ $product_id=$_REQUEST['id_product'];
 .js {width: 65%; background-color: rgb(247,148,29);}
 .php {width: 60%; background-color: rgb(247,148,29);}
 </style>
-</head>
-  
-  <body>
-        <?php include 'PartOfWeb/HeaderBar.php';?>
+  </head>
+  <body>    
+    <?php include 'PartOfWeb/HeaderBar.php';?>
     
 
     <?php include 'PartOfWeb/MenuBar.php'?>
@@ -193,24 +190,55 @@ $product_id=$_REQUEST['id_product'];
         <?php include("commentProduct.php") ?>
         
     </div>
-
     <?php include 'PartOfWeb/InformationContainer.php'?>
     <?php include 'PartOfWeb/Footer.php'?>
- 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
+    <script type="text/javascript">
+         function setCookie(cname,cvalue,exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; expires=" + d.toGMTString();
+            }
+        function Cookie() {
+            var order = [<?= $products?>];
+            order.push("<?= $product_id?>")
+
+            setCookie("Customer",order, 1);
+            alert("Sản phẩm đã thêm vào giỏ")
+     }
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+      $('#InsertFeedBack').click(function(){
+        var  fullName = $('#fullName').val();
+        var  Email = $('#Email').val();
+        var  danhGia = $('#danhGia').val();
+        var  messager = $('#messager').val();
+
+        $.ajax({
+            url: "FeedBack/InsertFeedBack.php",
+            type: "GET",
+            data: {
+             fullName : fullName,
+             Email : Email,
+             color : color,
+             danhGia : danhGia,
+             messager : messager,
+
+            },
+            success: function(data){
+              alert(data);
+            }
+
+        });
+      });
+    });
+    </script>
 
 
-  
-   
   </body>
-
 </html>
-<!--Hello -->
-<!--https://www.fossil.com/en-us/watches/mens-watches/-->
+
