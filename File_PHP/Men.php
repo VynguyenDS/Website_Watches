@@ -33,7 +33,7 @@ w <?php
 
 
 
-    <div class="container-fluid" style="background-color: rgb(245,240,240);float: left;">
+    <div class="container-fluid" style="background-color: rgb(241,240,240);float: left;">
     	<div class="container">
         <div class="row">
             <div class="col-md-12" style="text-align: center;">
