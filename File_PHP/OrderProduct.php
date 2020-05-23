@@ -264,13 +264,14 @@ style="color: white;margin-top: 10px;background-color: rgb(11,123,193)" onclick=
             <?php }?>
         </div>
           </fieldset>
+
 </form>
     </div>
     <?php include 'PartOfWeb/InformationContainer.php'?>
     <?php include 'PartOfWeb/Footer.php'?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
+<!--  Master Origin-->
 <script>
   var modal = document.getElementById('FeedBack');
   window.onclick = function(event) {
