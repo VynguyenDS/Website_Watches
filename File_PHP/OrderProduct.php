@@ -61,11 +61,15 @@ $product_id=$_REQUEST['id_product'];
     $sel_rate = "Select rate  FROM feedback WHERE idProduct = '$product_id';";
     $rate_result = mysqli_query($database,$sel_rate);
     $i = 0;
+    $rows = mysqli_num_rows($rate_result);
+    if($rows>0){
     while($row_rate = mysqli_fetch_assoc($rate_result)) {
         $count_rate += $row_rate['rate'];
         $i ++;
     }
     $count_rate = round($count_rate/$i);
+    }
+    
     $sel_query="Select * from product WHERE productid = '$product_id';";
     $result = mysqli_query($database,$sel_query);
     while($row = mysqli_fetch_assoc($result)) { ?>
