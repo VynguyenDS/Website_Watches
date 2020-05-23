@@ -70,7 +70,7 @@
                   </div>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="rr.com"><p>Tình trạng đặt hàng</p></a>
+              <a class="nav-link" href="HistoryUser.com"><p>Tình trạng đặt hàng</p></a>
           </li>
           <!-- lúc chưa đăng nhập -->
           <?php if(!(isset($_SESSION["username"]) && isset($_SESSION["position"]))){?>
