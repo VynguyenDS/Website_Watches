@@ -248,7 +248,7 @@ style="color: white;margin-top: 10px;background-color: rgb(11,123,193)" onclick=
               $result = mysqli_query($database,$sel_query);
               while($row = mysqli_fetch_assoc($result)) { ?>
                     <div class="comment_customer" style="padding-left: 50px;">
-                    <span><b>Bởi: </b></span><span><?= $row['customerName']?></span><br>
+                    <span><b>Bởi: </b></span><span><?= $row['fullName']?></span><br>
                     <span><?= $row['comment']?></span><br>
                     <?php 
                     $rate_coment = 0;

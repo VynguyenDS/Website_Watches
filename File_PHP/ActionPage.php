@@ -34,7 +34,7 @@ if (isset($_POST['login']))
   $comment = $_POST['message'];
   $date = date("d")."/".date("m")."/".(date("y")+2000);
 
-  $insert_feedback ="INSERT INTO `feedback` (`idProduct`, `customerName`, `rate`, `Date`, `comment`) VALUES ('$id', '$name', '$rate', '$date', '$comment');";
+  $insert_feedback ="INSERT INTO `feedback` (`idProduct`, `fullName`, `rate`, `Date`, `comment`) VALUES ('$id', '$name', '$rate', '$date', '$comment');";
     
     if ($database->query($insert_feedback) === TRUE) 
     {
@@ -195,7 +195,7 @@ elseif (isset($_POST['MuaHang'])) {
       $orderday= date("d")."/".date("m")."/".(date("y")+2000) ;
       $sevendate = strtotime("+7 days");
       $shipdate = date("d",$sevendate)."/".date("m",$sevendate)."/".(date("y",$sevendate)+2000) ;
-      $insert = "INSERT INTO `order` (`orderID`, `idCustomer`, `OrderDate`, `Orderstatus`, `ShipDate`, `total`) 
+      $insert = "INSERT INTO `order` (`orderID`, `idCustomer`, `OrderDate`, `OrderStatus`, `ShipDate`, `total`) 
       VALUES (NULL, '$id_custom', '$orderday', '0', '$shipdate','$total');";
       if ($database->query($insert) === TRUE) 
           {
