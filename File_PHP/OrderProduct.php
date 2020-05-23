@@ -265,6 +265,9 @@ style="color: white;margin-top: 10px;background-color: rgb(11,123,193)" onclick=
         </div>
           </fieldset>
 
+
+
+
 </form>
     </div>
     <?php include 'PartOfWeb/InformationContainer.php'?>
