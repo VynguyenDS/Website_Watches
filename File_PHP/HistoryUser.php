@@ -43,7 +43,6 @@
           <thead>
             <tr>
               <th scope="col">Mã Đơn Hàng</th>
-              <th scope="col">Tổng Số Tiền Đơn Hàng</th>
               <th scope="col">Ngày Đặt Hàng</th>
               <th scope="col">Họ Và Tên</th>
               <th scope="col">Số Điện Thoại</th>
@@ -61,7 +60,7 @@
           <tbody id="user_data">
             <?php if(isset($_SESSION["username"])){
               $username = $_SESSION["username"];
-              echo $username;
+              
               $sel_query="SELECT * FROM `customer`,`order` WHERE customer.idCustomer = order.idCustomer 
               and userName = '$username';";
               $result = mysqli_query($database,$sel_query);
@@ -75,7 +74,7 @@
               ?>
               <tr>
                 <td scope="col" rowspan="1"><?= $id_order?></td>
-                <td scope="col" rowspan="1"><?= number_format($row['total'])?> VND</td>
+
                 <td scope="col" rowspan="1"><?= $row['OrderDate']?></td>
                 <td scope="col" rowspan="1"><?= $row['FullName']?></td>
                 <td scope="col" rowspan="1"><?= $row['Telephone']?></td>
@@ -112,14 +111,16 @@
     {
       var search =  document.getElementById("orderId").value;
 
-      $.post("searchHistory.php",
+      $.post("dataOrder.php",
     {
       
       id : search,
     },
     function(data,status){
+      alert(data);
       if(status =="success")
       {
+
         if(data !="Fail"){
         document.getElementById('user_data').innerHTML ="";
         document.getElementById('user_data').innerHTML = data;}

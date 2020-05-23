@@ -1,4 +1,7 @@
 <!doctype html>
+<?php
+include('../../DataBase/database.php');
+?>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -104,8 +107,8 @@
       </div>
       </nav>
       <div>
-    <span>From</span><input type="date" name="from">
-    <span>To</span><input type="date" name="to"> <button class="btn btn-outline-success my-2 my-sm-0"  onclick="LoadProductSearch()">Tìm Kiếm</button>
+    <span>From</span><input type="date" id="from">
+    <span>To</span><input type="date" id="to"> <button class="btn btn-outline-success my-2 my-sm-0"  onclick="showorder()">Tìm Kiếm</button>
     </div>
     </div>
 
@@ -113,32 +116,75 @@
     <div class="website_mainpage">
 
 
-    <div class="infCustomer container-fluid">
+    <div class="infCustomer container-fluid" id="change">
 
         <table class="table table-striped table-bordered" >
           <thead>
             <tr>
-              <th scope="col">STT</th>
-              <th scope="col">Chi Tiết Sản Phẩm</th>
-              <th scope="col">Giá Tiền Sản Phẩm</th>
-              <th scope="col">Ngày Đặt Sản Phẩm</th>
-              <th scope="col">Ngày Nhận Sản Phẩm</th>
-              <th scope="col">Tên Người Đặt</th>
+              <th scope="col">Mã Đơn Hàng</th>
+              <th scope="col">Ngày Đặt Hàng</th>
+              <th scope="col">Họ Và Tên</th>
               <th scope="col">Số Điện Thoại</th>
               <th scope="col">Địa Chỉ</th>
+              <th scope="col">Thông Tin Sản Phẩm</th>
+              <th scope="col">Số Lượng Sản Phẩm</th>
+              <th scope="col">Hình Sản Phẩm</th>
+              <th scope="col">Tổng Số Tiền của sản phẩm</th>
              
             </tr>
           </thead>
-          <tbody id="user_data">
 
+          <tbody id="user_data">
+            <?php 
+              $numorder = 0;
+              $numsale = 0;
+              $TDT = 0;
+              $sel_query="SELECT * FROM `customer`,`order` WHERE customer.idCustomer = order.idCustomer ;";
+              $result = mysqli_query($database,$sel_query);
+              while($row = mysqli_fetch_assoc($result) ) {
+                $id_order = $row['orderID'];
+                $sel_order="SELECT * from `orderitem`,`product` where orderitem.product_id = product.productid and oderID='$id_order';";
+                $result_order = mysqli_query($database,$sel_order);
+                $cols = mysqli_num_rows($result_order);
+                $numorder ++;
+                $TDT = $TDT + $row['total'];
+                
+                while($row_col = mysqli_fetch_assoc($result_order)){
+                  $numsale = $numsale+$row_col['NumberOfOrders'];
+              ?>
+              <tr>
+                <td scope="col" rowspan="1"><?= $id_order?></td>
+                <td scope="col" rowspan="1"><?= $row['OrderDate']?></td>
+                <td scope="col" rowspan="1"><?= $row['FullName']?></td>
+                <td scope="col" rowspan="1"><?= $row['Telephone']?></td>
+                <td scope="col" rowspan="1"><?= $row['address']?></td>
+                <td scope="col" >
+                    Tên Sản Phẩm: <?= $row_col['nameProduct']?><br>
+                    Nhà Sản Xuất: <?= $row_col['brandName']?><br>
+                    Màu : <?= $row_col['color']?><br>
+                    Chất Liệu: <?= $row_col['material']?><br>
+                    Thể Loại :<?= $row_col['category']?>
+                    
+
+                </td>
+                <td scope="col" ><?= $row_col['NumberOfOrders'] ?></td>
+                <td scope="col" ><img class="card-img-top rounded " src="<?=$row_col["img"]?>" alt="Card image cap"></td>
+                <td scope="col" ><?= number_format($row_col['price']*$row_col['NumberOfOrders']) ?> VND</td>
+                </tr>
+              
+              
+
+
+            <?php }}?>
           </tbody>
         </table>
+        <div class="container-fluid" id="detail">
+      <div>Số Đơn Hàng: <span id="numeberorder"><?= $numorder?></span> Đơn Hàng , Số Sản Phẩm Được Bán:<span id="numbersale"><?= $numsale?></span> Sản Phẩm , Tổng Doanh thu<span id="datetd"> Trước Đến Nay</span> Là :<span id="TDT"><?= $TDT?></span> VND.</div>
     </div>
 
-    <div class="container-fluid">
-      Form Sản Phẩm
-      <div>Tổng sổ tiền từ ngày mấy đến ngày mấy</div>
     </div>
+
+    
 
 
     </div>
@@ -149,9 +195,36 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    function showorder()
+    {
+      var tu =  document.getElementById("from").value;
+      var den = document.getElementById("to").value;
+      $.post("dataOrder.php",
+    {
+      
+      from : tu,
+      to : den,
+      style:"orer",
+    },
+    function(data,status){
+      if(status =="success")
+      {
+        if(data !="Fail"){
+        document.getElementById('change').innerHTML ="";
+        document.getElementById('change').innerHTML = data;}
+        else{alert("Không tìm thấy kết quả")}
+
+      }
+      
+    });
+    
+    }
+  </script>
   </body>
+  
 
 </html>
 <!--Hello -->
