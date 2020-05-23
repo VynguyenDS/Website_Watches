@@ -1,6 +1,6 @@
 <!doctype html>
 <?php 
-require('../DataBase/database.php');
+require("../DataBase/database.php");
 mysqli_set_charset($database,'utf8');
 $products ="";
 if(isset($_COOKIE['Customer'])){
