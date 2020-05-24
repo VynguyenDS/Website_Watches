@@ -43,7 +43,7 @@
           <thead>
             <tr>
               <th scope="col">Mã Đơn Hàng</th>
-              <th scope="col">Tổng Số Tiền Đơn Hàng</th>
+              <th scope="col">Tổng số tiền đơn hàng</th>
               <th scope="col">Ngày Đặt Hàng</th>
               <th scope="col">Họ Và Tên</th>
               <th scope="col">Số Điện Thoại</th>
@@ -118,7 +118,7 @@
       id : search,
     },
     function(data,status){
-      
+      alert(data);
       if(status =="success")
       {
 
