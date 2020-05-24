@@ -89,11 +89,19 @@
           <!-- đăng nhập thành công -->
                     <?php }else{
                     if ($_SESSION["position"] =="Admin"){?>
-                      <a class="btn btn-primary" style="color: red;" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="admin"><?=$_SESSION["username"]?></a>
-                      <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
+                      <li class="nav-item">
+                      <a class="nav-link"  href="#user" role="button" aria-expanded="false" aria-controls="admin"><p><?=$_SESSION["username"]?></p></a>
+                      </li>
+                      <li class="nav-item" >
+                          <a class="nav-link" href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;"><p>Logout</p></span></a>
+                      </li>
                   <?php }else{?>
-                    <a class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><?=$_SESSION["username"]?></a>
-                      <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#user" role="button" aria-expanded="false" aria-controls="user"><p><?=$_SESSION["username"]?></p></a>
+                  </li>
+                  <li class="nav-item">
+                      <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;"><p>Logout</p></span></a>
+                  </li>    
                   <?php }}?>
           <!--                      -->
           <li class="nav-item">

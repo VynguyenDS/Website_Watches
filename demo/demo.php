@@ -1,41 +1,14 @@
-   <?php
-    include('../DataBase/database.php');
-    
-    
+<?php 
+  $fb = new Facebook\Facebook([
+  'app_id' => '{571890243734115}', // Replace {app-id} with your app id
+  'app_secret' => '{app-secret}',
+  'default_graph_version' => 'v2.2',
+  ]);
 
-  ?>
-  <?php
-   $sql = "SELECT nameProduct,img FROM product";
-   $result = mysqli_query($database, $sql);
-   if (mysqli_num_rows($result) > 0) {
-  // output data of each row
-    while($row = mysqli_fetch_assoc($result)) { ?>
-        <div class="col-md-4">                     
-            <div class="card shadow">
-              <a href="OrderProduct.php">
-                <div class="inner">
-                    <img  class="card-img-top rounded " src="<?php echo $row['img']; ?>" alt="Card image cap">
-                </div>
-              </a>
-              <div class="card-body text-left">
-                  <p class="card-text" style="text-align: left;">
-                          The Minimalist Three-Hand Brown Leather Watch
-                  </p>
-                  <span id="rating">
-                    <span class="fa fa-star checked" style="color: orange;"></span>
-                    <span class="fa fa-star checked" style="color: orange;"></span>
-                    <span class="fa fa-star checked" style="color: orange;"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                  </span>
-                <div>1.000.000VND</div>
+$helper = $fb->getRedirectLoginHelper();
 
-                </div>
-                </div>  
-                         
-        </div>
-    <?php }}  ?>
-   
+$permissions = ['vynguyen09041999@gmail.com']; // Optional permissions
+$loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
 
-    
- 
+echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
+?>
