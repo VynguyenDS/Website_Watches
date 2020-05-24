@@ -1,8 +1,4 @@
 <!doctype html>
-<?php
-include('../DataBase/database.php');
-
-?>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -202,7 +198,7 @@ include('../DataBase/database.php');
     {
       var tu =  document.getElementById("from").value;
       var den = document.getElementById("to").value;
-      $.post("dataOrder.php",
+      $.post("Admin/dataOrder.php",
     {
       
       from : tu,
