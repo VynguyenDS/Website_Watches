@@ -45,7 +45,7 @@
                   </div>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="rr.com"><p>Tình trạng đặt hàng</p></a>
+              <a class="nav-link" href="HistoryUser.php"><p>Tình trạng đặt hàng</p></a>
           </li>
           <?php if(!isset($_SESSION["username"])){?>
           <li class="nav-item">

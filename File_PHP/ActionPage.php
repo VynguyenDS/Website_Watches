@@ -229,10 +229,7 @@ elseif (isset($_POST['MuaHang'])) {
             setcookie("PriceList", "", time() - 3600);
             setcookie("TotalPrice", "", time() - 3600);
             setcookie("Customer", "", time() - 3600);
-            echo "<center>Mã hoá đơn của bạn là :".$id_order.".</br>
-            </br>
-            <a href='Mainpage.php'>Quay lại trang chủ  </a>
-            <center>";
+            
 
           } 
           else 
@@ -241,6 +238,10 @@ elseif (isset($_POST['MuaHang'])) {
           }
           $i++;
       }
+      echo "<center>Mã hoá đơn của bạn là :".$id_order.".</br>
+            </br>
+            <a href='Mainpage.php'>Quay lại trang chủ  </a>
+            <center>";
 
 
 
