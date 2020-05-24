@@ -125,6 +125,7 @@
 
 
         <div class="container-fluid">
+          <div class="row">
           <?php
             $count=1;
               $sel_query="SELECT * from product WHERE category = 'Đồng Hồ Thông Minh';";
@@ -149,15 +150,16 @@
                   }
                 $count_rate = round($count_rate/$i);
           ?>
-          <div class="row">
+          
               <div class="col-md-3" style="background-color: rgb(238,230,224);">  
                     <div class="card shadow" style="background-color: rgb(238,230,224);" >  
                     <a href="OrderProduct.php?id_product=<?=$row["productid"]?>">       
-                      <img class="card-img-top rounded " src="<?=$row["img"]?>" alt="Card image cap">
+                      <img class="card-img-top rounded " src="<?=$row["img"]?>" alt="Card image cap" style="background-color: rgb(238,230,224);">
                     </a>
                       <div class="card-body text-left">
                         <p class="card-text" style="text-align: left;">
                           <?=$row["nameProduct"]?><br>
+                          
                           <span id="rating">
                           <?php $rate = 1;
                           while($rate <=5) {
@@ -169,8 +171,10 @@
                           <span class="fa fa-star"></span>
                           <?php }$rate++;}?>
                         </span>
-                          <span><?= number_format($row["price"])?></span>VND
+
+                          
                         </p>
+                        <div><span><?= number_format($row["price"])?></span>VND</div>
                       </div>
                     </div>          
               </div>
