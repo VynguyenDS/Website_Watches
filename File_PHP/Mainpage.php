@@ -103,26 +103,6 @@
 
                         </label>
                         <br>
-                        <h4 style="text-align: center;">Hoặc Đăng Nhập Bằng Mạng Xã Hội</h4><br>
-                          <div class="row">
-
-                            <div class="col-md-6">
-                              <button class="btn-block btn-primary">
-                                
-                                Đăng Nhập Facebook
-                                
-                                      
-                                  
-                              </button>
-                            </div>  
-                          <div class="col-md-6">
-                          <button class="btn-block btn-danger">
-                              
-                              Đăng Nhập Gmail
-                          </button>
-                          </div>
-                          </div>
-                        
                         
                       </div>
 

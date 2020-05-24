@@ -64,17 +64,13 @@ else
                             <label for="fname"><i class="fa fa-user"></i> Họ Và Tên</label>
                             <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
                             <label for="phone"><i class="fa fa-envelope"></i> Số điện thoại</label>
-                            <input type="text" id="email" name="phone" placeholder="john@example.com">
+                            <input type="text" id="email" name="phone" placeholder="090113779">
                             <label for="adr"><i class="fa fa-address-card-o"></i> Địa Chỉ</label>
                             <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
                             <label for="city"><i class="fa fa-institution"></i> số chứng minh</label>
-                            <input type="text" id="city" name="indenitycard" placeholder="New York">
+                            <input type="text" id="city" name="indenitycard" placeholder="0169277266">
 
                             <div class="row">
-                              <div class="col-50">
-                                <label for="state">Tỉnh</label>
-                                <input type="text" id="state" name="state" placeholder="NY">
-                              </div>
                               <div class="col-50">
                                 <label for="zip">Zip</label>
                                 <input type="text" id="zip" name="zip" placeholder="10001">

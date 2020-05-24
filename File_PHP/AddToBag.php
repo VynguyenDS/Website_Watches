@@ -76,7 +76,7 @@ $orderlists = explode(",", $products);
                 </div>
                 <div class="col-md-2">
                     <h6>Giá sản phẩm</h6>
-                    <p><?=number_format($row['price'])?></p>
+                    <p><?=number_format($row['price'])?> VND</p>
                 </div>
                 <div class="col-md-2">
                     <h6>Số lượng</h6>
