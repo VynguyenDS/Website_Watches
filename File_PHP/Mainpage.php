@@ -151,7 +151,9 @@
                     <a class="nav-link" href="#user" role="button" aria-expanded="false" aria-controls="user"><p><?=$_SESSION["username"]?></p></a>
                   </li>
                   <li class="nav-item">
-                      <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;"><p>Logout</p></span></a>
+                      <a class="nav-link" href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">
+                        <p>Logout</p></span>
+                      </a>
                   </li>    
                   <?php }}?>
                   <!-- -->

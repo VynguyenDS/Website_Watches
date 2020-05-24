@@ -80,6 +80,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="InformOrder.php">
+                          <span><b>TỒN KHO</b></span>
+                    </a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="Mainpage.php">
                     <span ><b>ĐỒNG HỒ</b></span>
                   </a>
@@ -139,6 +144,7 @@
 
 
     <div class="container">
+      <h2 style="text-align: center;">Nhập Hàng</h2>
           <form method="post">
             <div class="form-row">
             <div class="form-group col-md-12">
