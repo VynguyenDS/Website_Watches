@@ -4,7 +4,7 @@ require("../DataBase/database.php");
 session_start();
 if (isset($_POST['login']))
 {//login
-
+    #login
    $username = stripslashes($_POST['uname']);
    $username = mysqli_real_escape_string($database,$username);
    $password = stripslashes($_POST['psw']);
