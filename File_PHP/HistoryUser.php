@@ -118,7 +118,8 @@
       id : search,
     },
     function(data,status){
-      alert(data);
+
+    
       if(status =="success")
       {
 
