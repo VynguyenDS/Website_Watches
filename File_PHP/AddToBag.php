@@ -62,7 +62,7 @@ $orderlists = explode(",", $products);
             $GG = round($TDH*20/100,0);
             $TST = $TDH - $GG;
              ?>
-            <div class="row">
+            <div class="row" id="div<?= $i?>">
                 <div class="col-md-2">
                     <img src="<?= $row['img']?>">
                 </div>
@@ -90,7 +90,7 @@ $orderlists = explode(",", $products);
                 <div class="col-md-3">
                     <h6>Tổng số tiền</h6>
                     <p ><span id="TG<?= $i?>"><?=$row['price']?></span>VND</p>
-                    <span class="close" title="Close Modal">&times;</span>
+                    <span class="close" title="Close Modal" onclick="remove('div<?= $i?>',<?=$i?>)">&times;</span>
                 </div>
             </div>
         <?php } $i++; }?>
@@ -137,8 +137,17 @@ $orderlists = explode(",", $products);
         <?php for ($i = 0; $i < count($orderlists); $i++) {?>
             array_product.push(<?= $orderlists[$i]?>);
             soluonglist.push(1);
-            pricelist.push(document.getElementById("TG<?= $i?>").textContent)
+            pricelist.push(document.getElementById("TG<?= $i?>").textContent);
         <?php }  ?>
+
+      function remove(Delete,index)
+      {
+        document.getElementById(Delete).innerHTML="";
+        array_product.splice(index,1);
+        soluonglist.splice(index,1);
+        pricelist.splice(index,1);
+        setCookie("Customer",array_product,1);
+      }
       function NumberOfProduct(SoLuong,Gia,TongGia,where)
       {
         
