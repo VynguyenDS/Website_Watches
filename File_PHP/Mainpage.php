@@ -139,13 +139,19 @@
           </li>
           <!-- đăng nhập thành công -->
                   <?php }else{
-                    if ($_SESSION["position"] =="Admin"){ header("Location: MainpageAdmin.php ");?>
+                    if ($_SESSION["position"] =="Admin"){?>
+                      <li class="nav-item">
+                      <a class="nav-link"  href="MainpageAdmin.php" role="button" aria-expanded="false" aria-controls="admin"><p><?=$_SESSION["username"]?></p></a>
+                      </li>
+                      <li class="nav-item" >
+                          <a class="nav-link" href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;"><p>Logout</p></span></a>
+                      </li>
                   <?php }else{?>
                     <li class="nav-item">
-                    <a class="nav-link" class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><p><?=$_SESSION["username"]?></p></a>
+                    <a class="nav-link" href="#user" role="button" aria-expanded="false" aria-controls="user"><p><?=$_SESSION["username"]?></p></a>
                   </li>
-                  <li  class="nav-item">
-                      <a class="nav-link" href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;"><p>Logout</p></span></a>
+                  <li class="nav-item">
+                      <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;"><p>Logout</p></span></a>
                   </li>    
                   <?php }}?>
                   <!-- -->
