@@ -111,7 +111,7 @@
     {
       var search =  document.getElementById("orderId").value;
 
-      $.post("dataOrder.php",
+      $.post("searchHistory.php",
     {
       
       id : search,
