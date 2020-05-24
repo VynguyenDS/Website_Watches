@@ -154,7 +154,7 @@ $product_id=$_REQUEST['id_product'];
         <hr>
         <div class="row">
             <div class="col-md-4 herical" style="text-align: center;padding-top: 80px;border-right: 1px solid rgb(208,208,208);">
-                    <h3><?= $count_rate?></h3>
+                   
                     <span id="rating">
                         <?php $rate = 1;
                           while($rate <=5) {
@@ -229,11 +229,11 @@ style="color: white;margin-top: 10px;background-color: rgb(11,123,193)" onclick=
 
                     <span>2 Sao</span>
                     <div class="bar">
-                      <div class="skills spanhp">60%</div>
+                      <div class="skills span">0%</div>
                     </div>
                     <span>1 Sao</span>
                     <div class="bar">
-                      <div class="skills spanhp">60%</div>
+                      <div class="skills span">0%</div>
                     </div>
             </div>
         </div>

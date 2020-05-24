@@ -103,15 +103,26 @@
 
                         </label>
                         <br>
-                        <label>
-                              <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/?stype=lo&jlou=AfcpTSw2XshPZKDkBVsduL5dpD7VyFCCh6TzrNHXtRffI-liedaEroGVY_EDDIHlouV2v6iMkmvPS43_94vd9dJjyCTXTm6jqLfELEly9KwFjA&smuh=32001&lh=Ac9djLDKffPzPHzS">
-                                  <i class="fa fa-facebook-square" style="font-size:40px;color: rgb(59,89,152);"></i>
-                              </a>
-                              &nbsp;
-                              <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/?stype=lo&jlou=AfcpTSw2XshPZKDkBVsduL5dpD7VyFCCh6TzrNHXtRffI-liedaEroGVY_EDDIHlouV2v6iMkmvPS43_94vd9dJjyCTXTm6jqLfELEly9KwFjA&smuh=32001&lh=Ac9djLDKffPzPHzS">
-                                 <img  style="width:40px;position: relative;bottom: 10px;" src="../Image/icon/gmail.png">
-                              </a>
-                        </label>
+                        <h4 style="text-align: center;">Hoặc Đăng Nhập Bằng Mạng Xã Hội</h4><br>
+                          <div class="row">
+
+                            <div class="col-md-6">
+                              <button class="btn-block btn-primary">
+                                
+                                Đăng Nhập Facebook
+                                
+                                      
+                                  
+                              </button>
+                            </div>  
+                          <div class="col-md-6">
+                          <button class="btn-block btn-danger">
+                              
+                              Đăng Nhập Gmail
+                          </button>
+                          </div>
+                          </div>
+                        
                         
                       </div>
 
@@ -368,24 +379,23 @@
      </div>
 
 
-    <div class="Information_container container-fluid">
+   <div class="Information_container container-fluid">
       <hr style="background-color: rgb(255,255,255);">
       <div>
-        <h5>It’s Time To Update Your Look With Our Men's Watches</h5>
+        <h5>Đây là thời gian để cập nhật diện mạo của bạn với đồng hồ nam của chúng tôi</h5>
         <p>
-          The time has come to update your wardrobe and add some versatility for refreshed, updated looks. There’s no better way to accomplish this task than with our handsome men’s watches. From smartwatches to traditional, we’ve got what you want. Our watch collection for men was created to provide style staples that easily transition from the boardroom to the basketball court. They add an  extra layer of style to your look no matter where you are.
+          Đã đến lúc cập nhật tủ quần áo của bạn và thêm một số tính linh hoạt cho vẻ ngoài được làm mới, cập nhật. Không có cách nào tốt hơn để hoàn thành nhiệm vụ này hơn là với những người đàn ông đẹp trai của chúng ta. Từ smartwatches đến truyền thống, chúng tôi đã có những gì bạn muốn. Bộ sưu tập đồng hồ dành cho nam giới của chúng tôi đã được tạo ra để cung cấp các mặt hàng chủ lực theo phong cách dễ dàng chuyển từ phòng họp sang sân bóng rổ. Chúng thêm một lớp phong cách cho diện mạo của bạn cho dù bạn ở đâu.
         </p>
         <p>
-          You’ll look the part and feel it with one of our handsome watches for men, designed to be the finishing touch that takes any outfit over the top. We know you want to dress to impress wherever you go, which is why they cater to your unique lifestyle. Personalize your timepiece with interchangeable straps, customizable smartwatch faces and different materials. Leather and stainless steel make our men watches durable enough to stand the test of time while looking chic and sophisticated.
+        Bạn có thể nhìn một phần và cảm nhận nó với một trong những chiếc đồng hồ đẹp trai dành cho nam giới của chúng tôi, được thiết kế để trở thành điểm nhấn hoàn thiện cho bất kỳ trang phục nào trên đầu trang. Chúng tôi biết bạn muốn ăn mặc để gây ấn tượng bất cứ nơi nào bạn đi, đó là lý do tại sao họ phục vụ cho lối sống độc đáo của bạn. Cá nhân hóa đồng hồ của bạn với dây đeo có thể thay thế, mặt đồng hồ thông minh có thể tùy chỉnh và các vật liệu khác nhau. Da và thép không gỉ làm cho đồng hồ nam của chúng ta đủ bền để đứng trước thử thách của thời gian trong khi trông sang trọng và tinh tế.
         </p>
       </div>
     </div>
 
-
-    <div class="footer container-fluid" style="margin-top: 10px;margin-bottom: 20px;">
+        <div class="footer container-fluid" style="margin-top: 10px;margin-bottom: 20px;">
       <hr>
       <div class="left_footer">
-        <h4>Stay Connect</h4>
+        <h4>Tiếp Tục Trup Cập</h4>
         <input type="text" id="email" name="email" placeholder="Enter Email Address">
         <div id="icon_clicks" style="float: right;margin-right: 40px;">
           <i class="fa fa-arrow-right" style="font-size:20px"></i>
@@ -411,40 +421,52 @@
       <div class="right_footer">
         <div class="row">
           <div class="col-md-4">
-            <h4>Fossil Group</h4>
+            <h4>Đồng Hồ Hưng Ba</h4>
           </div>
           <div class="col-md-4">
-            <h4>Customer Care</h4>
+            <h4>Chăm Sóc Khách Hàng</h4>
           </div>
           <div class="col-md-4">
-            <h4>Contact Us</h4>
+            <h4>Liên Hê Với Chúng Tôi</h4>
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-4">
-            <a href="">Fossil Group</a>
+            <a href="">Sản Phẩm</a>
           </div>
           <div class="col-md-4">
-            <a href="">Order Status</a>
+            <a href="">Dịch Vụ</a>
           </div>
           <div class="col-md-4">
-            <a href="">HungBa@gmail.com</a>
+            <a href=""><a href=""><b>Cơ sở 1 :</b> 258 Phạm Văn Đồng</a></a>
           </div>
         </div>
         
         <div class="row">
           <div class="col-md-4">
-            <a href="">Fossil Group</a>
+            <a href="">Mắt Kính</a>
           </div>
           <div class="col-md-4">
             <a href="">Order Status</a>
           </div>
           <div class="col-md-4">
-            <a href="">HungBa@gmail.com</a>
+            <a href=""><a href=""><b>Cơ sở 2 :</b> 258 Phạm Văn Đồng</a></a>
           </div>
         </div>
 
+
+        <div class="row">
+          <div class="col-md-4">
+            <a href="">Phụ Kiện</a>
+          </div>
+          <div class="col-md-4">
+            <a href="">Order Status</a>
+          </div>
+          <div class="col-md-4">
+            <a href=""><b>Số Điện Thoại :</b> 0966368339</a>
+          </div>
+        </div>
 
         <div class="row">
           <div class="col-md-4">
@@ -454,22 +476,11 @@
             <a href="">Order Status</a>
           </div>
           <div class="col-md-4">
-            <a href="">HungBa@gmail.com</a>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4">
-            <a href="">Fossil Group</a>
-          </div>
-          <div class="col-md-4">
-            <a href="">Order Status</a>
-          </div>
-          <div class="col-md-4">
-            <a href="">HungBa@gmail.com</a>
+            <a href=""><b>Email :</b>HungBa@gmail.com</a></a>
           </div>
         </div>
       </div>
+    </div>
     </div>
     </div>
     <!-- Optional JavaScript -->

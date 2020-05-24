@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="MainpageAdmin.php">
+                  <a class="nav-link" href="Mainpage.php">
                     <span ><b>ĐỒNG HỒ</b></span>
                   </a>
                 </li>
