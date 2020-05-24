@@ -102,6 +102,17 @@
                           </span>
 
                         </label>
+                        <br>
+                        <label>
+                              <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/?stype=lo&jlou=AfcpTSw2XshPZKDkBVsduL5dpD7VyFCCh6TzrNHXtRffI-liedaEroGVY_EDDIHlouV2v6iMkmvPS43_94vd9dJjyCTXTm6jqLfELEly9KwFjA&smuh=32001&lh=Ac9djLDKffPzPHzS">
+                                  <i class="fa fa-facebook-square" style="font-size:40px;color: rgb(59,89,152);"></i>
+                              </a>
+                              &nbsp;
+                              <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/?stype=lo&jlou=AfcpTSw2XshPZKDkBVsduL5dpD7VyFCCh6TzrNHXtRffI-liedaEroGVY_EDDIHlouV2v6iMkmvPS43_94vd9dJjyCTXTm6jqLfELEly9KwFjA&smuh=32001&lh=Ac9djLDKffPzPHzS">
+                                 <img  style="width:40px;position: relative;bottom: 10px;" src="../Image/icon/gmail.png">
+                              </a>
+                        </label>
+                        
                       </div>
 
                       <div class="container" style="background-color:#f1f1f1">
@@ -119,8 +130,12 @@
                   <?php }else{
                     if ($_SESSION["position"] =="Admin"){ header("Location: MainpageAdmin.php ");?>
                   <?php }else{?>
-                    <a class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><?=$_SESSION["username"]?></a>
-                      <br><a href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;">Logout</span></a>
+                    <li class="nav-item">
+                    <a class="nav-link" class="btn btn-primary" data-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="user"><p><?=$_SESSION["username"]?></p></a>
+                  </li>
+                  <li  class="nav-item">
+                      <a class="nav-link" href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;"><p>Logout</p></span></a>
+                  </li>    
                   <?php }}?>
                   <!-- -->
           <li class="nav-item">
@@ -130,9 +145,6 @@
           </li>
       </ul>
       </div>
-    </div>
-    <div class="FeedBack" style="text-align: right;position: fixed;right: 20px;bottom: 100px;">
-        <button id="FeedBack" style="transform: rotate(90deg);padding-top: 10px;">FeedBack</button>
     </div>
 
     <div class="navbar_menu container-fluid" style="float: left;">
@@ -382,11 +394,18 @@
           <p>Bằng cách đăng ký nhận bản tin của chúng tôi, bạn đồng ý với chính sách bảo mật của chúng tôi. * (áp dụng hạn chế và loại trừ)</p>
         </div>
         <div class="row" style="margin-top: 10px;margin-left: 1px;">
-          <i class="fa fa-facebook-square" style="font-size:24px;color: rgb(80,80,80);"></i>
-          <i class="fa fa-instagram"style="font-size:24px;color: rgb(80,80,80);"></i>
-          <i class="fa fa-snapchat" style="font-size:24px;color: rgb(80,80,80);"></i>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/%C4%90%E1%BB%93ng-H%E1%BB%93-m%E1%BA%AFt-k%C3%ADnh-H%C6%B0ng-Ba-330176140738646/?ref=bookmarks">
+              <i class="fa fa-facebook-square" style="font-size:24px;color: rgb(80,80,80);"></i>
+          </a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/%C4%90%E1%BB%93ng-H%E1%BB%93-m%E1%BA%AFt-k%C3%ADnh-H%C6%B0ng-Ba-330176140738646/?ref=bookmarks">
+              <i class="fa fa-instagram"style="font-size:24px;color: rgb(80,80,80);"></i>
+          </a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/%C4%90%E1%BB%93ng-H%E1%BB%93-m%E1%BA%AFt-k%C3%ADnh-H%C6%B0ng-Ba-330176140738646/?ref=bookmarks">
+              <i class="fa fa-snapchat" style="font-size:24px;color: rgb(80,80,80);"></i>
+          </a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/%C4%90%E1%BB%93ng-H%E1%BB%93-m%E1%BA%AFt-k%C3%ADnh-H%C6%B0ng-Ba-330176140738646/?ref=bookmarks">
           <i class="fa fa-twitter-square" style="font-size:24px;color: rgb(80,80,80);"></i>
-          
+          </a>
         </div>
       </div>
       <div class="right_footer">
@@ -530,5 +549,3 @@ window.onclick = function(event) {
 </script>
   </body>
 </html>
-<!--Hello -->
-<!--https://www.fossil.com/en-us/watches/mens-watches/-->

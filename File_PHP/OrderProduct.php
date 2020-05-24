@@ -75,7 +75,7 @@ $product_id=$_REQUEST['id_product'];
     while($row = mysqli_fetch_assoc($result)) { ?>
     <div class="addToBag container-fluid">
         <div class="leftBag">
-             <img class="w-70" src="<?=$row["img"]?>">
+             <img class="w-50" src="<?=$row["img"]?>">
 
         </div>
         <div class="rightBag">

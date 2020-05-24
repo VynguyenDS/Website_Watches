@@ -2,7 +2,7 @@
 
 <html lang="en">
 <?php
-include('../../DataBase/database.php');
+include('../DataBase/database.php');
 ?>
   <head>
     <!-- Required meta tags -->
@@ -63,28 +63,28 @@ include('../../DataBase/database.php');
   </style>
   <body>
     
-        <?php include '../../PartOfWeb/HeaderBar.php';?>
+        <?php include 'PartOfWeb/HeaderBar.php';?>
         <div class="navbar_menu container-fluid" style="float: left;">
       <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" href="#"><img src="../Image/Brand/logo.png" class="rounded"></a>
+            <a class="navbar-brand" href="Mainpage.php"><img src="../Image/Brand/logo.png" class="rounded"></a>
             <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="Women.php">
+                    <a class="nav-link" href="CustomerInform.php">
                           <span><b>KHÁCH HÀNG</b></span><span class="sr-only">(current)</span>
                     </a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Admin/InformOrder.php">
+                    <a class="nav-link" href="InformOrder.php">
                           <span><b>THÔNG TIN ĐẶT HÀNG</b></span>
                     </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="SmartWatches.php">
+                  <a class="nav-link" href="MainpageAdmin.php">
                     <span ><b>ĐỒNG HỒ</b></span>
                   </a>
                 </li>
