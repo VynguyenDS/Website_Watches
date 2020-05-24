@@ -90,7 +90,7 @@
                     <?php }else{
                     if ($_SESSION["position"] =="Admin"){?>
                       <li class="nav-item">
-                      <a class="nav-link"  href="#user" role="button" aria-expanded="false" aria-controls="admin"><p><?=$_SESSION["username"]?></p></a>
+                      <a class="nav-link"  href="MainpageAdmin.php" role="button" aria-expanded="false" aria-controls="admin"><p><?=$_SESSION["username"]?></p></a>
                       </li>
                       <li class="nav-item" >
                           <a class="nav-link" href="../DataBase/logout.php" style="text-decoration: none;"><span style="font-size: 25px;color: black;"><p>Logout</p></span></a>

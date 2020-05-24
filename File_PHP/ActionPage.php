@@ -14,11 +14,15 @@ if (isset($_POST['login']))
    $rows = mysqli_num_rows($result);
         if($rows==1)
       {
+         $position = "";
          $_SESSION['username'] = $username;
          while($row = mysqli_fetch_assoc($result)) {
-         $_SESSION['position'] =  $row['position'];}
-            // Redirect user to index.php
-         header("Location: Mainpage.php ");
+         $_SESSION['position'] =  $row['position'];
+         $position = $row['position'];
+       }
+         if( $position== 'Admin')
+          {header("Location: MainpageAdmin.php ");}
+         else{header("Location: Mainpage.php ");}
         }else
       {
          echo "<div class='form'>
