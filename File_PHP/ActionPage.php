@@ -42,7 +42,23 @@ if (isset($_POST['login']))
     
     if ($database->query($insert_feedback) === TRUE) 
     {
-      header("Location: OrderProduct.php?id_product=$id");
+      $count_rate = 0;
+      $sel_rate = "Select rate  FROM feedback WHERE idProduct ='$id';";
+      $rate_result = mysqli_query($database,$sel_rate);
+      $rows = mysqli_num_rows($result);
+      if($rows!=0){
+      $i = 0;
+      while($row_rate = mysqli_fetch_assoc($rate_result)) {
+      $count_rate += $row_rate['rate'];
+      $i ++;
+      }
+      $count_rate= $count_rate/$i;
+    }
+
+      $update="update product set rate='$count_rate' where productid='$id'";
+            $result_update=mysqli_query($database, $update);
+            echo $id;
+      // header("Location: OrderProduct.php?id_product=$id");
     }
     else 
     {
