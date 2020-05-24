@@ -125,12 +125,12 @@
 
 
         <div class="container-fluid">
-          <div class="row">
+          <div class="row" id="showProduct">
           <?php
             $count=1;
               $sel_query="SELECT * from product WHERE category = 'Đồng Hồ Thông Minh';";
               $result = mysqli_query($database,$sel_query);
-              while($row = mysqli_fetch_assoc($result)) { 
+              while($row = mysqli_fetch_assoc($result) and $count<=4) { 
                 $count_rate = 0;
                 $id_product = $row['productid'];
                 $sel_rate = "Select rate  FROM feedback WHERE idProduct ='$id_product';";
@@ -184,7 +184,9 @@
             </div>
         </div>
 
-
+<div style="margin-left: 760px;padding-top:10px;position: relative;top: 10px;float: left;">
+       <button type="button" class="btn btn-light" style="font-size: 20px;border:1px solid black;"  onclick="AddView()">Xem Thêm</button>
+     </div>
          <?php include 'PartOfWeb/InformationContainer.php';?>
 
 
@@ -195,4 +197,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  var number_of_show = 4;
+  function AddView()
+  {
+    number_of_show = number_of_show +4;
+    LoadProduct();
+  }
+  function LoadProduct() {
+  
+
+
+    $.post("AddMoreWatch.php",
+    {
+      count : number_of_show,
+    },
+    function(data,status){
+      if(status =="success")
+      {
+        document.getElementById('showProduct').innerHTML ="";
+        document.getElementById('showProduct').innerHTML = data;
+      }
+      
+    });
+  }
+</script>
 </html>
