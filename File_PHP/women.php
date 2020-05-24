@@ -67,7 +67,7 @@
      <div class="Best_Seller container-fluid">
         <select class="option_customer"  name="cars" id="orderproduct" onclick="LoadProduct()">
                 <option value="all">Tất Cả</option>
-                <option value="BCN">Bán Chạy Nhất</option>
+               
                 <option value="GTCDT">Giá Từ Cao Đến Thấp</option>
                 <option value="GTTDC">Giá Từ Thấp Đến Cao</option>
         </select>
